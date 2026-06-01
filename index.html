@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Sapan Kumar Mohanty — CTO, VP Technology, VP Engineering. 20 years building high-impact digital platforms. Immediate joiner, Bengaluru.">
+<meta name="keywords" content="CTO, VP Technology, VP Engineering, Technology Leader, Digital Transformation, AI, GenAI, LangChain, AWS, Bengaluru, India, Fractional CTO">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sapan Kumar Mohanty | CTO · VP Technology · VP Engineering">
+<meta property="og:description" content="20 years building high-impact digital platforms. Available immediately for senior technology leadership roles.">
+<meta property="og:image" content="icons/icon-512.png">
+<meta property="og:url" content="https://travelxml.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sapan Kumar Mohanty | CTO · VP Technology · VP Engineering">
+<meta name="twitter:description" content="20 years building high-impact digital platforms. Immediate joiner. Bengaluru, India.">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Sapan SKM">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/icon-96.png">
+<title>Sapan Kumar Mohanty | CTO · VP Technology · VP Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --gold:#C9A84C;--gold-light:#E8D5A3;--gold-dim:rgba(201,168,76,0.12);
+  --dark:#0D0D0D;--dark2:#141414;--dark3:#1C1C1C;
+  --text:#F0EDE8;--text2:rgba(240,237,232,0.68);--muted:#777;
+  --accent:#4A9B8E;--border:rgba(201,168,76,0.14);--r:4px;
+}
+[data-theme="light"]{
+  --dark:#FAFAF7;--dark2:#F3F1EC;--dark3:#EAE8E1;
+  --text:#0D0D0D;--text2:rgba(13,13,13,0.62);--muted:#666;
+  --border:rgba(201,168,76,0.28);
+}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--dark);color:var(--text);line-height:1.6;overflow-x:hidden;transition:background .3s,color .3s;}
+::-webkit-scrollbar{width:3px;}
+::-webkit-scrollbar-track{background:var(--dark);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px;}
+.skip-link{position:absolute;left:-9999px;top:8px;background:var(--gold);color:var(--dark);padding:8px 16px;border-radius:2px;font-weight:600;z-index:9999;font-size:14px;}
+.skip-link:focus{left:8px;}
+
+/* OFFLINE BAR */
+#offline-bar{display:none;position:fixed;top:0;left:0;right:0;background:#92400E;color:#FEF3C7;text-align:center;padding:8px 16px;font-size:13px;font-weight:500;z-index:9998;}
+#offline-bar.show{display:block;}
+
+/* INSTALL BANNER */
+#install-banner{display:none;position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--dark3);border:0.5px solid var(--gold);border-radius:14px;padding:16px 20px;z-index:999;width:calc(100% - 40px);max-width:480px;box-shadow:0 8px 40px rgba(0,0,0,0.7);gap:14px;align-items:center;animation:slideUp .4s ease;}
+#install-banner.show{display:flex;}
+@keyframes slideUp{from{opacity:0;transform:translateX(-50%) translateY(20px);}to{opacity:1;transform:translateX(-50%) translateY(0);}}
+.ib-icon{width:44px;height:44px;border-radius:10px;background:var(--gold);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'Playfair Display',serif;font-weight:900;font-size:15px;color:var(--dark);}
+.ib-text{flex:1;}
+.ib-text strong{font-size:13px;font-weight:600;display:block;margin-bottom:2px;}
+.ib-text span{font-size:11px;color:var(--muted);}
+.ib-btn{background:var(--gold);color:var(--dark);border:none;border-radius:var(--r);padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;letter-spacing:.06em;text-transform:uppercase;flex-shrink:0;transition:opacity .2s;}
+.ib-btn:hover{opacity:.85;}
+.ib-x{background:none;border:none;cursor:pointer;color:var(--muted);font-size:22px;line-height:1;padding:4px;flex-shrink:0;}
+
+/* SCROLL BAR */
+#scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--gold),#E8D5A3);z-index:9999;width:0%;transition:width .08s linear;}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:100;padding:15px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(13,13,13,0.92);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:0.5px solid var(--border);transition:padding .3s,background .3s;}
+nav.scrolled{padding:11px 40px;}
+[data-theme="light"] nav{background:rgba(250,250,247,0.92);}
+.nav-brand{font-family:'Playfair Display',serif;font-size:20px;color:var(--gold);letter-spacing:.04em;text-decoration:none;font-weight:700;}
+.nav-right{display:flex;align-items:center;gap:24px;}
+.nav-links{display:flex;gap:24px;list-style:none;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:color .2s;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{color:var(--gold);}
+.nav-actions{display:flex;align-items:center;gap:8px;}
+.icon-btn{background:none;border:0.5px solid var(--border);border-radius:var(--r);width:34px;height:34px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--muted);font-size:16px;transition:all .2s;text-decoration:none;}
+.icon-btn:hover{border-color:var(--gold);color:var(--gold);}
+.nav-cta{background:var(--gold);color:var(--dark)!important;padding:8px 18px;border-radius:var(--r);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;transition:opacity .2s;white-space:nowrap;}
+.nav-cta:hover{opacity:.85;}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--text);transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4.5px);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4.5px);}
+.mobile-menu{display:none;position:fixed;top:58px;left:0;right:0;background:var(--dark2);border-bottom:0.5px solid var(--border);padding:20px 24px;z-index:99;flex-direction:column;gap:0;}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;padding:14px 0;border-bottom:0.5px solid var(--border);transition:color .2s;}
+.mobile-menu a:hover{color:var(--gold);}
+.mobile-menu a:last-child{border-bottom:none;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 40px 80px;position:relative;overflow:hidden;}
+.hero-orb1{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);top:-200px;right:-150px;pointer-events:none;}
+.hero-orb2{position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(74,155,142,.05) 0%,transparent 70%);bottom:0;left:-100px;pointer-events:none;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(201,168,76,.032) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.032) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 70% 70% at 60% 40%,black 20%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 70% at 60% 40%,black 20%,transparent 80%);}
+.hero-content{position:relative;z-index:2;max-width:820px;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;margin-bottom:28px;}
+.eyebrow-line{width:36px;height:1px;background:var(--gold);}
+.eyebrow-text{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+.avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite;margin-right:6px;vertical-align:middle;}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(74,155,142,.4);}50%{opacity:.8;box-shadow:0 0 0 6px rgba(74,155,142,0);}}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(44px,7.5vw,80px);font-weight:900;line-height:1.0;margin-bottom:10px;letter-spacing:-.03em;}
+.hero-name .gold{color:var(--gold);font-style:italic;}
+.hero-roles{font-size:13px;color:var(--muted);letter-spacing:.14em;text-transform:uppercase;margin-bottom:28px;font-weight:400;}
+.hero-roles span{color:var(--gold);margin:0 4px;font-size:10px;}
+.hero-desc{font-size:17px;color:var(--text2);max-width:580px;line-height:1.8;margin-bottom:36px;font-weight:300;}
+.hero-desc strong{color:var(--text);font-weight:500;}
+.hero-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
+.chip{display:flex;align-items:center;gap:7px;background:var(--gold-dim);border:0.5px solid var(--border);padding:7px 14px;border-radius:100px;font-size:12px;color:var(--text2);}
+.chip strong{color:var(--gold);font-weight:600;}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:var(--dark);padding:14px 30px;border:none;border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-gold:hover{background:var(--gold-light);transform:translateY(-1px);}
+.btn-outline{color:var(--text);padding:14px 30px;border:0.5px solid rgba(240,237,232,.2);border-radius:var(--r);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .2s;}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+
+/* SOCIAL ICONS STRIP */
+.social-strip{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;}
+.social-btn{display:flex;align-items:center;gap:8px;padding:8px 16px;border:0.5px solid var(--border);border-radius:100px;text-decoration:none;color:var(--muted);font-size:12px;transition:all .2s;background:var(--gold-dim);}
+.social-btn:hover{border-color:var(--gold);color:var(--gold);}
+.social-btn i{font-size:15px;}
+
+/* STATS STRIP */
+.stats-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:grid;grid-template-columns:repeat(5,1fr);gap:1px;background-color:var(--border);}
+.stat{background:var(--dark2);padding:28px 16px;text-align:center;transition:background .2s;}
+.stat:hover{background:var(--dark3);}
+.stat-n{font-family:'Playfair Display',serif;font-size:32px;font-weight:700;color:var(--gold);line-height:1;margin-bottom:5px;}
+.stat-l{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* SECTION */
+.section{padding:80px 40px;}
+.section-inner{max-width:1100px;margin:0 auto;}
+.section-header{margin-bottom:44px;}
+.section-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-tag::before{content:'';display:block;width:28px;height:1px;background:var(--gold);}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(26px,4vw,42px);font-weight:700;line-height:1.15;letter-spacing:-.02em;}
+.section-title em{color:var(--gold);font-style:italic;}
+.section-sub{font-size:15px;color:var(--text2);margin-top:10px;max-width:600px;line-height:1.7;font-weight:300;}
+
+/* HOW I CAN HELP */
+.help-section{background:var(--dark2);}
+.help-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.help-card{background:var(--dark);border:0.5px solid var(--border);border-radius:10px;padding:28px 24px;transition:all .25s;position:relative;overflow:hidden;}
+.help-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:0;transition:opacity .3s;}
+.help-card:hover{border-color:var(--gold);transform:translateY(-3px);}
+.help-card:hover::before{opacity:1;}
+.help-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:900;color:var(--gold-dim);line-height:1;margin-bottom:12px;color:rgba(201,168,76,0.15);}
+.help-icon{font-size:26px;color:var(--gold);margin-bottom:14px;display:block;}
+.help-title{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--text);}
+.help-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+.help-tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px;}
+.help-tag{font-size:10px;padding:3px 9px;background:var(--gold-dim);border:0.5px solid var(--border);color:var(--gold-light);border-radius:100px;letter-spacing:.04em;}
+.help-cta{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:12px;color:var(--gold);font-weight:500;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;}
+.help-cta:hover{text-decoration:underline;}
+
+/* GUARANTEE BOX */
+.guarantee-box{background:linear-gradient(135deg,rgba(201,168,76,0.08),rgba(74,155,142,0.05));border:0.5px solid rgba(201,168,76,0.3);border-radius:10px;padding:28px 32px;margin-top:32px;display:flex;align-items:flex-start;gap:18px;}
+.guarantee-icon{font-size:32px;flex-shrink:0;margin-top:2px;}
+.guarantee-text strong{font-size:16px;font-weight:600;color:var(--gold);display:block;margin-bottom:6px;}
+.guarantee-text p{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* EXPERTISE CARDS */
+.expertise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:0.5px solid var(--border);}
+.e-card{background:var(--dark2);padding:34px 26px;transition:background .25s;position:relative;overflow:hidden;}
+.e-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .3s;}
+.e-card:hover{background:var(--dark3);}
+.e-card:hover::after{width:100%;}
+.e-icon{width:46px;height:46px;border-radius:10px;background:var(--gold-dim);border:0.5px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:21px;color:var(--gold);margin-bottom:16px;}
+.e-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;margin-bottom:9px;color:var(--text);}
+.e-desc{font-size:13px;color:var(--muted);line-height:1.7;}
+
+/* TIMELINE */
+.tl-wrap{position:relative;padding-left:36px;}
+.tl-wrap::before{content:'';position:absolute;left:0;top:8px;bottom:0;width:1px;background:linear-gradient(to bottom,var(--gold) 0%,rgba(201,168,76,.04) 100%);}
+.tl-item{position:relative;padding-bottom:48px;border-bottom:0.5px solid rgba(201,168,76,.06);margin-bottom:48px;}
+.tl-item:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0;}
+.tl-dot{position:absolute;left:-41px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--gold);border:2px solid var(--dark2);box-shadow:0 0 0 4px rgba(201,168,76,.15);transition:box-shadow .2s;}
+.tl-item:hover .tl-dot{box-shadow:0 0 0 7px rgba(201,168,76,.22);}
+.tl-period{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;font-weight:500;}
+.tl-role{font-family:'Playfair Display',serif;font-size:21px;font-weight:700;margin-bottom:3px;}
+.tl-company{font-size:13px;color:var(--muted);margin-bottom:12px;}
+.tl-desc{font-size:13px;color:var(--text2);line-height:1.68;margin-bottom:18px;}
+
+/* TOP 25 TAGS — accordion style */
+.tags-section{margin-top:14px;}
+.tags-toggle{display:flex;align-items:center;gap:8px;background:none;border:0.5px solid var(--border);border-radius:6px;padding:8px 14px;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:11px;color:var(--gold);letter-spacing:.1em;text-transform:uppercase;font-weight:500;transition:all .2s;margin-bottom:10px;}
+.tags-toggle:hover{border-color:var(--gold);background:var(--gold-dim);}
+.tags-toggle i{transition:transform .3s;}
+.tags-toggle.open i{transform:rotate(180deg);}
+.tags-cloud{display:none;flex-direction:column;gap:8px;}
+.tags-cloud.open{display:flex;}
+.tags-row-label{font-size:10px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;font-weight:600;margin-bottom:4px;}
+.tags-pills{display:flex;gap:6px;flex-wrap:wrap;}
+.t-pill{font-size:11px;padding:4px 11px;background:rgba(201,168,76,.06);border:0.5px solid var(--border);color:var(--text2);border-radius:100px;letter-spacing:.04em;transition:all .2s;cursor:default;}
+.t-pill:hover{border-color:var(--gold);color:var(--gold);}
+.t-pill.hot{background:rgba(201,168,76,.12);border-color:rgba(201,168,76,.35);color:var(--gold-light);}
+
+/* AI SECTION */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.ai-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:8px;padding:28px;transition:border-color .2s;}
+.ai-card:hover{border-color:var(--gold);}
+.ai-card.featured{grid-column:1/-1;background:linear-gradient(135deg,rgba(201,168,76,.06) 0%,rgba(74,155,142,.04) 100%);border-color:rgba(201,168,76,.28);}
+.ai-tag{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:10px;}
+.ai-title{font-size:17px;font-weight:600;margin-bottom:8px;}
+.ai-body{font-size:14px;color:var(--text2);line-height:1.7;font-weight:300;}
+.ai-body strong{color:var(--text);font-weight:500;}
+
+/* TECH STACK */
+.tech-rows{display:flex;flex-direction:column;}
+.tech-row{display:flex;align-items:flex-start;gap:20px;padding:15px 0;border-bottom:0.5px solid rgba(201,168,76,.06);}
+.tech-row:last-child{border-bottom:none;}
+.tech-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);min-width:90px;flex-shrink:0;font-weight:500;padding-top:5px;}
+.pills{display:flex;gap:7px;flex-wrap:wrap;}
+.pill{font-size:12px;padding:5px 13px;background:rgba(255,255,255,.03);border:0.5px solid rgba(255,255,255,.08);color:var(--text2);border-radius:var(--r);letter-spacing:.03em;transition:all .2s;}
+.pill:hover{border-color:var(--gold);color:var(--gold);}
+[data-theme="light"] .pill{background:rgba(0,0,0,.03);border-color:rgba(0,0,0,.1);}
+
+/* LEARNING TIMELINE */
+.learn-tl{position:relative;padding-left:32px;}
+.learn-tl::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,rgba(201,168,76,.04) 0%,var(--gold) 50%,rgba(201,168,76,.04) 100%);}
+.learn-item{position:relative;padding:0 0 26px 0;}
+.learn-item:last-child{padding-bottom:0;}
+.learn-dot{position:absolute;left:-37px;top:4px;width:9px;height:9px;border-radius:50%;background:var(--dark2);border:1.5px solid var(--gold);transition:all .2s;}
+.learn-item:hover .learn-dot{background:var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,.18);}
+.learn-yr{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:3px;}
+.learn-name{font-size:14px;color:var(--text);font-weight:500;margin-bottom:2px;line-height:1.4;}
+.learn-org{font-size:12px;color:var(--muted);}
+.learn-type{display:inline-block;font-size:10px;padding:2px 9px;border:0.5px solid var(--border);border-radius:100px;color:var(--accent);letter-spacing:.08em;text-transform:uppercase;margin-left:8px;vertical-align:middle;}
+
+/* MEDIA / PRESENCE */
+.media-section{background:var(--dark2);}
+.media-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.media-card{background:var(--dark);border:0.5px solid var(--border);border-radius:10px;padding:22px 18px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;text-decoration:none;transition:all .2s;}
+.media-card:hover{border-color:var(--gold);transform:translateY(-2px);}
+.mc-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;border:0.5px solid var(--border);}
+.mc-icon.linkedin{background:rgba(10,102,194,.15);color:#0A66C2;border-color:rgba(10,102,194,.25);}
+.mc-icon.github{background:rgba(255,255,255,.06);color:var(--text);}
+.mc-icon.medium{background:rgba(255,255,255,.06);color:var(--text);}
+.mc-icon.amazon{background:rgba(255,153,0,.12);color:#FF9900;border-color:rgba(255,153,0,.25);}
+.mc-icon.youtube{background:rgba(255,0,0,.12);color:#FF0000;border-color:rgba(255,0,0,.25);}
+.mc-icon.spotify{background:rgba(30,215,96,.12);color:#1ED760;border-color:rgba(30,215,96,.25);}
+.mc-icon.whatsapp{background:rgba(37,211,102,.12);color:#25D366;border-color:rgba(37,211,102,.25);}
+.mc-icon.twitter{background:rgba(29,161,242,.12);color:#1DA1F2;border-color:rgba(29,161,242,.25);}
+.mc-name{font-size:14px;font-weight:600;color:var(--text);}
+.mc-desc{font-size:12px;color:var(--muted);line-height:1.5;}
+.mc-arrow{font-size:12px;color:var(--gold);margin-top:auto;}
+
+/* CTA */
+.cta-section{background:var(--dark);padding:100px 40px;text-align:center;position:relative;overflow:hidden;}
+.cta-orb{position:absolute;inset:0;background:radial-gradient(ellipse 60% 70% at 50% 50%,rgba(201,168,76,.07) 0%,transparent 70%);pointer-events:none;}
+.cta-avail{display:inline-flex;align-items:center;gap:8px;background:rgba(74,155,142,.1);border:0.5px solid rgba(74,155,142,.3);padding:7px 18px;border-radius:100px;font-size:12px;font-weight:500;color:#6BCAB8;margin-bottom:24px;position:relative;z-index:2;}
+.cta-title{font-family:'Playfair Display',serif;font-size:clamp(28px,5vw,50px);font-weight:900;max-width:620px;margin:0 auto 16px;position:relative;z-index:2;line-height:1.15;letter-spacing:-.02em;}
+.cta-sub{color:var(--muted);font-size:15px;margin-bottom:40px;position:relative;z-index:2;font-weight:300;}
+.cta-btns{display:flex;gap:14px;justify-content:center;position:relative;z-index:2;flex-wrap:wrap;}
+.cta-contact{margin-top:40px;font-size:13px;color:var(--muted);position:relative;z-index:2;}
+.cta-contact a{color:var(--gold);text-decoration:none;}
+.cta-contact a:hover{text-decoration:underline;}
+
+footer{background:var(--dark2);border-top:0.5px solid var(--border);padding:24px 40px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.footer-brand{font-family:'Playfair Display',serif;font-size:17px;color:var(--gold);font-weight:700;}
+.footer-mid{font-size:12px;color:var(--muted);text-align:center;}
+.footer-right{font-size:12px;color:var(--muted);}
+.footer-right a{color:var(--gold);text-decoration:none;}
+
+#back-top{position:fixed;bottom:24px;right:24px;width:42px;height:42px;background:var(--gold);color:var(--dark);border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;cursor:pointer;z-index:500;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;box-shadow:0 4px 20px rgba(201,168,76,.3);}
+#back-top.show{opacity:1;pointer-events:all;}
+#back-top:hover{transform:translateY(-2px);}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .52s ease,transform .52s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.reveal-d1{transition-delay:.1s;}
+.reveal-d2{transition-delay:.18s;}
+.reveal-d3{transition-delay:.26s;}
+
+@media(max-width:960px){
+  nav{padding:13px 20px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .nav-cta{display:none;}
+  .hero{padding:90px 20px 60px;}
+  .section{padding:60px 20px;}
+  .stats-strip{grid-template-columns:repeat(3,1fr);}
+  .expertise-grid{grid-template-columns:1fr 1fr;}
+  .help-grid{grid-template-columns:1fr 1fr;}
+  .ai-grid{grid-template-columns:1fr;}
+  .ai-card.featured{grid-column:auto;}
+  .media-grid{grid-template-columns:repeat(2,1fr);}
+  .comp-wrap{grid-template-columns:1fr!important;}
+  footer{flex-direction:column;text-align:center;padding:20px;}
+}
+@media(max-width:620px){
+  .hero-name{font-size:38px;}
+  .stats-strip{grid-template-columns:repeat(2,1fr);}
+  .expertise-grid{grid-template-columns:1fr;}
+  .help-grid{grid-template-columns:1fr;}
+  .media-grid{grid-template-columns:1fr 1fr;}
+  nav{padding:11px 16px;}
+}
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+<div id="scroll-bar" role="progressbar" aria-label="Page scroll progress"></div>
+<div id="offline-bar">⚡ You're offline — browsing cached version</div>
+
+<div id="install-banner" role="dialog" aria-label="Install app">
+  <div class="ib-icon">SKM</div>
+  <div class="ib-text">
+    <strong>Add to Home Screen</strong>
+    <span>Install for offline use &amp; native app experience</span>
+  </div>
+  <button class="ib-btn" id="install-btn">Install</button>
+  <button class="ib-x" id="install-dismiss" aria-label="Dismiss">×</button>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-brand">SKM</a>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#help">How I Help</a></li>
+      <li><a href="#expertise">Expertise</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#ai">AI</a></li>
+      <li><a href="#connect">Connect</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="icon-btn" id="theme-toggle" aria-label="Toggle theme"><i class="ti ti-moon" id="theme-icon"></i></button>
+      <a href="https://wa.me/917892481996" class="icon-btn" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i></a>
+      <a href="https://travelxml.github.io/tech-strategy/" class="nav-cta" target="_blank" rel="noopener">Book a Call</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#help">How I Help</a>
+  <a href="#expertise">Expertise</a>
+  <a href="#experience">Experience</a>
+  <a href="#ai">AI Practice</a>
+  <a href="#tech">Tech Stack</a>
+  <a href="#connect">Connect</a>
+  <a href="https://travelxml.github.io/tech-strategy/" target="_blank" style="color:var(--gold);">📅 Book a Strategy Call</a>
+</div>
+
+<!-- HERO -->
+<main id="main">
+<section class="hero" id="home">
+  <div class="hero-orb1" aria-hidden="true"></div>
+  <div class="hero-orb2" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-content">
+    <div class="eyebrow">
+      <span class="eyebrow-line"></span>
+      <span class="eyebrow-text"><span class="avail-dot"></span>Available Now · Bengaluru, India · Immediate Joiner</span>
+    </div>
+    <h1 class="hero-name">Sapan Kumar<br><span class="gold">Mohanty</span></h1>
+    <p class="hero-roles">CTO <span>·</span> VP Technology <span>·</span> VP Engineering <span>·</span> IT Director <span>·</span> CIO</p>
+    <p class="hero-desc"><strong>20 years</strong> building and scaling high-impact digital platforms across TravelTech, RetailTech, FinTech, Hospitality SaaS and AdTech. I bridge technology strategy with engineering execution — turning complex systems into <strong>competitive advantage</strong>.</p>
+    <div class="hero-chips">
+      <div class="chip"><strong>30M+</strong> API Calls / Day Scaled</div>
+      <div class="chip"><strong>GenAI</strong> · RAG · Agentic AI</div>
+      <div class="chip"><strong>AWS</strong> · Microservices · Cloud-Native</div>
+      <div class="chip"><strong>IIMA</strong> Certified Leader</div>
+    </div>
+    <div class="hero-ctas">
+      <a href="https://travelxml.github.io/tech-strategy/" class="btn-gold" target="_blank" rel="noopener"><i class="ti ti-calendar"></i> Schedule a Strategy Call</a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqjawPr5BUPsMXtQnqNtZ2hTLDSMMmEzgyDgXZTCTWz4-n6w/viewform?usp=header" class="btn-outline" target="_blank" rel="noopener"><i class="ti ti-send"></i> Reach Out</a>
+    </div>
+    <div class="social-strip">
+      <a href="https://www.linkedin.com/in/the-startup-cto/" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-brand-linkedin" style="color:#0A66C2;"></i> LinkedIn</a>
+      <a href="https://github.com/TravelXML" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-brand-github"></i> GitHub</a>
+      <a href="https://ultimatesystemsdesign.medium.com/" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-pencil"></i> Medium</a>
+      <a href="https://www.youtube.com/@SapanKumarMohanty" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-brand-youtube" style="color:#FF0000;"></i> YouTube</a>
+      <a href="https://open.spotify.com/show/SapanKumarMohanty" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-brand-spotify" style="color:#1ED760;"></i> Podcast</a>
+      <a href="https://wa.me/917892481996" class="social-btn" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS STRIP -->
+<div class="stats-strip">
+  <div class="stat reveal"><div class="stat-n">20+</div><div class="stat-l">Years Experience</div></div>
+  <div class="stat reveal reveal-d1"><div class="stat-n">30M+</div><div class="stat-l">API Calls / Day</div></div>
+  <div class="stat reveal reveal-d2"><div class="stat-n">5+</div><div class="stat-l">Verticals Led</div></div>
+  <div class="stat reveal reveal-d3"><div class="stat-n">7+</div><div class="stat-l">Concurrent Programs</div></div>
+  <div class="stat reveal"><div class="stat-n">IIMA</div><div class="stat-l">Certified Leader</div></div>
+</div>
+
+<!-- HOW I CAN HELP -->
+<section class="section help-section" id="help">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Advisory &amp; Consulting</div>
+      <h2 class="section-title">How I Can <em>Help You</em></h2>
+      <p class="section-sub">Whether you're scaling a startup, modernising a legacy platform, or navigating a digital transformation — here's where I deliver the most value.</p>
+    </header>
+    <div class="help-grid">
+      <article class="help-card reveal">
+        <i class="ti ti-map-2 help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">Technology Strategy &amp; Roadmap</h3>
+        <p class="help-desc">Align your engineering investments with business growth. I assess your current state, identify gaps, and build a pragmatic 12–24 month technology roadmap that leadership can execute with confidence.</p>
+        <div class="help-tags"><span class="help-tag">IT Strategy</span><span class="help-tag">Roadmapping</span><span class="help-tag">Architecture Review</span><span class="help-tag">CTO Advisory</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Book an advisory session <i class="ti ti-arrow-right"></i></a>
+      </article>
+      <article class="help-card reveal reveal-d1">
+        <i class="ti ti-cloud-upload help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">Platform Modernisation &amp; Cloud Migration</h3>
+        <p class="help-desc">Rescue legacy monoliths and migrate to cloud-native microservices on AWS. I've scaled platforms from scratch to 30M+ API calls/day — I know where the real bottlenecks hide.</p>
+        <div class="help-tags"><span class="help-tag">AWS Migration</span><span class="help-tag">Microservices</span><span class="help-tag">Cloud-Native</span><span class="help-tag">Performance Eng.</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Discuss your platform <i class="ti ti-arrow-right"></i></a>
+      </article>
+      <article class="help-card reveal reveal-d2">
+        <i class="ti ti-brain help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">GenAI &amp; Agentic AI Implementation</h3>
+        <p class="help-desc">From RAG pipelines to multi-agent orchestration — I design and implement AI systems that create measurable ROI. No hype, no demos. Production-grade AI that earns its place in your stack.</p>
+        <div class="help-tags"><span class="help-tag">RAG Pipelines</span><span class="help-tag">LangChain</span><span class="help-tag">LangGraph</span><span class="help-tag">Agentic AI</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Explore AI opportunities <i class="ti ti-arrow-right"></i></a>
+      </article>
+      <article class="help-card reveal">
+        <i class="ti ti-users help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">Engineering Team Building &amp; Culture</h3>
+        <p class="help-desc">Build high-performing engineering organisations from the ground up. I define hiring pipelines, KRAs, Agile ceremonies, and engineering culture frameworks that scale with headcount.</p>
+        <div class="help-tags"><span class="help-tag">Team Scaling</span><span class="help-tag">Agile/Scrum</span><span class="help-tag">KRA Design</span><span class="help-tag">Dev Culture</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Talk team strategy <i class="ti ti-arrow-right"></i></a>
+      </article>
+      <article class="help-card reveal reveal-d1">
+        <i class="ti ti-plug help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">SaaS &amp; Enterprise Integration Architecture</h3>
+        <p class="help-desc">Expertise in connecting complex ecosystems — travel GDS/OTAs, retail marketplaces, SAP ERPs, payment gateways, and logistics networks. I build integration architecture that won't break at scale.</p>
+        <div class="help-tags"><span class="help-tag">API Strategy</span><span class="help-tag">GDS/OTA</span><span class="help-tag">SAP Integration</span><span class="help-tag">Marketplace</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Review your integrations <i class="ti ti-arrow-right"></i></a>
+      </article>
+      <article class="help-card reveal reveal-d2">
+        <i class="ti ti-shield-check help-icon" aria-hidden="true"></i>
+        <h3 class="help-title">Fractional CTO &amp; Interim Leadership</h3>
+        <p class="help-desc">Need a seasoned technology leader without the full-time cost? I step in as Fractional CTO or Interim VP to stabilise delivery, set governance, and bridge the gap while you hire your permanent leader.</p>
+        <div class="help-tags"><span class="help-tag">Fractional CTO</span><span class="help-tag">Interim VP</span><span class="help-tag">IT Governance</span><span class="help-tag">Delivery Governance</span></div>
+        <a href="https://travelxml.github.io/tech-strategy/" class="help-cta" target="_blank" rel="noopener">Explore fractional engagement <i class="ti ti-arrow-right"></i></a>
+      </article>
+    </div>
+    <div class="guarantee-box reveal">
+      <span class="guarantee-icon">🛡️</span>
+      <div class="guarantee-text">
+        <strong>Outcome-Grounded Phase Guarantee</strong>
+        <p>If we do not close the mutually agreed technical problem block within the defined engagement scope, there will be no bill issued for that execution phase. I'm accountable to outcomes — not just effort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section class="section" id="expertise" style="background:var(--dark);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Core Expertise</div>
+      <h2 class="section-title">What I bring to the <em>table</em></h2>
+    </header>
+    <div class="expertise-grid">
+      <article class="e-card reveal">
+        <div class="e-icon"><i class="ti ti-server"></i></div>
+        <h3 class="e-title">Platform Architecture</h3>
+        <p class="e-desc">Monolith-to-microservices migrations, cloud-native AWS design, and high-availability systems handling millions of daily transactions with cost-conscious engineering.</p>
+      </article>
+      <article class="e-card reveal reveal-d1">
+        <div class="e-icon"><i class="ti ti-users"></i></div>
+        <h3 class="e-title">Engineering Leadership</h3>
+        <p class="e-desc">Building and scaling high-performing cross-functional teams across distributed geographies with Agile, DevOps culture, KRAs, and executive governance frameworks.</p>
+      </article>
+      <article class="e-card reveal reveal-d2">
+        <div class="e-icon"><i class="ti ti-transform"></i></div>
+        <h3 class="e-title">Digital Transformation</h3>
+        <p class="e-desc">End-to-end technology modernisation programs — from legacy rescue to cloud-native, aligned with business growth and long-term competitive strategy.</p>
+      </article>
+      <article class="e-card reveal">
+        <div class="e-icon"><i class="ti ti-brain"></i></div>
+        <h3 class="e-title">Generative &amp; Agentic AI</h3>
+        <p class="e-desc">RAG pipelines, LLM workflows, LangChain, LangGraph, LlamaIndex, vector databases — grounded in real business outcomes, not proof-of-concept demos.</p>
+      </article>
+      <article class="e-card reveal reveal-d1">
+        <div class="e-icon"><i class="ti ti-plug"></i></div>
+        <h3 class="e-title">SaaS &amp; Integrations</h3>
+        <p class="e-desc">Travel distribution (GDS, OTA, PMS, CRS), retail marketplaces (Amazon, Flipkart, Myntra), ERP, payment gateways, and logistics ecosystems at scale.</p>
+      </article>
+      <article class="e-card reveal reveal-d2">
+        <div class="e-icon"><i class="ti ti-shield-check"></i></div>
+        <h3 class="e-title">IT Governance &amp; Risk</h3>
+        <p class="e-desc">Enterprise governance frameworks, SDLC best practices, security compliance, and executive KPI reporting through JIRA dashboards and OKR frameworks.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE TIMELINE -->
+<section class="section" id="experience" style="background:var(--dark2);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Career Journey</div>
+      <h2 class="section-title">20 years of <em>building</em> what matters</h2>
+    </header>
+    <div class="tl-wrap">
+
+      <!-- rezlive -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Apr 2025 — Mar 2026</div>
+        <h3 class="tl-role">VP Technology</h3>
+        <div class="tl-company">rezlive.com · Dubai, UAE &nbsp;|&nbsp; TravelTech / Hospitality Distribution SaaS</div>
+        <p class="tl-desc">Led full-stack technology organisation reporting to CEO. Modernised monolith to microservices, scaling platform to 30M+ API calls/day with improved resilience and cost efficiency. Directed RezAir flight booking system and legacy hotel distribution platform. Deep hands-on travel distribution expertise across Hotels, Air, Rail, Car Rentals, Sightseeing, Cruise, and Liveaboards for B2B and B2C platforms. Managed GDS, Channel Managers, PMS integrations and external vendors, with focus on AWS EKS and cloud-native architecture.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top 25 Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role &amp; Leadership</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">VP Technology</span><span class="t-pill hot">CTO</span><span class="t-pill hot">Technology Leadership</span><span class="t-pill">Engineering Management</span><span class="t-pill">Cross-functional Teams</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">TravelTech</span><span class="t-pill hot">Travel Distribution</span><span class="t-pill">Hospitality SaaS</span><span class="t-pill">B2B &amp; B2C Platforms</span><span class="t-pill">GDS Integration</span><span class="t-pill">OTA Connectivity</span>
+            </div></div>
+            <div><div class="tags-row-label">Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Microservices Architecture</span><span class="t-pill hot">AWS EKS</span><span class="t-pill hot">Cloud-Native</span><span class="t-pill">API Gateway</span><span class="t-pill">High-Availability Systems</span><span class="t-pill">Platform Scalability</span><span class="t-pill">Performance Engineering</span>
+            </div></div>
+            <div><div class="tags-row-label">Delivery &amp; Ops</div>
+            <div class="tags-pills">
+              <span class="t-pill">Agile Delivery</span><span class="t-pill">Release Automation</span><span class="t-pill">Vendor Management</span><span class="t-pill">SaaS Platform Leadership</span><span class="t-pill">Digital Transformation</span><span class="t-pill">Cost Optimisation</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ginesys -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Feb 2022 — Jun 2024</div>
+        <h3 class="tl-role">VP of Engineering</h3>
+        <div class="tl-company">Ginesys (Browntape) · Goa, India &nbsp;|&nbsp; RetailTech / Omni-Channel Commerce</div>
+        <p class="tl-desc">Architected and scaled enterprise-grade omni-channel B2B and B2C commerce ecosystems with extensive marketplace integrations across Amazon, Flipkart, Meesho, and other leading marketplaces. Built centralized order orchestration, real-time inventory synchronisation, automated fulfillment, reconciliation engines, and MLlib-based predictive analytics. Executed complex ERP (SAP), payment gateway, courier aggregator, logistics, and POS integrations. Led microservices transformation across MEAN, LAMP, .NET and Go stacks with automated CI/CD pipelines.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top 25 Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role &amp; Leadership</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">VP Engineering</span><span class="t-pill hot">Engineering Director</span><span class="t-pill">Program Governance</span><span class="t-pill">Product Engineering</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">RetailTech</span><span class="t-pill hot">Omni-Channel Commerce</span><span class="t-pill hot">Marketplace Integrations</span><span class="t-pill">E-commerce</span><span class="t-pill">Order Management</span><span class="t-pill">Inventory Systems</span>
+            </div></div>
+            <div><div class="tags-row-label">Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">SAP Integration</span><span class="t-pill hot">Microservices</span><span class="t-pill">CI/CD Pipelines</span><span class="t-pill">MLlib</span><span class="t-pill">Predictive Analytics</span><span class="t-pill">ERP Integration</span><span class="t-pill">Payment Gateway</span>
+            </div></div>
+            <div><div class="tags-row-label">Delivery</div>
+            <div class="tags-pills">
+              <span class="t-pill">High-Transactional Platforms</span><span class="t-pill">Platform Modernisation</span><span class="t-pill">Data Analytics</span><span class="t-pill">Distributed Systems</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- travjury -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Oct 2020 — Jan 2022</div>
+        <h3 class="tl-role">Chief Technology Officer</h3>
+        <div class="tl-company">Travjury Software · Bengaluru, India &nbsp;|&nbsp; TravelTech SaaS</div>
+        <p class="tl-desc">Directed large-scale technology transformation initiatives. Aligned business goals with technology solutions to increase profits and achieve faster ROI. Managed end-to-end project lifecycle from inception to post-go-live support. Defined technology vision, set architectural standards, and coordinated with Agile development teams and business stakeholders across the full SDLC.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top 25 Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Chief Technology Officer</span><span class="t-pill hot">CTO</span><span class="t-pill">Technology Transformation</span><span class="t-pill">Strategic Leadership</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">TravelTech</span><span class="t-pill">SaaS</span><span class="t-pill">Travel Software</span><span class="t-pill">Product Strategy</span>
+            </div></div>
+            <div><div class="tags-row-label">Technical &amp; Delivery</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Digital Transformation</span><span class="t-pill">SDLC Governance</span><span class="t-pill">Agile/Scrum</span><span class="t-pill">Technology Modernisation</span><span class="t-pill">Solution Architecture</span><span class="t-pill">Stakeholder Management</span><span class="t-pill">ROI Optimisation</span><span class="t-pill">Risk Management</span><span class="t-pill">Software Delivery</span><span class="t-pill">Team Building</span><span class="t-pill">Go-to-Market</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- openhotelier -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Mar 2015 — Oct 2020</div>
+        <h3 class="tl-role">Chief Technology Officer</h3>
+        <div class="tl-company">Openhotelier Inc. · Male, Maldives &nbsp;|&nbsp; Hospitality SaaS / Travel</div>
+        <p class="tl-desc">Defined and executed enterprise technology vision reporting to CEO. Architected mission-critical hospitality systems: PMS, CRS, Channel Manager, Online Booking Engine, and OTA/aggregator integrations. Built high-availability reservation platforms supporting real-time bookings, dynamic pricing, and global distribution. Governed 7+ concurrent programs with full portfolio governance, IT security, and international rollouts for Sightseen and Liveaboard brands.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top 25 Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">CTO</span><span class="t-pill hot">Technology Executive</span><span class="t-pill">Product &amp; Engineering Head</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Hospitality SaaS</span><span class="t-pill hot">TravelTech</span><span class="t-pill hot">PMS / CRS / OTA</span><span class="t-pill">Channel Manager</span><span class="t-pill">Online Booking Engine</span><span class="t-pill">Revenue Management</span><span class="t-pill">Liveaboard / Cruise</span>
+            </div></div>
+            <div><div class="tags-row-label">Technical &amp; Delivery</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">IT Governance</span><span class="t-pill hot">Global Deployments</span><span class="t-pill">Portfolio Management</span><span class="t-pill">Security &amp; Compliance</span><span class="t-pill">High-Transactional Systems</span><span class="t-pill">API Integrations</span><span class="t-pill">Dynamic Pricing</span><span class="t-pill">Capacity Planning</span><span class="t-pill">Multi-Property Systems</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ignitionone -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Oct 2013 — Mar 2015</div>
+        <h3 class="tl-role">Technical Consultant</h3>
+        <div class="tl-company">IgnitionOne (Zeta Global) · New York, USA &nbsp;|&nbsp; AdTech</div>
+        <p class="tl-desc">AdTech platform management for a global Google partner. API development (SOAP), database migrations and query tuning, data center synchronisation, and daily Agile scrum leadership. Troubleshot application issues, coordinated with operations and functional teams, and ensured data integrity across all marketing data centers.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top 25 Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Domain</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">AdTech</span><span class="t-pill hot">Digital Marketing Technology</span><span class="t-pill">Programmatic Advertising</span><span class="t-pill">Data Platforms</span>
+            </div></div>
+            <div><div class="tags-row-label">Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">API Development</span><span class="t-pill hot">Database Optimisation</span><span class="t-pill hot">SOAP APIs</span><span class="t-pill">Database Migration</span><span class="t-pill">Query Tuning</span><span class="t-pill">Data Synchronisation</span><span class="t-pill">ETL Pipelines</span>
+            </div></div>
+            <div><div class="tags-row-label">Delivery</div>
+            <div class="tags-pills">
+              <span class="t-pill">Agile/Scrum</span><span class="t-pill">Technical Consulting</span><span class="t-pill">Cross-functional Collaboration</span><span class="t-pill">Performance Tuning</span><span class="t-pill">Data Center Operations</span><span class="t-pill">SDLC</span><span class="t-pill">PRD/TRD Documentation</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- openhotelier tech lead -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Jun 2011 — Jul 2013</div>
+        <h3 class="tl-role">Technical Lead</h3>
+        <div class="tl-company">Openhotelier · Male, Maldives &nbsp;|&nbsp; Hospitality SaaS / Travel</div>
+        <p class="tl-desc">Reported to the CEO. Elicited requirements from business stakeholders through interviews and requirement-gathering sessions. Worked in a cross-functional team to determine optimal APIs for connectivity, led code reviews, internal infrastructure, and process enhancement. Defined project requirements, set milestones, prepared workflow diagrams, and analysed business requirements in SAP Sales Order Management.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Technical Lead</span><span class="t-pill">Team Leadership</span><span class="t-pill">Requirement Analysis</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain &amp; Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Hospitality SaaS</span><span class="t-pill hot">API Connectivity</span><span class="t-pill">SAP Sales Order Mgmt</span><span class="t-pill">Code Reviews</span><span class="t-pill">Workflow Design</span><span class="t-pill">UAT Scripting</span><span class="t-pill">Infrastructure</span><span class="t-pill">Process Enhancement</span><span class="t-pill">Stakeholder Interviews</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- maximizer -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Oct 2008 — Apr 2011</div>
+        <h3 class="tl-role">Team Lead</h3>
+        <div class="tl-company">Maximizer e-Services Pvt. Ltd. · Bengaluru, India &nbsp;|&nbsp; Digital Marketing / MarTech</div>
+        <p class="tl-desc">Reported to the CEO. Hosted and supported digital marketing platforms including directorymaximizer.com, mondovo.com, and social media marketing platforms. Prepared detailed reports on project specifications, progress, and team activities. Built stored procedures, triggers, indexes, user-defined functions, and constraints across database objects to deliver required results.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Team Lead</span><span class="t-pill">Project Reporting</span><span class="t-pill">Team Management</span>
+            </div></div>
+            <div><div class="tags-row-label">Domain &amp; Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Digital Marketing</span><span class="t-pill hot">MarTech</span><span class="t-pill">SEO Platforms</span><span class="t-pill">Social Media Marketing</span><span class="t-pill hot">Stored Procedures</span><span class="t-pill">Database Triggers</span><span class="t-pill">Query Optimisation</span><span class="t-pill">Platform Hosting</span><span class="t-pill">Database Design</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- techzuric -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">May 2006 — Oct 2008</div>
+        <h3 class="tl-role">Software Engineer</h3>
+        <div class="tl-company">Techzuric · Bengaluru, India &nbsp;|&nbsp; Software Services</div>
+        <p class="tl-desc">First professional role. Worked directly with customers for needs analysis, proposal development, and vendor cost estimation to produce competitive bids. Installed and configured software applications and tested solutions for functionality. Built the foundational engineering discipline that shaped a 20-year leadership journey.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Role &amp; Skills</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Software Engineer</span><span class="t-pill hot">Application Development</span><span class="t-pill">Needs Analysis</span><span class="t-pill">Proposal Development</span><span class="t-pill">Solution Testing</span><span class="t-pill">Software Configuration</span><span class="t-pill">Vendor Estimation</span><span class="t-pill">Customer Engagement</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+      <!-- internship -->
+      <article class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-period">Internship</div>
+        <h3 class="tl-role">Blockchain Developer — Supply Chain</h3>
+        <div class="tl-company">Auxledger Network · Mumbai, India &nbsp;|&nbsp; Blockchain / DLT</div>
+        <p class="tl-desc">Built a Supply Chain Management solution on Blockchain for a Denim brand — applying distributed ledger technology to track provenance, transparency, and traceability across the supply chain. Hands-on experience that later informed enterprise Web3 and decentralised systems work.</p>
+        <div class="tags-section">
+          <button class="tags-toggle" onclick="toggleTags(this)">
+            <i class="ti ti-tags"></i> Top Profile Tags <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="tags-cloud">
+            <div><div class="tags-row-label">Domain &amp; Technical</div>
+            <div class="tags-pills">
+              <span class="t-pill hot">Blockchain</span><span class="t-pill hot">Supply Chain Management</span><span class="t-pill hot">DLT</span><span class="t-pill">Provenance Tracking</span><span class="t-pill">Traceability</span><span class="t-pill">Web3</span><span class="t-pill">Smart Contracts</span>
+            </div></div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- AI PRACTICE -->
+<section class="section" id="ai" style="background:var(--dark);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">AI Practice</div>
+      <h2 class="section-title">Practical AI. <em>Real outcomes.</em></h2>
+    </header>
+    <div class="ai-grid">
+      <article class="ai-card featured reveal">
+        <div class="ai-tag">Philosophy</div>
+        <h3 class="ai-title">AI should earn its place in your stack</h3>
+        <p class="ai-body">My approach is outcome-oriented. I apply AI where it creates <strong>measurable business impact</strong> — productivity gains, process automation, better customer experience, smarter decisions. Not demos, not vanity features. Real, quantifiable business value delivered at speed.</p>
+      </article>
+      <article class="ai-card reveal">
+        <div class="ai-tag">Generative &amp; Agentic AI</div>
+        <h3 class="ai-title">LangChain · LangGraph · LlamaIndex</h3>
+        <p class="ai-body">Hands-on experience building <strong>multi-agent orchestration systems</strong> and agentic workflows that automate complex decision chains across enterprise processes at scale.</p>
+      </article>
+      <article class="ai-card reveal reveal-d1">
+        <div class="ai-tag">RAG &amp; LLM Pipelines</div>
+        <h3 class="ai-title">Vector DBs · Prompt Engineering</h3>
+        <p class="ai-body">Built <strong>Retrieval-Augmented Generation</strong> pipelines for enterprise knowledge systems with fine-tuning strategies and production-grade LLM orchestration frameworks.</p>
+      </article>
+      <article class="ai-card reveal">
+        <div class="ai-tag">Automation</div>
+        <h3 class="ai-title">N8N · Prediction Engines · MLlib</h3>
+        <p class="ai-body">Deployed <strong>intelligent workflow automation</strong>, prediction and recommendation engines — reducing manual overhead and accelerating data-driven decisions at scale.</p>
+      </article>
+      <article class="ai-card reveal reveal-d1">
+        <div class="ai-tag">Blockchain &amp; Web3</div>
+        <h3 class="ai-title">DLT · Ethereum · Hyperledger</h3>
+        <p class="ai-body">PG qualified in Blockchain Technology. Experience with <strong>Solidity, Web3, Hyperledger</strong>, and decentralised supply chain solutions including a Blockchain implementation for a Denim brand from Auxledger Network.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TECH STACK -->
+<section class="section" id="tech" style="background:var(--dark2);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Technology Depth</div>
+      <h2 class="section-title">The <em>full stack</em></h2>
+    </header>
+    <div class="tech-rows">
+      <div class="tech-row reveal"><span class="tech-label">Languages</span><div class="pills"><span class="pill">Python</span><span class="pill">Java</span><span class="pill">Go</span><span class="pill">Node.js</span><span class="pill">PHP</span><span class="pill">Kotlin</span><span class="pill">React.js</span><span class="pill">Next.js</span><span class="pill">Solidity</span><span class="pill">Rust</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Cloud &amp; Infra</span><div class="pills"><span class="pill">AWS EKS</span><span class="pill">API Gateway</span><span class="pill">RDS</span><span class="pill">Redis</span><span class="pill">Azure</span><span class="pill">GCP</span><span class="pill">Docker</span><span class="pill">Kubernetes</span><span class="pill">CI/CD</span><span class="pill">Jenkins</span><span class="pill">DevOps</span><span class="pill">ETL/ELT</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">AI / ML</span><div class="pills"><span class="pill">LangChain</span><span class="pill">LangGraph</span><span class="pill">LlamaIndex</span><span class="pill">RAG</span><span class="pill">Vector DBs</span><span class="pill">Agentic AI</span><span class="pill">GenAI</span><span class="pill">Chatbots</span><span class="pill">MLlib</span><span class="pill">Recommendation Engine</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Databases</span><div class="pills"><span class="pill">MySQL</span><span class="pill">PostgreSQL</span><span class="pill">Elasticsearch</span><span class="pill">ClickHouse</span><span class="pill">Cassandra</span><span class="pill">Redis</span><span class="pill">Snowflake</span><span class="pill">Databricks</span><span class="pill">SQL Server</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Frameworks</span><div class="pills"><span class="pill">Spring Boot</span><span class="pill">Django</span><span class="pill">Laravel</span><span class="pill">.NET</span><span class="pill">Flutter/Dart</span><span class="pill">GIN</span><span class="pill">Flask</span><span class="pill">CakePHP</span><span class="pill">Phalcon</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Messaging</span><div class="pills"><span class="pill">Kafka</span><span class="pill">RabbitMQ</span><span class="pill">REST</span><span class="pill">GraphQL</span><span class="pill">SOAP</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Automation</span><div class="pills"><span class="pill">N8N</span><span class="pill">JMeter</span><span class="pill">Workflows</span><span class="pill">TestRail</span><span class="pill">Sonar</span><span class="pill">Power BI</span></div></div>
+      <div class="tech-row reveal"><span class="tech-label">Blockchain</span><div class="pills"><span class="pill">Solidity</span><span class="pill">Ethereum</span><span class="pill">Hyperledger</span><span class="pill">Web3</span><span class="pill">Auxledger</span><span class="pill">DLT</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETENCIES & SOFT SKILLS -->
+<section class="section" style="background:var(--dark);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Competencies &amp; Strengths</div>
+      <h2 class="section-title">Beyond the <em>tech stack</em></h2>
+    </header>
+    <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:32px;" class="comp-wrap">
+      <div>
+        <div class="tags-row-label" style="margin-bottom:14px;font-size:11px;">Core Competencies</div>
+        <div class="pills">
+          <span class="pill">Product Development &amp; Management</span><span class="pill">IT Governance / Roadmap</span><span class="pill">Technology &amp; Strategy Selection</span><span class="pill">Stakeholder / Client Engagement</span><span class="pill">Technical Leadership</span><span class="pill">Project Management</span><span class="pill">Solution Architecture</span><span class="pill">Process Standardization</span><span class="pill">AI &amp; ML Algorithms</span><span class="pill">Requirement Gathering &amp; Analysis</span><span class="pill">Agile &amp; Scrum</span><span class="pill">Data Analysis &amp; Migration</span><span class="pill">System Integration</span><span class="pill">Team Building &amp; Mentoring</span><span class="pill">Risk Assessment</span><span class="pill">Service Delivery</span>
+        </div>
+      </div>
+      <div>
+        <div class="tags-row-label" style="margin-bottom:14px;font-size:11px;">Leadership &amp; Soft Skills</div>
+        <div class="pills">
+          <span class="pill">Leadership</span><span class="pill">Negotiation</span><span class="pill">Audacious</span><span class="pill">Adaptable</span><span class="pill">Approachable</span><span class="pill">Empathetic</span><span class="pill">Analytical</span><span class="pill">Multicultural Teams</span>
+        </div>
+        <div class="tags-row-label" style="margin:22px 0 14px;font-size:11px;">Business Verticals</div>
+        <div class="pills">
+          <span class="pill">TravelTech</span><span class="pill">PropTech</span><span class="pill">RetailTech</span><span class="pill">AdTech</span><span class="pill">DeepTech</span><span class="pill">Hospitality SaaS</span><span class="pill">Supply Chain</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section" style="background:var(--dark);">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Education &amp; Certifications</div>
+      <h2 class="section-title">Continuous <em>learning</em></h2>
+    </header>
+    <div class="learn-tl">
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2023</div>
+        <div class="learn-name">Program Leadership Skills <span class="learn-type">Executive Ed</span></div>
+        <div class="learn-org">IIM Ahmedabad (IIMA)</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2020</div>
+        <div class="learn-name">Certified Product Manager <span class="learn-type">Certification</span></div>
+        <div class="learn-org">Product Management Credential</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2020</div>
+        <div class="learn-name">Product Masterclass: How to Build Digital Products <span class="learn-type">Masterclass</span></div>
+        <div class="learn-org">Digital Product Development</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2020</div>
+        <div class="learn-name">Entrepreneurship 101 with Ritesh Agarwal <span class="learn-type">Mentorship</span></div>
+        <div class="learn-org">Founder, OYO Rooms · via Mento</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2018 — 2020</div>
+        <div class="learn-name">PG in Blockchain Technology &amp; Management <span class="learn-type">Postgraduate</span></div>
+        <div class="learn-org">New Delhi, India</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2018</div>
+        <div class="learn-name">Certified Agile Scrum Master <span class="learn-type">Certification</span></div>
+        <div class="learn-org">Agile &amp; Scrum Methodology</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">2002 — 2006</div>
+        <div class="learn-name">B.E. in Computer Science &amp; Engineering <span class="learn-type">Degree</span></div>
+        <div class="learn-org">Biju Patnaik University of Technology (BPUT), Bhubaneswar</div>
+      </div>
+      <div class="learn-item reveal">
+        <div class="learn-dot"></div>
+        <div class="learn-yr">1999 — 2002</div>
+        <div class="learn-name">Diploma in Computer Science &amp; Engineering <span class="learn-type">Diploma</span></div>
+        <div class="learn-org">Balasore School of Engineering, Balasore, India</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONNECT / MEDIA -->
+<section class="section media-section" id="connect">
+  <div class="section-inner">
+    <header class="section-header">
+      <div class="section-tag">Presence, Media &amp; Publications</div>
+      <h2 class="section-title">Find me <em>everywhere</em></h2>
+      <p class="section-sub">Articles, open source, books, video content, podcast, and direct channels — pick your preferred way to connect.</p>
+    </header>
+    <div class="media-grid">
+      <a href="https://www.linkedin.com/in/the-startup-cto/" class="media-card reveal" target="_blank" rel="noopener">
+        <div class="mc-icon linkedin"><i class="ti ti-brand-linkedin"></i></div>
+        <div class="mc-name">LinkedIn</div>
+        <div class="mc-desc">Professional updates, thought leadership &amp; career announcements</div>
+        <div class="mc-arrow">the-startup-cto →</div>
+      </a>
+      <a href="https://github.com/TravelXML" class="media-card reveal reveal-d1" target="_blank" rel="noopener">
+        <div class="mc-icon github"><i class="ti ti-brand-github"></i></div>
+        <div class="mc-name">GitHub</div>
+        <div class="mc-desc">Open source projects, APIs, architecture demos &amp; code samples</div>
+        <div class="mc-arrow">TravelXML →</div>
+      </a>
+      <a href="https://ultimatesystemsdesign.medium.com/" class="media-card reveal reveal-d2" target="_blank" rel="noopener">
+        <div class="mc-icon medium"><i class="ti ti-pencil"></i></div>
+        <div class="mc-name">Medium</div>
+        <div class="mc-desc">In-depth system design, architecture, and technology leadership articles</div>
+        <div class="mc-arrow">ultimatesystemsdesign →</div>
+      </a>
+      <a href="https://www.amazon.com/stores/Sapan-Kumar-Mohanty/author/B0GYDR1ZL6/allbooks" class="media-card reveal" target="_blank" rel="noopener">
+        <div class="mc-icon amazon"><i class="ti ti-book"></i></div>
+        <div class="mc-name">Amazon Author</div>
+        <div class="mc-desc">Published books on technology leadership, architecture &amp; digital transformation</div>
+        <div class="mc-arrow">View all books →</div>
+      </a>
+      <a href="https://www.youtube.com/@SapanKumarMohanty" class="media-card reveal reveal-d1" target="_blank" rel="noopener">
+        <div class="mc-icon youtube"><i class="ti ti-brand-youtube"></i></div>
+        <div class="mc-name">YouTube</div>
+        <div class="mc-desc">Tech talks, architecture walkthroughs, AI demos &amp; leadership insights</div>
+        <div class="mc-arrow">Subscribe →</div>
+      </a>
+      <a href="https://open.spotify.com/show/SapanKumarMohanty" class="media-card reveal reveal-d2" target="_blank" rel="noopener">
+        <div class="mc-icon spotify"><i class="ti ti-brand-spotify"></i></div>
+        <div class="mc-name">Spotify Podcast</div>
+        <div class="mc-desc">Episodes on CTO life, digital transformation, AI strategy &amp; platform engineering</div>
+        <div class="mc-arrow">Listen now →</div>
+      </a>
+      <a href="https://wa.me/917892481996" class="media-card reveal" target="_blank" rel="noopener">
+        <div class="mc-icon whatsapp"><i class="ti ti-brand-whatsapp"></i></div>
+        <div class="mc-name">WhatsApp</div>
+        <div class="mc-desc">Quick message for opportunities, collaborations or consulting enquiries</div>
+        <div class="mc-arrow">+91 7892481996 →</div>
+      </a>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSdqjawPr5BUPsMXtQnqNtZ2hTLDSMMmEzgyDgXZTCTWz4-n6w/viewform?usp=header" class="media-card reveal reveal-d1" target="_blank" rel="noopener">
+        <div class="mc-icon" style="background:rgba(201,168,76,.12);color:var(--gold);border-color:rgba(201,168,76,.25);"><i class="ti ti-mail"></i></div>
+        <div class="mc-name">Contact Form</div>
+        <div class="mc-desc">Detailed enquiries, job opportunities, partnerships and collaborations</div>
+        <div class="mc-arrow">Send a message →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-orb"></div>
+  <div class="cta-avail"><span class="avail-dot"></span> Available for Immediate Joining</div>
+  <h2 class="cta-title">Ready to build something <em style="color:var(--gold)">exceptional</em> together?</h2>
+  <p class="cta-sub">CTO · VP Technology · VP Engineering · IT Director — Bengaluru &amp; Remote</p>
+  <div class="cta-btns">
+    <a href="https://travelxml.github.io/tech-strategy/" class="btn-gold" target="_blank" rel="noopener"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-outline" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp"></i> WhatsApp Me</a>
+  </div>
+  <div class="cta-contact">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="tel:+917892481996" style="color:var(--muted);">+91 7892481996 / +91 9739803884</a>
+    &nbsp;·&nbsp; Bengaluru, India
+  </div>
+</section>
+</main>
+
+<div style="background:var(--dark);border-top:0.5px solid var(--border);padding:20px 40px;display:flex;justify-content:center;gap:32px;flex-wrap:wrap;font-size:12px;color:var(--muted);">
+  <span><i class="ti ti-map-pin" style="color:var(--gold);margin-right:5px;"></i>Bengaluru, India</span>
+  <span><i class="ti ti-language" style="color:var(--gold);margin-right:5px;"></i>English · Hindi</span>
+  <span><i class="ti ti-briefcase" style="color:var(--gold);margin-right:5px;"></i>20 Years Experience</span>
+  <span><i class="ti ti-circle-check" style="color:var(--accent);margin-right:5px;"></i>Immediate Joiner</span>
+</div>
+
+<footer>
+  <div class="footer-brand">Sapan Kumar Mohanty</div>
+  <div class="footer-mid">CTO · VP Technology · VP Engineering · 20 years building what matters</div>
+  <div class="footer-right"><a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a></div>
+</footer>
+
+<button id="back-top" aria-label="Back to top"><i class="ti ti-arrow-up"></i></button>
+
+<script>
+// PWA Service Worker
+if('serviceWorker' in navigator){
+  window.addEventListener('load',()=>navigator.serviceWorker.register('/sw.js').catch(()=>{}));
+}
+
+// Offline
+const offBar=document.getElementById('offline-bar');
+function checkOnline(){offBar.classList.toggle('show',!navigator.onLine);}
+window.addEventListener('online',checkOnline);window.addEventListener('offline',checkOnline);checkOnline();
+
+// Install prompt
+let deferredPrompt;
+const ib=document.getElementById('install-banner');
+window.addEventListener('beforeinstallprompt',e=>{
+  e.preventDefault();deferredPrompt=e;
+  setTimeout(()=>{if(!sessionStorage.getItem('pwa-x'))ib.classList.add('show');},3500);
+});
+document.getElementById('install-btn').addEventListener('click',async()=>{
+  ib.classList.remove('show');
+  if(deferredPrompt){deferredPrompt.prompt();await deferredPrompt.userChoice;deferredPrompt=null;}
+});
+document.getElementById('install-dismiss').addEventListener('click',()=>{
+  ib.classList.remove('show');sessionStorage.setItem('pwa-x','1');
+});
+window.addEventListener('appinstalled',()=>{ib.classList.remove('show');deferredPrompt=null;});
+
+// Scroll progress
+const sb=document.getElementById('scroll-bar');
+window.addEventListener('scroll',()=>{
+  const pct=(window.scrollY/(document.documentElement.scrollHeight-window.innerHeight))*100;
+  sb.style.width=Math.min(pct,100)+'%';
+},{passive:true});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',window.scrollY>60),{passive:true});
+
+// Back to top
+const bt=document.getElementById('back-top');
+window.addEventListener('scroll',()=>bt.classList.toggle('show',window.scrollY>500),{passive:true});
+bt.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// Active nav
+const sections=document.querySelectorAll('section[id]');
+const navLinks=document.querySelectorAll('.nav-links a');
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+id));
+    }
+  });
+},{threshold:.35}).observe(document.getElementById('home')||document.body);
+sections.forEach(s=>new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id));});
+},{threshold:.35}).observe(s));
+
+// Reveal
+new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.07}).observe(document.body);
+const revObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+// Dark/light toggle
+const thBtn=document.getElementById('theme-toggle');
+const thIcon=document.getElementById('theme-icon');
+const html=document.documentElement;
+function applyTheme(t){
+  html.setAttribute('data-theme',t);
+  thIcon.className=t==='light'?'ti ti-moon':'ti ti-sun';
+  localStorage.setItem('theme',t);
+}
+applyTheme(localStorage.getItem('theme')||'dark');
+thBtn.addEventListener('click',()=>applyTheme(html.getAttribute('data-theme')==='dark'?'light':'dark'));
+
+// Hamburger
+const hb=document.getElementById('hamburger'),mm=document.getElementById('mobile-menu');
+hb.addEventListener('click',()=>{const o=hb.classList.toggle('open');mm.classList.toggle('open',o);hb.setAttribute('aria-expanded',o);});
+mm.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{hb.classList.remove('open');mm.classList.remove('open');hb.setAttribute('aria-expanded',false);}));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const h=a.getAttribute('href');
+    if(h==='#')return;
+    const t=document.querySelector(h);
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Tags toggle
+function toggleTags(btn){
+  btn.classList.toggle('open');
+  const cloud=btn.nextElementSibling;
+  cloud.classList.toggle('open');
+}
+
+// Animated counters
+function animCount(el,target,suffix){
+  const d=1800,start=performance.now(),n=parseInt(target);
+  function step(now){
+    const p=Math.min((now-start)/d,1);
+    const e=1-Math.pow(1-p,3);
+    el.textContent=Math.floor(e*n)+suffix;
+    if(p<1)requestAnimationFrame(step);
+    else el.textContent=target+suffix;
+  }
+  requestAnimationFrame(step);
+}
+const cObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const el=e.target,t=el.textContent;
+      if(t==='20+')animCount(el,20,'+');
+      else if(t==='30M+')animCount(el,30,'M+');
+      else if(t==='5+')animCount(el,5,'+');
+      else if(t==='7+')animCount(el,7,'+');
+      cObs.unobserve(el);
+    }
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat-n').forEach(n=>cObs.observe(n));
+</script>
+</body>
+</html>
