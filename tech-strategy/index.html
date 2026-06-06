@@ -133,6 +133,11 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 40px;display:flex;j
 .f-success-title em{color:var(--gold);font-style:italic;}
 .f-success-body{font-size:14px;color:var(--muted);line-height:1.75;}
 
+/* calendar */
+.calendar-wrap{border-radius:14px;overflow:hidden;border:0.5px solid var(--border);background:var(--dark3);margin-bottom:40px;}
+.or-divider{display:flex;align-items:center;gap:16px;margin:0 0 40px;color:var(--muted);font-size:12px;letter-spacing:.1em;text-transform:uppercase;}
+.or-divider::before,.or-divider::after{content:'';flex:1;height:0.5px;background:var(--border);}
+
 /* faq */
 .faq{max-width:740px;margin:0 auto;}
 .faq-item{border-bottom:0.5px solid var(--border);}
@@ -192,11 +197,11 @@ footer a:hover{text-decoration:underline;}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge"><span class="pulse-dot"></span> Available for Strategy Sessions — Immediate Joiner</div>
+    <div class="hero-badge"><span class="pulse-dot"></span> Strategy Sessions — Open for Engagements</div>
     <h1 class="hero-title">Let's Build Your<br><em>Technology Strategy</em></h1>
     <p class="hero-sub">A focused 1-on-1 session with a CTO who has shipped platforms at scale across 6 countries. Walk away with clarity, direction, and an actionable plan — not just a conversation.</p>
     <div class="cta-row">
-      <a href="#book" class="btn-gold"><i class="ti ti-calendar"></i> Book Your Session</a>
+      <a href="#book" class="btn-gold"><i class="ti ti-calendar"></i> Schedule a Session</a>
       <a href="#cover" class="btn-ghost"><i class="ti ti-list-check"></i> What We Cover</a>
     </div>
     <p class="hero-note">No obligation &nbsp;·&nbsp; 45-minute focused session &nbsp;·&nbsp; Written follow-up included</p>
@@ -246,7 +251,7 @@ footer a:hover{text-decoration:underline;}
       <article class="c-card reveal rd2">
         <div class="c-icon"><i class="ti ti-crown"></i></div>
         <h3 class="c-title">CTO / VP Role — Permanent or Advisory</h3>
-        <p class="c-body">Exploring a permanent technology leadership hire? Discuss the role, the remit, and what great looks like. Or engage me directly as your full-time CTO or VP Engineering — immediate joiner.</p>
+        <p class="c-body">Exploring a permanent technology leadership hire? Let's discuss the role, the remit, and what great looks like. I bring 20+ years of hands-on CTO and VP Engineering experience across multiple industries and geographies.</p>
       </article>
     </div>
   </div>
@@ -355,10 +360,22 @@ footer a:hover{text-decoration:underline;}
 <!-- BOOKING FORM -->
 <section class="sec" id="book" style="background:var(--dark2);">
   <div class="sec-inner">
-    <div class="sec-tag" style="text-align:center;margin-bottom:0;">Book Your Session</div>
+    <div style="text-align:center;margin-bottom:48px;">
+      <div class="sec-tag">Schedule</div>
+      <h2 class="sec-title">Pick a time that <em>works for you</em></h2>
+      <p class="sec-sub" style="margin:0 auto;">Book directly on Google Meet — choose a slot and we're confirmed instantly.</p>
+    </div>
+
+    <!-- Google Calendar Appointment Scheduling -->
+    <div class="calendar-wrap reveal">
+      <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ3nKMSXBiOJBQ7VKivbxQWioDAYOFfnH8kxDRBLYH_XPcqBaHLWQBstcBuY4XbJDYV4HaHqbJMC?gv=true" style="border:none;background:transparent;" width="100%" height="600" frameborder="0" title="Book a strategy session with Sapan Kumar Mohanty"></iframe>
+    </div>
+
+    <div class="or-divider reveal"><span>or send a message below</span></div>
+
     <div class="form-outer reveal">
-      <h2 class="form-hed">Let's talk <em>strategy</em></h2>
-      <p class="form-sub">Fill in a few details and I'll be in touch within 24 hours to confirm your session time and agenda.</p>
+      <h2 class="form-hed">Prefer to <em>write first?</em></h2>
+      <p class="form-sub">Share your challenge and I'll reach out to confirm a time.</p>
       <form id="strat-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <div class="f-row">
           <div class="f-group">
@@ -423,8 +440,8 @@ footer a:hover{text-decoration:underline;}
       </form>
       <div class="f-success" id="form-success">
         <div class="f-success-icon"><i class="ti ti-circle-check"></i></div>
-        <h3 class="f-success-title">Session <em>requested!</em></h3>
-        <p class="f-success-body">Thank you — I'll review your brief and reach out within 24 hours to confirm your session time and agenda. Check your inbox.</p>
+        <h3 class="f-success-title">Message <em>sent!</em></h3>
+        <p class="f-success-body">Thank you — I'll be in touch within 24 hours to confirm a time. Check your inbox.</p>
       </div>
     </div>
   </div>
@@ -448,7 +465,7 @@ footer a:hover{text-decoration:underline;}
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">Are you open to a permanent CTO / VP role? <i class="ti ti-plus"></i></div>
-        <div class="faq-a">Yes — I am actively open to permanent CTO, VP Technology, and VP Engineering roles. I am an immediate joiner. Select "Permanent CTO / VP Role Discussion" in the form and let's talk.</div>
+        <div class="faq-a">Yes — I am open to permanent CTO, VP Technology, and VP Engineering roles with the right organisation. Select "Permanent CTO / VP Role Discussion" in the form and let's have a conversation.</div></div>
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">What industries do you work with? <i class="ti ti-plus"></i></div>
@@ -460,7 +477,7 @@ footer a:hover{text-decoration:underline;}
       </div>
       <div class="faq-item reveal">
         <div class="faq-q">How quickly can you start? <i class="ti ti-plus"></i></div>
-        <div class="faq-a">I am an immediate joiner. For consulting and advisory I can typically begin within days. For permanent roles I am currently available immediately with no notice period required.</div>
+        <div class="faq-a">Timelines depend on the nature of the engagement. For advisory and consulting I can typically begin quickly. For permanent roles, let's discuss during the session based on mutual fit.</div>
       </div>
     </div>
   </div>
