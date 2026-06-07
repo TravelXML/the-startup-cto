@@ -136,6 +136,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;j
 /* service cards */
 .service-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 22px;position:relative;overflow:hidden;}
 .service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.service-icon{font-size:22px;color:var(--gold);margin-bottom:10px;line-height:1;display:block;}
 .service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.4;}
 .service-desc{font-size:12px;color:var(--muted);line-height:1.7;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
 
@@ -157,6 +158,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;j
 .ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
 .ai-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
 .ai-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);}
+.ai-icon{font-size:22px;color:var(--gold);margin-bottom:10px;line-height:1;display:block;}
 .ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;}
 .ai-desc{font-size:12px;color:var(--muted);line-height:1.7;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
 
@@ -164,6 +166,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;j
 .audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
 .audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
 .audience-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);}
+.audience-icon{font-size:22px;color:var(--gold);margin-bottom:10px;line-height:1;display:block;}
 .audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;}
 .audience-desc{font-size:12px;color:var(--muted);line-height:1.7;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
 
@@ -271,7 +274,7 @@ footer a:hover{color:var(--gold);}
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">TravelTech Leadership &amp; Advisory</div>
-  <h1 class="hero-title">Travel Platform Leadership<br>for Systems That Cannot Afford <em>Fragile Distribution</em></h1>
+  <h1 class="hero-title">Travel Platform Leadership<br>for Systems That Cannot Afford <br/><em>Fragile Distribution</em></h1>
   <p class="hero-sub">Booking engines, supplier connectivity, and cloud-native modernization for travel businesses that need reliable architecture - not just a working prototype.</p>
   <div class="meta-row">
     <span><i class="ti ti-calendar-stats"></i> 20+ Years in TravelTech</span>
@@ -372,50 +375,62 @@ footer a:hover{color:var(--gold);}
     <h2 class="section-heading">What I Help Travel<br>Businesses <em>Solve</em></h2>
     <div class="card-grid">
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-map"></i></div>
         <div class="service-title">Travel Platform Strategy &amp; Architecture</div>
         <div class="service-desc">From single booking flows to multi-supplier distribution networks - designing the right architecture for your stage, your team, and where you're going.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-settings-2"></i></div>
         <div class="service-title">Booking Engine Design &amp; Modernization</div>
         <div class="service-desc">Auditing and rearchitecting booking engines that have grown brittle. Separating availability, pricing, and booking concerns properly. Improving reliability and reducing latency.</div>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-plug-connected"></i></div>
         <div class="service-title">OTA, GDS &amp; Supplier Integration Architecture</div>
         <div class="service-desc">Defining how your platform connects to Amadeus, Sabre, Travelport, Expedia, Booking.com, or direct hotel/airline feeds. Integration patterns that are maintainable, observable, and resilient.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-building-hotel"></i></div>
         <div class="service-title">Hotel Distribution Platform Design</div>
         <div class="service-desc">CRS design, channel manager connectivity, PMS integration, and rate/inventory synchronization architectures for hospitality-focused platforms.</div>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-arrows-shuffle"></i></div>
         <div class="service-title">Legacy-to-Microservices Transformation</div>
         <div class="service-desc">Staged decomposition of monolithic travel stacks into services that can be deployed, scaled, and failed independently - without disrupting live bookings during the migration.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-activity"></i></div>
         <div class="service-title">Scalability, Resilience &amp; Observability</div>
         <div class="service-desc">Designing for demand peaks, supplier timeouts, and partial failures. Ensuring your platform degrades gracefully and recovers automatically rather than requiring manual intervention.</div>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-api"></i></div>
         <div class="service-title">API Strategy &amp; Integration Governance</div>
         <div class="service-desc">Internal API contracts, versioning, throttling, consumer management, and the integration governance that stops every new connection from becoming a unique snowflake.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-users"></i></div>
         <div class="service-title">Engineering Leadership for Travel Teams</div>
         <div class="service-desc">Working with founders, CTOs, and engineering leads to build the processes, standards, and team structures that allow travel engineering to move fast without breaking distribution.</div>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-robot"></i></div>
         <div class="service-title">Post-Booking Automation &amp; Ops Design</div>
         <div class="service-desc">Designing amendment, cancellation, reconciliation, and voucher workflows that execute automatically - eliminating the ops burden that scales linearly with every new booking and every new supplier added to the platform.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-code"></i></div>
         <div class="service-title">B2B API Product Development</div>
         <div class="service-desc">Building the distribution API your agents and affiliates connect to - authentication, rate limits, margin control, per-consumer usage analytics, and the governance model that prevents bespoke per-client integrations from accumulating into unmaintainable custom code.</div>
       </div>
       <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-database"></i></div>
         <div class="service-title">Content &amp; Catalog Architecture</div>
         <div class="service-desc">Property content management, room type normalisation, policy extraction, and the data architecture that keeps your catalog accurate at scale without manual per-listing intervention. Particularly relevant for OTA backends and hospitality SaaS platforms managing content at volume.</div>
       </div>
       <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-coin"></i></div>
         <div class="service-title">Revenue &amp; Pricing Architecture</div>
         <div class="service-desc">Centralising markup, margin, and dynamic pricing logic into a single engine. Eliminating inconsistencies across channels, supplier types, and markets. Building the foundation for data-driven revenue management rather than ad hoc rate overrides.</div>
       </div>
@@ -689,22 +704,27 @@ footer a:hover{color:var(--gold);}
     <p class="body-text">I'm selective about AI recommendations in travel. There are a few places where the fit is genuine - where LLM capabilities match a real operational cost. These are them.</p>
     <div class="ai-grid">
       <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-headset"></i></div>
         <div class="ai-title">Customer Support Copilot</div>
         <div class="ai-desc">Handling amendment, cancellation, and itinerary queries without routing everything to a human agent. RAG-based, grounded in your own booking and policy data - not hallucinating supplier policies.</div>
       </div>
       <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-terminal"></i></div>
         <div class="ai-title">Internal Operations Assistant</div>
         <div class="ai-desc">Ops teams querying booking status, supplier confirmations, and reconciliation exceptions using natural language - rather than running manual reports across disconnected systems.</div>
       </div>
       <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-brain"></i></div>
         <div class="ai-title">Booking Abandonment Intelligence</div>
         <div class="ai-desc">Using behavioural signals and booking context to surface relevant suggestions. Grounded in what the user actually searched, not generic recommendation logic.</div>
       </div>
       <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-file-description"></i></div>
         <div class="ai-title">Content &amp; Catalog Enrichment</div>
         <div class="ai-desc">Automating hotel content normalization, policy extraction, and destination descriptions using LLM workflows - reducing the manual cost of maintaining content at scale.</div>
       </div>
       <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-alert-triangle"></i></div>
         <div class="ai-title">Supplier Anomaly Detection</div>
         <div class="ai-desc">Identifying patterns in supplier API behaviour, pricing drift, and availability discrepancies before they affect customer bookings. Useful where monitoring alone doesn't catch drift.</div>
       </div>
@@ -760,18 +780,22 @@ footer a:hover{color:var(--gold);}
     <h2 class="section-heading">The Businesses That<br>Reach Out to <em>Me</em></h2>
     <div class="audience-grid">
       <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-building"></i></div>
         <div class="audience-role">Travel Founders &amp; CEOs</div>
         <div class="audience-desc">Your platform works at current scale. But growth is exposing the cracks - in booking reliability, supplier stability, or post-trip operations. You need a technical perspective that understands the business constraints too.</div>
       </div>
       <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-building-hotel"></i></div>
         <div class="audience-role">Hotel Tech &amp; Hospitality SaaS Companies</div>
         <div class="audience-desc">Distribution architecture, PMS connectivity, channel management, and the operational systems that keep occupancy and revenue data consistent. I know these systems from working inside them.</div>
       </div>
       <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-topology-star"></i></div>
         <div class="audience-role">OTA / Aggregator / B2B Distribution Platforms</div>
         <div class="audience-desc">Complex supplier networks, high search-to-book ratios, pricing accuracy under load, and integration contracts that need to be sustainable. These are the problems I've worked through.</div>
       </div>
       <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-arrows-shuffle"></i></div>
         <div class="audience-role">Teams Modernizing Legacy Travel Stacks</div>
         <div class="audience-desc">A platform built 8–10 years ago that's now holding back product velocity and scaling confidence. You need a plan that doesn't require stopping the business to execute.</div>
       </div>
