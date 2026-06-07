@@ -195,6 +195,42 @@ footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
 footer a:hover{color:var(--gold);}
 .footer-copy a{color:var(--gold);}
 
+/* arch layers */
+.arch-layers{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.arch-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:24px 22px 22px 24px;position:relative;overflow:hidden;}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.arch-step{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:var(--gold);opacity:.45;margin-bottom:8px;line-height:1;}
+.arch-card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.arch-card-body{font-size:12px;color:var(--muted);line-height:1.75;}
+
+/* segment cards */
+.segment-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.segment-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;}
+.segment-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.segment-icon{font-size:22px;color:var(--gold);margin-bottom:10px;}
+.segment-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.segment-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* pattern cards */
+.pattern-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.pattern-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:24px 22px 22px 24px;}
+.pattern-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:8px;}
+.pattern-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.pattern-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* ops cards */
+.ops-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.ops-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
+.ops-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--teal);}
+.ops-icon{font-size:20px;color:var(--teal);margin-bottom:10px;}
+.ops-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.ops-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* stack blocks */
+.stack-blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stack-block{background:var(--dark2);border:0.5px solid var(--border);border-radius:14px;padding:24px 26px;}
+.stack-block-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -202,7 +238,7 @@ footer a:hover{color:var(--gold);}
 
 /* responsive */
 @media(max-width:800px){
-  .card-grid,.service-card-grid,.domain-blocks,.two-col,.ai-grid,.audience-grid,.stats-grid{grid-template-columns:1fr;}
+  .card-grid,.service-card-grid,.domain-blocks,.two-col,.ai-grid,.audience-grid,.stats-grid,.arch-layers,.segment-grid,.pattern-grid,.ops-grid,.stack-blocks{grid-template-columns:1fr;}
   .proof-item{min-width:calc(50% - 1px);}
   .proof-item:nth-child(2n){border-right:none;}
 }
@@ -317,6 +353,26 @@ footer a:hover{color:var(--gold);}
         <div class="card-title">New channel onboarding takes months</div>
         <div class="card-desc">Adding a new OTA or supplier means months of bespoke integration work. Each new connection is another load-bearing custom build with no shared contract.</div>
       </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-currency-off"></i></div>
+        <div class="card-title">Margin erosion from uncontrolled rate logic</div>
+        <div class="card-desc">Markup rules hardcoded in five different places. Net vs gross rate handling inconsistent across suppliers. Promotional overrides applied incorrectly. Revenue leaks compound quietly until finance raises a flag months later.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-device-desktop-off"></i></div>
+        <div class="card-title">Content that goes stale faster than anyone tracks</div>
+        <div class="card-desc">Hotel names, room descriptions, policies, and cancellation terms not refreshed since integration. Customers see inaccurate content; complaints spike during high-demand periods because content management was treated as a one-off, not a platform capability.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-report-off"></i></div>
+        <div class="card-title">Data that only answers yesterday's questions</div>
+        <div class="card-desc">Revenue sitting in booking system exports. Supplier performance metrics extracted weekly. Conversion funnel reporting that requires an analyst. When data isn't flowing automatically, business decisions lag the market by days.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-shield-off"></i></div>
+        <div class="card-title">Single supplier dependency with no fallback</div>
+        <div class="card-desc">One GDS contract or one aggregator as the only source for hotel inventory. When that supplier degrades or terminates, there's no backup. Supplier diversification isn't exciting to architect — until it's the only thing keeping your platform running.</div>
+      </div>
     </div>
   </div>
 
@@ -359,6 +415,64 @@ footer a:hover{color:var(--gold);}
         <div class="service-title">Engineering Leadership for Travel Teams</div>
         <div class="service-desc">Working with founders, CTOs, and engineering leads to build the processes, standards, and team structures that allow travel engineering to move fast without breaking distribution.</div>
       </div>
+      <div class="service-card reveal">
+        <div class="service-title">Post-Booking Automation &amp; Ops Design</div>
+        <div class="service-desc">Designing amendment, cancellation, reconciliation, and voucher workflows that execute automatically — eliminating the ops burden that scales linearly with every new booking and every new supplier added to the platform.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">B2B API Product Development</div>
+        <div class="service-desc">Building the distribution API your agents and affiliates connect to — authentication, rate limits, margin control, per-consumer usage analytics, and the governance model that prevents bespoke per-client integrations from accumulating into unmaintainable custom code.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">Content &amp; Catalog Architecture</div>
+        <div class="service-desc">Property content management, room type normalisation, policy extraction, and the data architecture that keeps your catalog accurate at scale without manual per-listing intervention. Particularly relevant for OTA backends and hospitality SaaS platforms managing content at volume.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Revenue &amp; Pricing Architecture</div>
+        <div class="service-desc">Centralising markup, margin, and dynamic pricing logic into a single engine. Eliminating inconsistencies across channels, supplier types, and markets. Building the foundation for data-driven revenue management rather than ad hoc rate overrides.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION: BOOKING ENGINE ARCHITECTURE -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Architecture Depth</div>
+    <h2 class="section-heading">Inside a Booking Engine<br>That Actually <em>Holds Up</em></h2>
+    <p class="body-text">Most booking engine problems share the same root cause: availability, pricing, and booking confirmation are treated as a single responsibility when they have fundamentally different failure modes, latency characteristics, and data sources.</p>
+    <p class="body-text" style="margin-top:16px;">A booking engine that scales and recovers under supplier pressure looks very different from one that started as an MVP and had features bolted on for five years. Here's what the right architecture looks like at each layer.</p>
+    <div class="arch-layers">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-card-title">Search &amp; Availability Layer</div>
+        <div class="arch-card-body">Availability queries should never hit suppliers synchronously in a search-per-keystroke flow. Cache aggressively — hotel availability with short TTLs, flight availability with near-real-time refresh. Rate-limit supplier calls here, not in business logic. Every supplier gets its own adapter; none of them get to own your data model.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-card-title">Rate &amp; Pricing Engine</div>
+        <div class="arch-card-body">Pricing logic is where complexity accumulates fastest. Net vs gross rates, markup rules, contracted rates, promotional overrides, and multi-currency conversion all need a single authoritative engine. When pricing lives across five codepaths, rate parity breaks at peak and you find out from the OTA, not your own monitors.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-card-title">Shopping Cart &amp; Itinerary Hold</div>
+        <div class="arch-card-body">Holding a quote while the user completes booking details is a timed operation against supplier inventory. Most platforms handle this poorly — locking inventory too aggressively (supplier friction) or too loosely (double bookings). The cart layer needs explicit TTL management, soft-hold vs hard-book transitions, and multi-component trip handling.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-card-title">Booking Confirmation Flow</div>
+        <div class="arch-card-body">Confirmation is the only step where you can't retry transparently. A payment may have processed even if the API timed out. This layer needs idempotency keys, supplier confirmation number tracking, and a reconciliation queue for confirmations that didn't return cleanly. "We'll confirm shortly" is a valid choice — but it must be backed by automation, not an ops agent.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-card-title">Supplier Abstraction Layer</div>
+        <div class="arch-card-body">Every supplier integration should implement a shared contract — search, price, book, cancel, amend — and never expose its quirks to the booking engine. Supplier-specific normalisation, retry logic, timeout handling, and circuit breakers live inside each adapter. When Amadeus changes a field, you fix one file, not six codepaths.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-card-title">Post-Booking State Machine</div>
+        <div class="arch-card-body">A booking isn't done at confirmation. It has states: confirmed, on-request, amended, cancelled, partially-refunded, expired. That machine needs to be explicit — transitions logged, supplier side-effects decoupled via events, finance systems updated consistently. When it lives in if/else chains, operations teams end up managing state manually.</div>
+      </div>
     </div>
   </div>
 
@@ -384,24 +498,66 @@ footer a:hover{color:var(--gold);}
         </div>
       </div>
       <div class="domain-block reveal rd1">
-        <div class="domain-block-label">Supplier Connectivity</div>
+        <div class="domain-block-label">GDS &amp; Supplier Connectivity</div>
         <div class="tag-cloud">
-          <span class="tag">GDS (Amadeus, Sabre, Travelport)</span>
-          <span class="tag">Channel Managers</span>
-          <span class="tag">OTA APIs (Booking.com, Expedia, Agoda)</span>
+          <span class="tag">GDS — Amadeus (Full Suite)</span>
+          <span class="tag">GDS — Sabre (Full Suite)</span>
+          <span class="tag">GDS — Travelport / Galileo</span>
+          <span class="tag">GDS Search, Book, Cancel, Ticketing</span>
+          <span class="tag">NDC / Airline Direct XML Feeds</span>
           <span class="tag">Direct Hotel Connects</span>
-          <span class="tag">Airline NDC / XML Feeds</span>
-          <span class="tag">Aggregator Platforms</span>
+          <span class="tag">Aggregator Platform APIs</span>
+          <span class="tag">Supplier API Normalisation</span>
+        </div>
+      </div>
+      <div class="domain-block reveal">
+        <div class="domain-block-label">Channel Manager &amp; PMS Integrations</div>
+        <div class="tag-cloud">
+          <span class="tag">Channel Manager Integrations (SiteMinder, Staah, RateGain)</span>
+          <span class="tag">PMS — Opera (Full Integration)</span>
+          <span class="tag">PMS — Cloudbeds</span>
+          <span class="tag">PMS — IDS / HMS</span>
+          <span class="tag">CRS (Central Reservation Systems)</span>
+          <span class="tag">Rate &amp; Inventory Synchronization</span>
+          <span class="tag">Availability Push / Pull Architecture</span>
+          <span class="tag">Multi-Property Distribution</span>
+        </div>
+      </div>
+      <div class="domain-block reveal">
+        <div class="domain-block-label">OTA &amp; Travel Aggregators</div>
+        <div class="tag-cloud">
+          <span class="tag">Booking.com API</span>
+          <span class="tag">Expedia / Hotels.com</span>
+          <span class="tag">Agoda / AirBnB Connectivity</span>
+          <span class="tag">MakeMyTrip / Goibibo</span>
+          <span class="tag">Travel Aggregator APIs (TBO, Hotelbeds, Juniper)</span>
+          <span class="tag">Bed Bank Integrations</span>
+          <span class="tag">Multi-OTA Feed Management</span>
+          <span class="tag">Parity Monitoring Architecture</span>
+        </div>
+      </div>
+      <div class="domain-block reveal rd1">
+        <div class="domain-block-label">Tour Operators &amp; Own API Distribution</div>
+        <div class="tag-cloud">
+          <span class="tag">Tour Operator Platform Integrations</span>
+          <span class="tag">DMC (Destination Management Company) Connectivity</span>
+          <span class="tag">B2B Wholesaler API Feeds</span>
+          <span class="tag">White-Label Distribution APIs</span>
+          <span class="tag">Own API Product Development</span>
+          <span class="tag">B2B API Gateway Design</span>
+          <span class="tag">XML / REST API for Distribution</span>
+          <span class="tag">Agent Booking Portal APIs</span>
+          <span class="tag">Affiliate &amp; Reseller API Architecture</span>
         </div>
       </div>
       <div class="domain-block reveal">
         <div class="domain-block-label">Platform Systems</div>
         <div class="tag-cloud">
-          <span class="tag">CRS (Central Reservation Systems)</span>
-          <span class="tag">PMS Integrations (Opera, Cloudbeds)</span>
+          <span class="tag">Dynamic Pricing Engines</span>
           <span class="tag">Inventory &amp; Rate Management</span>
           <span class="tag">Availability Synchronization</span>
-          <span class="tag">Dynamic Pricing Engines</span>
+          <span class="tag">Markup &amp; Margin Engine</span>
+          <span class="tag">Multi-Currency / Multi-Language</span>
         </div>
       </div>
       <div class="domain-block reveal rd1">
@@ -414,6 +570,57 @@ footer a:hover{color:var(--gold);}
           <span class="tag">Supplier Invoicing</span>
           <span class="tag">Finance Integration</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION: TRAVEL SEGMENTS -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Industry Coverage</div>
+    <h2 class="section-heading">Travel Segments I've<br>Worked <em>Inside</em></h2>
+    <p class="body-text">Not every vertical in travel has the same system complexity. Each has its own supplier contracts, availability model, post-booking workflow, and margin structure. Here's where I have direct, operational experience — not just familiarity.</p>
+    <div class="segment-grid">
+      <div class="segment-card reveal">
+        <div class="segment-icon"><i class="ti ti-building-hotel"></i></div>
+        <div class="segment-title">Hotels &amp; Hospitality</div>
+        <div class="segment-desc">Hotel booking engines, channel manager connectivity (SiteMinder, Staah, RateGain), PMS integration (Opera, Cloudbeds), CRS architecture, rate/inventory sync, and multi-property distribution. Deep experience with direct connects, OTA parity management, and property-level rate structures. From boutique hotel tech to chain-scale systems.</div>
+      </div>
+      <div class="segment-card reveal rd1">
+        <div class="segment-icon"><i class="ti ti-plane"></i></div>
+        <div class="segment-title">Flights &amp; Airlines</div>
+        <div class="segment-desc">GDS flight search, book, cancel, ticketing, and post-ticketing workflows across Amadeus, Sabre, and Travelport full suite. NDC integration, airline direct API connectivity, baggage and seat selection handling, fare rule processing, and post-issuance operations — void, refund, exchange, and reissue.</div>
+      </div>
+      <div class="segment-card reveal">
+        <div class="segment-icon"><i class="ti ti-train"></i></div>
+        <div class="segment-title">Rail &amp; Coach</div>
+        <div class="segment-desc">Rail booking APIs, seat reservation systems, and dynamic pricing engines for coach and intercity travel. Integrating rail inventory into multi-modal travel platforms where the booking model, confirmation flow, and post-trip amendment rules are fundamentally different from hotel or air.</div>
+      </div>
+      <div class="segment-card reveal rd1">
+        <div class="segment-icon"><i class="ti ti-car"></i></div>
+        <div class="segment-title">Car Rental</div>
+        <div class="segment-desc">Car rental supplier integrations, fleet availability APIs, rate comparison, and the specific data models around rental agreements, insurance options, and drop-off location management. Integration with aggregators (Cartrawler, EasyTerra) and direct supplier connectivity for large fleet operators.</div>
+      </div>
+      <div class="segment-card reveal">
+        <div class="segment-icon"><i class="ti ti-binoculars"></i></div>
+        <div class="segment-title">Sightseeing &amp; Activities</div>
+        <div class="segment-desc">Tour and activity booking platforms, attraction ticketing, experience aggregator APIs, and the operational complexity of time-slot-based inventory. Integration with suppliers like Viator, GetYourGuide, and direct operators for city tours, day trips, and destination experiences at scale.</div>
+      </div>
+      <div class="segment-card reveal rd1">
+        <div class="segment-icon"><i class="ti ti-ship"></i></div>
+        <div class="segment-title">Cruise &amp; Liveaboard</div>
+        <div class="segment-desc">Cruise cabin inventory, itinerary management, liveaboard booking systems, and the post-booking complexity around supplements, cabin upgrades, shore excursions, and multi-leg voyages. Direct operator integration and aggregator connectivity for dive travel and Indian Ocean liveaboard operators.</div>
+      </div>
+      <div class="segment-card reveal">
+        <div class="segment-icon"><i class="ti ti-users"></i></div>
+        <div class="segment-title">B2B Agent &amp; Wholesale</div>
+        <div class="segment-desc">Wholesale platforms, B2B agent portals, sub-agent commission management, credit limit enforcement, and the distribution architecture that allows resellers to access contracted inventory without exposing your full margin structure. XML/REST API feeds for B2B aggregators and wholesale distribution.</div>
+      </div>
+      <div class="segment-card reveal rd1">
+        <div class="segment-icon"><i class="ti ti-world"></i></div>
+        <div class="segment-title">B2C Consumer Platforms</div>
+        <div class="segment-desc">Consumer-facing booking journeys, search-to-checkout architecture, abandonment recovery, dynamic packaging, and the scaling challenges that emerge when consumer volume is orders of magnitude higher than B2B. Payment gateway integration across multiple currencies and markets — India, UAE, and international.</div>
       </div>
     </div>
   </div>
@@ -440,6 +647,47 @@ footer a:hover{color:var(--gold);}
           <li><i class="ti ti-check"></i> Platform handles demand spikes without manual intervention</li>
           <li><i class="ti ti-check"></i> Engineering team spends time on product, not on archaeology</li>
         </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION: INTEGRATION PATTERNS -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Integration Architecture</div>
+    <h2 class="section-heading">Supplier Integration Patterns<br>That Don't Become <em>Technical Debt</em></h2>
+    <p class="body-text">Every travel platform eventually has the same conversation: "we need to add another supplier, but our last three integrations have become maintenance nightmares." The root cause is almost always the same — each connection was built as a custom one-off rather than an implementation of a shared contract.</p>
+    <div class="pattern-grid">
+      <div class="pattern-card reveal">
+        <div class="pattern-label">Pattern 01</div>
+        <div class="pattern-title">Supplier Abstraction Layer</div>
+        <div class="pattern-desc">Define a canonical interface — search, price, book, cancel, amend — and implement it per supplier. Your booking engine talks only to the interface. Supplier-specific quirks (different field names, async vs sync confirmation, XML vs JSON response shapes) are handled inside each adapter, never in core booking logic.</div>
+      </div>
+      <div class="pattern-card reveal rd1">
+        <div class="pattern-label">Pattern 02</div>
+        <div class="pattern-title">Response Normalisation</div>
+        <div class="pattern-desc">Every supplier returns availability and booking data in a different schema. Normalisation converts supplier responses into your internal data model at the integration boundary. Downstream services never parse supplier-specific formats. When Amadeus changes a field name, you fix one mapper — not every service that consumes that data.</div>
+      </div>
+      <div class="pattern-card reveal">
+        <div class="pattern-label">Pattern 03</div>
+        <div class="pattern-title">Circuit Breakers &amp; Graceful Degradation</div>
+        <div class="pattern-desc">Suppliers go down. GDS connections timeout. Direct hotel APIs return 503s during peak season. Circuit breakers prevent a single degraded supplier from cascading into total booking engine failure. When a supplier is struggling, requests fail fast rather than queuing and blocking the entire system.</div>
+      </div>
+      <div class="pattern-card reveal rd1">
+        <div class="pattern-label">Pattern 04</div>
+        <div class="pattern-title">Asynchronous Confirmation Handling</div>
+        <div class="pattern-desc">Some suppliers — particularly PMS systems and on-request hotel inventory — don't confirm immediately. Async confirmation handling means: accept the booking, queue the confirmation request, poll or receive webhook callbacks, and update booking state automatically. No manual ops agent checking supplier extranets every 20 minutes.</div>
+      </div>
+      <div class="pattern-card reveal">
+        <div class="pattern-label">Pattern 05</div>
+        <div class="pattern-title">Rate Throttling &amp; Quota Management</div>
+        <div class="pattern-desc">GDS systems charge per search and carry contractual rate limits. Unconstrained availability queries during high traffic burn supplier credit and trigger circuit breakers on the GDS side. Rate throttling at the integration layer, combined with availability caching, keeps costs predictable and supplier connections stable under load.</div>
+      </div>
+      <div class="pattern-card reveal rd1">
+        <div class="pattern-label">Pattern 06</div>
+        <div class="pattern-title">Per-Supplier Observability</div>
+        <div class="pattern-desc">You can't debug supplier issues without per-supplier metrics. Track response times, error rates, timeout rates, and booking completion rates separately for each supplier. When a GDS degradation starts affecting booking completion, you want to know from a monitor — not from a customer complaint the next morning.</div>
       </div>
     </div>
   </div>
@@ -477,6 +725,47 @@ footer a:hover{color:var(--gold);}
 
   <div class="divider"></div>
 
+  <!-- SECTION: POST-BOOKING OPERATIONS -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Operational Depth</div>
+    <h2 class="section-heading">Post-Booking Is Where<br>Operations Get <em>Expensive</em></h2>
+    <p class="body-text">Most travel platforms focus engineering effort on the search-to-book funnel. Post-booking is where operational cost quietly compounds. Amendments, cancellations, supplier re-confirmations, voucher management, and reconciliation — handled manually — consume more ops capacity than most founders expect until they're at scale.</p>
+    <div class="ops-grid">
+      <div class="ops-card reveal">
+        <div class="ops-icon"><i class="ti ti-pencil"></i></div>
+        <div class="ops-title">Amendment Engine</div>
+        <div class="ops-desc">Date changes, name corrections, room upgrades, and passenger amendments against live bookings. Each supplier has different amendment rules, charges, and API flows. An amendment engine handles these systematically — not case-by-case by an ops agent pulling up supplier extranets and manually updating records.</div>
+      </div>
+      <div class="ops-card reveal rd1">
+        <div class="ops-icon"><i class="ti ti-x"></i></div>
+        <div class="ops-title">Cancellation Flows</div>
+        <div class="ops-desc">Automated cancellation against supplier systems, cancellation charge calculation, refund initiation against payment gateways, and customer notification — executed as a coordinated transaction. When cancellations are manual, teams spend hours per booking on supplier extranets, particularly during disruption events when volume spikes overnight.</div>
+      </div>
+      <div class="ops-card reveal">
+        <div class="ops-icon"><i class="ti ti-file-check"></i></div>
+        <div class="ops-title">Voucher &amp; Confirmation</div>
+        <div class="ops-desc">Supplier confirmation numbers, hotel voucher generation, airline PNR management, and the full confirmation communication flow to customers. Automated reconciliation between what's confirmed in your booking system and what the supplier actually has on record — surfacing discrepancies before check-in, not at the property.</div>
+      </div>
+      <div class="ops-card reveal rd1">
+        <div class="ops-icon"><i class="ti ti-cash"></i></div>
+        <div class="ops-title">Deposit &amp; Balance Tracking</div>
+        <div class="ops-desc">Advance deposits, balance payment deadlines, supplier payment schedules, and auto-cancellation logic for unpaid balances. Particularly critical for tour operators and holiday packages where the payment schedule spans weeks and supplier due dates don't align with customer payment dates.</div>
+      </div>
+      <div class="ops-card reveal">
+        <div class="ops-icon"><i class="ti ti-balance"></i></div>
+        <div class="ops-title">Reconciliation Engine</div>
+        <div class="ops-desc">Commission calculations, net vs gross rate reconciliation, supplier invoicing, and matching what your system recorded against what the supplier invoiced. Manual reconciliation at any volume above a few hundred bookings per week becomes the blocker that prevents finance from closing the month on time.</div>
+      </div>
+      <div class="ops-card reveal rd1">
+        <div class="ops-icon"><i class="ti ti-refresh"></i></div>
+        <div class="ops-title">Supplier Re-confirmation Polling</div>
+        <div class="ops-desc">On-request inventory — particularly hotels in high-demand markets and tour products — requires active tracking of supplier systems until confirmation arrives. Automated confirmation tracking, timeout escalation, and fallback options need to run without an ops agent manually chasing suppliers on email or phone.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- SECTION 6: WHO IT'S FOR -->
   <div style="padding-top:60px;" class="reveal">
     <div class="section-label">Who This Is For</div>
@@ -503,6 +792,66 @@ footer a:hover{color:var(--gold);}
 
   <div class="divider"></div>
 
+  <!-- SECTION: TECH STACK -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Technology Stack</div>
+    <h2 class="section-heading">What a Modern Travel Platform<br>Actually <em>Runs On</em></h2>
+    <p class="body-text">Stack decisions made at the early scaling phase — around caching, queuing, and API design — are the ones teams spend years undoing if they get them wrong. Here's the infrastructure pattern I've seen work for travel platforms at scale, with the reasoning behind each choice.</p>
+    <div class="stack-blocks">
+      <div class="stack-block reveal">
+        <div class="stack-block-label">Core Infrastructure (AWS)</div>
+        <div class="tag-cloud">
+          <span class="tag">Lambda (Supplier Adapters)</span>
+          <span class="tag">ECS / Fargate (Booking Services)</span>
+          <span class="tag">API Gateway</span>
+          <span class="tag">SQS (Async Confirmations)</span>
+          <span class="tag">SNS (Event Broadcasting)</span>
+          <span class="tag">Step Functions (Post-Booking Workflows)</span>
+          <span class="tag">CloudFront (Search Response Caching)</span>
+          <span class="tag">Route 53 (DNS &amp; Health Routing)</span>
+        </div>
+      </div>
+      <div class="stack-block reveal rd1">
+        <div class="stack-block-label">Data &amp; Caching</div>
+        <div class="tag-cloud">
+          <span class="tag">ElastiCache Redis (Availability Cache)</span>
+          <span class="tag">Aurora RDS (Transactional Bookings)</span>
+          <span class="tag">DynamoDB (Supplier Session State)</span>
+          <span class="tag">Elasticsearch (Content &amp; Property Search)</span>
+          <span class="tag">S3 (Vouchers &amp; Documents)</span>
+          <span class="tag">TTL-Managed Search Cache</span>
+          <span class="tag">Rate &amp; Session Store</span>
+        </div>
+      </div>
+      <div class="stack-block reveal">
+        <div class="stack-block-label">Observability &amp; Reliability</div>
+        <div class="tag-cloud">
+          <span class="tag">CloudWatch (Per-Supplier Metrics)</span>
+          <span class="tag">Datadog / New Relic</span>
+          <span class="tag">AWS X-Ray (Distributed Tracing)</span>
+          <span class="tag">PagerDuty (On-Call Alerting)</span>
+          <span class="tag">Booking Funnel Monitoring</span>
+          <span class="tag">Supplier SLA Dashboards</span>
+          <span class="tag">Reconciliation Anomaly Alerts</span>
+        </div>
+      </div>
+      <div class="stack-block reveal rd1">
+        <div class="stack-block-label">Integration &amp; API Layer</div>
+        <div class="tag-cloud">
+          <span class="tag">REST &amp; XML API (Supplier Side)</span>
+          <span class="tag">GraphQL (Internal BFF Layer)</span>
+          <span class="tag">Webhook Receivers</span>
+          <span class="tag">OAuth 2.0 / JWT (B2B API Auth)</span>
+          <span class="tag">API Rate Throttling</span>
+          <span class="tag">Supplier Circuit Breakers</span>
+          <span class="tag">OpenAPI Spec-First Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- SECTION 7: OPERATOR CREDIBILITY -->
   <div style="padding-top:60px;" class="reveal">
     <div class="section-label">Why This Matters</div>
@@ -515,7 +864,7 @@ footer a:hover{color:var(--gold);}
         <div class="stat-l">Years in Technology Leadership</div>
       </div>
       <div class="stat-box reveal rd1">
-        <div class="stat-n">35+</div>
+        <div class="stat-n">31+</div>
         <div class="stat-l">Products Shipped to Production</div>
       </div>
       <div class="stat-box reveal">
@@ -523,8 +872,8 @@ footer a:hover{color:var(--gold);}
         <div class="stat-l">API calls/day at peak scale</div>
       </div>
       <div class="stat-box reveal rd1">
-        <div class="stat-n">6</div>
-        <div class="stat-l">Countries — India, UAE, Maldives, US, Canada</div>
+        <div class="stat-n">5</div>
+        <div class="stat-l">India, UAE, Maldives, USA &amp; Canada</div>
       </div>
     </div>
   </div>
@@ -555,6 +904,22 @@ footer a:hover{color:var(--gold);}
       <div class="faq-item">
         <div class="faq-q">Can you work with teams outside India? <i class="ti ti-plus"></i></div>
         <div class="faq-a">Yes. I've worked remotely with teams across UAE, the US, and other markets. Time zones aren't a barrier for advisory work.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's your experience with GDS integrations specifically? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Full-suite across Amadeus, Sabre, and Travelport/Galileo — search, book, cancel, ticketing, and post-ticketing operations including void, refund, and exchange. Including NDC and airline direct API connectivity. I've dealt with GDS schema changes mid-contract, rate limit renegotiations, and the operational differences between using a GDS as a primary supplier versus as a supplementary feed alongside direct hotel connects.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you handle channel manager and PMS integration complexity? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Channel managers (SiteMinder, Staah, RateGain) and PMS systems (Opera, Cloudbeds) each have their own data models, push/pull availability mechanisms, and rate code structures. The key is normalising at the integration boundary — your CRS or distribution layer should never need to understand each system's quirks directly. I've built this abstraction layer for multi-property hotel groups and hospitality SaaS platforms, and it's what makes adding a fourth or fifth PMS integration take days rather than months.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Post-booking operations are becoming our biggest bottleneck. Where do I start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Map the specific manual steps first. Which operations happen more than 50 times a week and require someone to touch a supplier extranet or send a follow-up email? Prioritise by volume and risk — cancellation confirmations and amendment tracking are usually the highest-ROI automation targets. Most platforms eliminate 60–70% of ops burden from just two or three well-designed automations. The first session is usually enough to identify exactly where the ceiling is.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does a typical engagement run? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">It depends on what you're working through. An architecture review and recommendations engagement is typically 2–4 weeks. Ongoing advisory for a platform in active modernisation or scale-up is more often structured as a 3–6 month retainer with regular working sessions. Some teams need a focused intervention on a specific integration problem — that's often 2–3 weeks. I structure it around what's actually useful, not a fixed package.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
