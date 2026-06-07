@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TravelTech CTO Advisory &amp; Platform Architecture - Sapan Kumar Mohanty</title>
 <meta name="description" content="Book a free strategy session with Sapan Kumar Mohanty - TravelTech CTO with 20+ years in booking engines, OTA/GDS integrations, supplier connectivity, and cloud-native platform modernization for travel and hospitality businesses.">
-<meta name="keywords" content="travel tech CTO, travel technology consultant, OTA integration, GDS integration, booking engine architecture, hotel tech consultant, travel platform modernization, reservation system architecture, hospitality SaaS CTO, travel distribution platform">
+<meta name="keywords" content="travel tech CTO, travel technology consultant, OTA integration, GDS integration, Amadeus integration, Sabre integration, Travelport GDS, booking engine architecture, hotel tech consultant, SiteMinder integration, Cloudbeds PMS, Opera PMS, RateGain channel manager, travel platform modernization, reservation system architecture, hospitality SaaS CTO, travel distribution platform, NDC airline API, B2B travel platform">
 <meta name="author" content="Sapan Kumar Mohanty">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
 <meta name="geo.region" content="IN-KA">
@@ -19,9 +19,14 @@
 <meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sapanmohanty">
 <meta name="twitter:title" content="TravelTech CTO Advisory &amp; Platform Architecture - Sapan Kumar Mohanty">
 <meta name="twitter:description" content="TravelTech CTO with 20+ years in booking engines, OTA/GDS integrations, and cloud-native platform modernization. Book a free strategy session.">
 <meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
 <script type="application/ld+json">
 {
@@ -63,6 +68,19 @@
       "itemListElement": [
         {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
         {"@type": "ListItem", "position": 2, "name": "TravelTech Advisory", "item": "https://startupctopro.in/travel-tech/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What kind of travel platforms have you worked with?", "acceptedAnswer": {"@type": "Answer", "text": "Hotel tech, B2B distribution platforms, OTA/aggregator backends, hospitality SaaS, and travel management systems. Across India, UAE, and with teams building for international markets. Both greenfield builds and modernization of platforms that had been running for 5-10 years."}},
+        {"@type": "Question", "name": "Can you help with a specific integration - OTA, GDS, or supplier?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. If you're dealing with a specific connectivity challenge - unreliable supplier responses, rate/availability sync issues, schema drift, or building a new integration - that's a productive thing to work through together. Bring the specifics."}},
+        {"@type": "Question", "name": "How do you approach modernization for a platform that's still live?", "acceptedAnswer": {"@type": "Answer", "text": "Staged, boundary-first. The approach is to identify the highest-fragility, highest-cost integration points and address those first - running new and old in parallel, validating, then cutting over. No big-bang rewrites for live travel platforms."}},
+        {"@type": "Question", "name": "What's your experience with GDS integrations specifically?", "acceptedAnswer": {"@type": "Answer", "text": "Full-suite across Amadeus, Sabre, and Travelport/Galileo - search, book, cancel, ticketing, and post-ticketing operations including void, refund, and exchange. Including NDC and airline direct API connectivity."}},
+        {"@type": "Question", "name": "How do you handle channel manager and PMS integration complexity?", "acceptedAnswer": {"@type": "Answer", "text": "Channel managers (SiteMinder, Staah, RateGain) and PMS systems (Opera, Cloudbeds) each have their own data models, push/pull availability mechanisms, and rate code structures. The key is normalising at the integration boundary so your CRS or distribution layer never needs to understand each system's quirks directly."}},
+        {"@type": "Question", "name": "Post-booking operations are becoming our biggest bottleneck. Where do I start?", "acceptedAnswer": {"@type": "Answer", "text": "Map the specific manual steps first. Which operations happen more than 50 times a week and require someone to touch a supplier extranet? Prioritise by volume and risk - cancellation confirmations and amendment tracking are usually the highest-ROI automation targets."}},
+        {"@type": "Question", "name": "How long does a typical engagement run?", "acceptedAnswer": {"@type": "Answer", "text": "An architecture review and recommendations engagement is typically 2-4 weeks. Ongoing advisory for a platform in active modernisation is more often structured as a 3-6 month retainer. Some teams need a focused intervention on a specific integration problem - that's often 2-3 weeks."}},
+        {"@type": "Question", "name": "What's the best way to start?", "acceptedAnswer": {"@type": "Answer", "text": "Book a 30-minute session using the calendar. Come with the specific platform challenge or decision you're working through. No slides needed - just the problem."}}
       ]
     }
   ]
