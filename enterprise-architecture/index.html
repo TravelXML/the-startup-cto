@@ -193,6 +193,15 @@ footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
 footer a:hover{color:var(--gold);}
 .footer-copy a{color:var(--gold);}
 
+/* card hover */
+.problem-card,.service-card,.gov-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.gov-card:hover,.ai-card:hover,.audience-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.problem-title,.service-title,.gov-title,.ai-title,.audience-role{transition:color .2s;}
+.problem-desc,.service-desc,.gov-desc,.ai-desc,.audience-desc{transition:color .2s;}
+.problem-card:hover .problem-title{color:var(--gold);}
+.service-card:hover .service-title,.gov-card:hover .gov-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.problem-card:hover .problem-desc,.service-card:hover .service-desc,.gov-card:hover .gov-desc,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc{color:var(--text2);}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}

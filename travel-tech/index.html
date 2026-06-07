@@ -230,6 +230,15 @@ footer a:hover{color:var(--gold);}
 .stack-block{background:var(--dark2);border:0.5px solid var(--border);border-radius:14px;padding:24px 26px;}
 .stack-block-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
 
+/* card hover */
+.problem-card,.service-card,.arch-card,.segment-card,.pattern-card,.ops-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.arch-card:hover,.segment-card:hover,.ops-card:hover,.ai-card:hover,.audience-card:hover,.pattern-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.card-title,.service-title,.arch-card-title,.segment-title,.ops-title,.pattern-title,.ai-title,.audience-role{transition:color .2s;}
+.card-desc,.service-desc,.arch-card-body,.segment-desc,.ops-desc,.pattern-desc,.ai-desc,.audience-desc{transition:color .2s;}
+.problem-card:hover .card-title,.segment-card:hover .segment-title,.ops-card:hover .ops-title{color:var(--gold);}
+.service-card:hover .service-title,.arch-card:hover .arch-card-title,.pattern-card:hover .pattern-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.problem-card:hover .card-desc,.service-card:hover .service-desc,.arch-card:hover .arch-card-body,.segment-card:hover .segment-desc,.ops-card:hover .ops-desc,.pattern-card:hover .pattern-desc,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc{color:var(--text2);}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -262,7 +271,7 @@ footer a:hover{color:var(--gold);}
 <!-- HERO -->
 <div class="hero">
   <div class="hero-tag">TravelTech Leadership &amp; Advisory</div>
-  <h1 class="hero-title">Travel Platform Leadership<br>for Systems That Cannot Afford<em>Fragile Distribution</em></h1>
+  <h1 class="hero-title">Travel Platform Leadership<br>for Systems That Cannot Afford <em>Fragile Distribution</em></h1>
   <p class="hero-sub">Booking engines, supplier connectivity, and cloud-native modernization for travel businesses that need reliable architecture - not just a working prototype.</p>
   <div class="meta-row">
     <span><i class="ti ti-calendar-stats"></i> 20+ Years in TravelTech</span>
