@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TravelTech CTO Advisory &amp; Platform Architecture — Sapan Kumar Mohanty</title>
+<meta name="description" content="Book a free strategy session with Sapan Kumar Mohanty — TravelTech CTO with 20+ years in booking engines, OTA/GDS integrations, supplier connectivity, and cloud-native platform modernization for travel and hospitality businesses.">
+<meta name="keywords" content="travel tech CTO, travel technology consultant, OTA integration, GDS integration, booking engine architecture, hotel tech consultant, travel platform modernization, reservation system architecture, hospitality SaaS CTO, travel distribution platform">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/travel-tech/">
+<meta property="og:title" content="TravelTech CTO Advisory &amp; Platform Architecture — Sapan Kumar Mohanty">
+<meta property="og:description" content="20+ years in booking engines, OTA/GDS integrations, supplier connectivity, and cloud-native modernization for travel and hospitality businesses. Book a free strategy session.">
+<meta property="og:url" content="https://startupctopro.in/travel-tech/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty - CTO &amp; VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="TravelTech CTO Advisory &amp; Platform Architecture — Sapan Kumar Mohanty">
+<meta name="twitter:description" content="TravelTech CTO with 20+ years in booking engines, OTA/GDS integrations, and cloud-native platform modernization. Book a free strategy session.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com",
+        "https://www.amazon.com/stores/Sapan-Kumar-Mohanty/author/B0GYDR1ZL6"
+      ],
+      "knowsAbout": ["TravelTech","Platform Architecture","Booking Engine Design","OTA Integration","GDS Integration","Supplier Connectivity","Cloud-Native Systems","Engineering Leadership","Hotel Tech","Hospitality SaaS"]
+    },
+    {
+      "@type": "Service",
+      "name": "TravelTech Platform Advisory",
+      "description": "TravelTech CTO advisory covering booking engine architecture, OTA/GDS integration, supplier connectivity, hotel distribution, and cloud-native platform modernization for travel and hospitality businesses.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "TravelTech CTO Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/travel-tech/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "TravelTech Advisory", "item": "https://startupctopro.in/travel-tech/"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+
+/* nav */
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* hero */
+.hero{padding:110px 40px 0;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,66px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:620px;margin:0 auto 14px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:40px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+
+/* cta buttons */
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-bottom:60px;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:#07111F;font-size:13px;font-weight:700;padding:13px 26px;border-radius:var(--r);text-decoration:none;letter-spacing:.04em;transition:all .2s;}
+.btn-gold:hover{background:#d9b95e;transform:translateY(-1px);}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--text2);font-size:13px;font-weight:500;padding:12px 24px;border-radius:var(--r);border:0.5px solid var(--border);text-decoration:none;letter-spacing:.03em;transition:all .2s;}
+.btn-outline:hover{border-color:var(--gold-b);color:var(--text);}
+
+/* proof strip */
+.proof-strip{width:100%;background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:32px 40px;margin-top:0;}
+.proof-inner{max-width:1100px;margin:0 auto;display:flex;align-items:stretch;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:14px 24px;display:flex;flex-direction:column;gap:4px;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-big{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--text);line-height:1.1;}
+.proof-small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* body sections */
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+
+/* divider */
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:60px auto 0;}
+
+/* problem / service cards 2-col grid */
+.card-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
+.problem-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);}
+.problem-icon{font-size:20px;color:var(--gold);margin-bottom:10px;}
+.card-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.4;}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* service cards */
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 22px;position:relative;overflow:hidden;}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.4;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* domain blocks */
+.domain-blocks{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.domain-block{background:var(--dark2);border:0.5px solid var(--border);border-radius:14px;padding:24px 26px;}
+.domain-block-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px;}
+.tag-cloud{display:flex;flex-wrap:wrap;gap:8px;}
+.tag{font-size:12px;padding:6px 14px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark3);transition:all .2s;cursor:default;}
+.tag:hover{border-color:var(--gold-b);color:var(--text2);}
+
+/* modernization two-col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:28px;align-items:start;}
+.checklist{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;}
+.checklist li{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:var(--text2);line-height:1.6;font-weight:300;}
+.checklist li i{color:var(--gold);font-size:16px;flex-shrink:0;margin-top:2px;}
+
+/* AI cards */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
+.ai-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* audience cards */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 22px 22px 24px;position:relative;overflow:hidden;}
+.audience-card::before{content:'';position:absolute;top:0;left:0;width:2px;height:100%;background:var(--gold);}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* stats grid */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:24px 22px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:6px;}
+
+/* faq */
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+
+/* final cta band */
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:72px 40px;text-align:center;margin-top:72px;}
+.cta-band-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:700;line-height:1.1;letter-spacing:-.02em;margin-bottom:16px;}
+.cta-band-title em{color:var(--gold);font-style:italic;}
+.cta-band-sub{font-size:15px;color:var(--text2);font-weight:300;line-height:1.8;max-width:520px;margin:0 auto 36px;}
+
+/* footer */
+footer{max-width:900px;margin:0 auto;padding:48px 40px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+
+/* responsive */
+@media(max-width:800px){
+  .card-grid,.service-card-grid,.domain-blocks,.two-col,.ai-grid,.audience-grid,.stats-grid{grid-template-columns:1fr;}
+  .proof-item{min-width:calc(50% - 1px);}
+  .proof-item:nth-child(2n){border-right:none;}
+}
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .hero{padding:100px 20px 0;}
+  .body-wrap{padding:52px 20px 0;}
+  .proof-strip{padding:24px 20px;}
+  .cta-band{padding:52px 20px;}
+  footer{padding:32px 20px;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">TravelTech Leadership &amp; Advisory</div>
+  <h1 class="hero-title">Travel Platform Leadership<br>for Systems That Cannot Afford<em>Fragile Distribution</em></h1>
+  <p class="hero-sub">Booking engines, supplier connectivity, and cloud-native modernization for travel businesses that need reliable architecture — not just a working prototype.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-calendar-stats"></i> 20+ Years in TravelTech</span>
+    <span><i class="ti ti-plug-connected"></i> OTA · GDS · Supplier Systems</span>
+    <span><i class="ti ti-brand-aws"></i> AWS Cloud-Native Architecture</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-gold"><i class="ti ti-calendar-check"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-outline" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Discuss Your Travel Platform</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-inner">
+    <div class="proof-item">
+      <div class="proof-big">20+</div>
+      <div class="proof-small">Technology Leadership</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-big">TravelTech</div>
+      <div class="proof-small">&amp; Hospitality SaaS</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-big">OTA / GDS</div>
+      <div class="proof-small">Supplier Systems</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-big">Booking Engine</div>
+      <div class="proof-small">Architecture</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-big">AWS Cloud-Native</div>
+      <div class="proof-small">Migration</div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-big">B2B &amp; B2C</div>
+      <div class="proof-small">Platform Scale</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: PROBLEM -->
+<div class="body-wrap">
+  <div class="reveal">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-heading">Where Travel Platforms<br>Usually Start <em>Breaking</em></h2>
+    <p class="body-text">Most travel platforms don't fail dramatically. They degrade. Integration reliability drops quietly. Post-booking operations grow manual. Release cycles stretch. By the time the architecture is visibly a problem, the cost of fixing it is much higher than it needed to be.</p>
+    <div class="card-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-plug-connected-x"></i></div>
+        <div class="card-title">Supplier integrations that break without warning</div>
+        <div class="card-desc">GDS and OTA connectivity that works in staging but behaves differently at volume. When a supplier pushes a schema change, you find out from a customer complaint, not a monitor.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-clock-off"></i></div>
+        <div class="card-title">Booking flows that collapse under peak demand</div>
+        <div class="card-desc">A platform designed for 500 daily bookings doesn't scale linearly. At 5,000, queues pile up, timeouts compound, and fixes become progressively manual.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-trending-down"></i></div>
+        <div class="card-title">Pricing and availability that doesn't match reality</div>
+        <div class="card-desc">Rate parity breaks silently. A customer books a room that's already sold. A fare on screen doesn't match what the GDS confirms. These aren't UX issues — they're revenue and trust problems.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-lock"></i></div>
+        <div class="card-title">Legacy monoliths blocking every release</div>
+        <div class="card-desc">One change to the booking engine touches seven other components. Release cycles stretch to weeks. Engineers spend more time on archaeology than on product.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-users-group"></i></div>
+        <div class="card-title">Post-booking operations that depend on people</div>
+        <div class="card-desc">Amendments, cancellations, voucher generation, and supplier confirmations handled through spreadsheets and manual follow-up. It scales until it doesn't.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-eye-off"></i></div>
+        <div class="card-title">No real visibility across third-party systems</div>
+        <div class="card-desc">You know a booking failed. You don't know at which integration layer, which supplier, or how often it happens. Root cause analysis takes days.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-calculator-off"></i></div>
+        <div class="card-title">Reconciliation that never quite closes</div>
+        <div class="card-desc">Commission calculations, net vs gross rate mismatches, and refund tracking that requires hours of manual cross-referencing every week.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-puzzle-off"></i></div>
+        <div class="card-title">New channel onboarding takes months</div>
+        <div class="card-desc">Adding a new OTA or supplier means months of bespoke integration work. Each new connection is another load-bearing custom build with no shared contract.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 2: SERVICES -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Advisory Areas</div>
+    <h2 class="section-heading">What I Help Travel<br>Businesses <em>Solve</em></h2>
+    <div class="card-grid">
+      <div class="service-card reveal">
+        <div class="service-title">Travel Platform Strategy &amp; Architecture</div>
+        <div class="service-desc">From single booking flows to multi-supplier distribution networks — designing the right architecture for your stage, your team, and where you're going.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Booking Engine Design &amp; Modernization</div>
+        <div class="service-desc">Auditing and rearchitecting booking engines that have grown brittle. Separating availability, pricing, and booking concerns properly. Improving reliability and reducing latency.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">OTA, GDS &amp; Supplier Integration Architecture</div>
+        <div class="service-desc">Defining how your platform connects to Amadeus, Sabre, Travelport, Expedia, Booking.com, or direct hotel/airline feeds. Integration patterns that are maintainable, observable, and resilient.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Hotel Distribution Platform Design</div>
+        <div class="service-desc">CRS design, channel manager connectivity, PMS integration, and rate/inventory synchronization architectures for hospitality-focused platforms.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">Legacy-to-Microservices Transformation</div>
+        <div class="service-desc">Staged decomposition of monolithic travel stacks into services that can be deployed, scaled, and failed independently — without disrupting live bookings during the migration.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Scalability, Resilience &amp; Observability</div>
+        <div class="service-desc">Designing for demand peaks, supplier timeouts, and partial failures. Ensuring your platform degrades gracefully and recovers automatically rather than requiring manual intervention.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">API Strategy &amp; Integration Governance</div>
+        <div class="service-desc">Internal API contracts, versioning, throttling, consumer management, and the integration governance that stops every new connection from becoming a unique snowflake.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Engineering Leadership for Travel Teams</div>
+        <div class="service-desc">Working with founders, CTOs, and engineering leads to build the processes, standards, and team structures that allow travel engineering to move fast without breaking distribution.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 3: DOMAIN DEPTH -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Domain Knowledge</div>
+    <h2 class="section-heading">Travel Systems I Understand<br><em>Beyond the Surface</em></h2>
+    <p class="body-text">These aren't topics I've read about. They're systems I've had to make decisions on under delivery pressure, with real booking volumes, real supplier contracts, and real business consequences.</p>
+    <div class="domain-blocks">
+      <div class="domain-block reveal">
+        <div class="domain-block-label">Booking &amp; Distribution</div>
+        <div class="tag-cloud">
+          <span class="tag">Hotel Booking Engines</span>
+          <span class="tag">Flight Booking Systems</span>
+          <span class="tag">Rail &amp; Coach Booking</span>
+          <span class="tag">Car Rental Platforms</span>
+          <span class="tag">Sightseeing &amp; Activities</span>
+          <span class="tag">Cruise &amp; Liveaboard Systems</span>
+          <span class="tag">B2B Agent Portals</span>
+          <span class="tag">B2C Consumer Journeys</span>
+        </div>
+      </div>
+      <div class="domain-block reveal rd1">
+        <div class="domain-block-label">Supplier Connectivity</div>
+        <div class="tag-cloud">
+          <span class="tag">GDS (Amadeus, Sabre, Travelport)</span>
+          <span class="tag">Channel Managers</span>
+          <span class="tag">OTA APIs (Booking.com, Expedia, Agoda)</span>
+          <span class="tag">Direct Hotel Connects</span>
+          <span class="tag">Airline NDC / XML Feeds</span>
+          <span class="tag">Aggregator Platforms</span>
+        </div>
+      </div>
+      <div class="domain-block reveal">
+        <div class="domain-block-label">Platform Systems</div>
+        <div class="tag-cloud">
+          <span class="tag">CRS (Central Reservation Systems)</span>
+          <span class="tag">PMS Integrations (Opera, Cloudbeds)</span>
+          <span class="tag">Inventory &amp; Rate Management</span>
+          <span class="tag">Availability Synchronization</span>
+          <span class="tag">Dynamic Pricing Engines</span>
+        </div>
+      </div>
+      <div class="domain-block reveal rd1">
+        <div class="domain-block-label">Operations &amp; Finance</div>
+        <div class="tag-cloud">
+          <span class="tag">Post-Booking Workflows</span>
+          <span class="tag">Amendment &amp; Cancellation Flows</span>
+          <span class="tag">Voucher &amp; Confirmation Systems</span>
+          <span class="tag">Reconciliation &amp; Commission Tracking</span>
+          <span class="tag">Supplier Invoicing</span>
+          <span class="tag">Finance Integration</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 4: MODERNIZATION -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Modernization</div>
+    <h2 class="section-heading">Modernising Travel Platforms<br>Without Disrupting <em>Revenue</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">The core challenge in travel platform modernization isn't the rewrite — it's migrating while continuing to process bookings. Most travel teams don't have the luxury of a clean break.</p>
+        <p class="body-text" style="margin-top:16px;">My approach starts at the boundaries. Identify which integration points are the most fragile, the most expensive to maintain, or the biggest blockers to product velocity. Decompose those first. Build the new service alongside the old one, validate, then cut over.</p>
+        <p class="body-text" style="margin-top:16px;">The goal isn't microservices for their own sake. It's a platform your team can deploy independently, monitor clearly, and extend without fear.</p>
+      </div>
+      <div>
+        <ul class="checklist">
+          <li><i class="ti ti-check"></i> Supplier integrations become independently deployable</li>
+          <li><i class="ti ti-check"></i> New channel onboarding drops from months to weeks</li>
+          <li><i class="ti ti-check"></i> Availability, pricing, and booking are properly separated</li>
+          <li><i class="ti ti-check"></i> Release cycles shorten because changes are scoped</li>
+          <li><i class="ti ti-check"></i> Incidents become faster to diagnose and isolate</li>
+          <li><i class="ti ti-check"></i> Platform handles demand spikes without manual intervention</li>
+          <li><i class="ti ti-check"></i> Engineering team spends time on product, not on archaeology</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 5: AI -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Practical AI</div>
+    <h2 class="section-heading">Where AI Actually Helps<br><em>Travel Platforms</em></h2>
+    <p class="body-text">I'm selective about AI recommendations in travel. There are a few places where the fit is genuine — where LLM capabilities match a real operational cost. These are them.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-title">Customer Support Copilot</div>
+        <div class="ai-desc">Handling amendment, cancellation, and itinerary queries without routing everything to a human agent. RAG-based, grounded in your own booking and policy data — not hallucinating supplier policies.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-title">Internal Operations Assistant</div>
+        <div class="ai-desc">Ops teams querying booking status, supplier confirmations, and reconciliation exceptions using natural language — rather than running manual reports across disconnected systems.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-title">Booking Abandonment Intelligence</div>
+        <div class="ai-desc">Using behavioural signals and booking context to surface relevant suggestions. Grounded in what the user actually searched, not generic recommendation logic.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-title">Content &amp; Catalog Enrichment</div>
+        <div class="ai-desc">Automating hotel content normalization, policy extraction, and destination descriptions using LLM workflows — reducing the manual cost of maintaining content at scale.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-title">Supplier Anomaly Detection</div>
+        <div class="ai-desc">Identifying patterns in supplier API behaviour, pricing drift, and availability discrepancies before they affect customer bookings. Useful where monitoring alone doesn't catch drift.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 6: WHO IT'S FOR -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The Businesses That<br>Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-role">Travel Founders &amp; CEOs</div>
+        <div class="audience-desc">Your platform works at current scale. But growth is exposing the cracks — in booking reliability, supplier stability, or post-trip operations. You need a technical perspective that understands the business constraints too.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-role">Hotel Tech &amp; Hospitality SaaS Companies</div>
+        <div class="audience-desc">Distribution architecture, PMS connectivity, channel management, and the operational systems that keep occupancy and revenue data consistent. I know these systems from working inside them.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-role">OTA / Aggregator / B2B Distribution Platforms</div>
+        <div class="audience-desc">Complex supplier networks, high search-to-book ratios, pricing accuracy under load, and integration contracts that need to be sustainable. These are the problems I've worked through.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-role">Teams Modernizing Legacy Travel Stacks</div>
+        <div class="audience-desc">A platform built 8–10 years ago that's now holding back product velocity and scaling confidence. You need a plan that doesn't require stopping the business to execute.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 7: OPERATOR CREDIBILITY -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">Operator,<br><em>Not Observer</em></h2>
+    <p class="body-text">I've built and led travel technology from the inside — not by advising from a distance. I know what it takes to maintain supplier connections that behave differently every quarter, what happens when a GDS pushes a breaking change on a Friday afternoon, and why reconciliation complexity compounds faster than most teams anticipate.</p>
+    <p class="body-text" style="margin-top:16px;">The decisions I help teams make aren't theoretical. They're about what to build now, what to defer, what to buy, and what to stop maintaining. That judgment comes from having sat with these exact trade-offs under real delivery pressure, across TravelTech, Hospitality SaaS, and distribution platforms across India, UAE, and international markets.</p>
+    <div class="stats-grid">
+      <div class="stat-box reveal">
+        <div class="stat-n">20+</div>
+        <div class="stat-l">Years in Technology Leadership</div>
+      </div>
+      <div class="stat-box reveal rd1">
+        <div class="stat-n">35+</div>
+        <div class="stat-l">Products Shipped to Production</div>
+      </div>
+      <div class="stat-box reveal">
+        <div class="stat-n">35M+</div>
+        <div class="stat-l">API calls/day at peak scale</div>
+      </div>
+      <div class="stat-box reveal rd1">
+        <div class="stat-n">6</div>
+        <div class="stat-l">Countries — India, UAE, Maldives, US, Canada</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION 8: FAQ -->
+  <div style="padding-top:60px;padding-bottom:20px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">What kind of travel platforms have you worked with? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Hotel tech, B2B distribution platforms, OTA/aggregator backends, hospitality SaaS, and travel management systems. Across India, UAE, and with teams building for international markets. Both greenfield builds and modernization of platforms that had been running for 5–10 years.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you help with a specific integration — OTA, GDS, or supplier? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. If you're dealing with a specific connectivity challenge — unreliable supplier responses, rate/availability sync issues, schema drift, or building a new integration — that's a productive thing to work through together. Bring the specifics.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work hands-on or purely as an advisor? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Both, depending on what's most useful. For some teams I review architecture and provide directional guidance. For others, I'm more actively involved in design decisions, technical standards, and helping engineering leads navigate the execution.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you approach modernization for a platform that's still live? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Staged, boundary-first. I don't recommend big-bang rewrites for live travel platforms. The approach is to identify the highest-fragility, highest-cost integration points and address those first — running new and old in parallel, validating, then cutting over.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you work with teams outside India? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. I've worked remotely with teams across UAE, the US, and other markets. Time zones aren't a barrier for advisory work.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Book a 30-minute session using the calendar. Come with the specific platform challenge or decision you're working through. No slides needed — just the problem.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- FINAL CTA BAND -->
+<div class="cta-band">
+  <h2 class="cta-band-title">Ready to Talk Through Your<br>Travel Platform? <em>Let's Go.</em></h2>
+  <p class="cta-band-sub">30 minutes. No pitch. Just a direct conversation about your platform, your constraints, and what's actually worth doing.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-gold"><i class="ti ti-calendar-check"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-outline" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Message on WhatsApp</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:20px;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+// Reveal on scroll
+var ro=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+// FAQ accordion
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.closest('.faq-item');
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

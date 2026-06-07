@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RetailTech CTO Advisory & Commerce Platform Architecture — Sapan Kumar Mohanty</title>
+<meta name="description" content="Book a free strategy session with Sapan Kumar Mohanty — RetailTech CTO with 20+ years in omni-channel commerce, marketplace integrations, OMS, ERP/SAP connectivity, and cloud-native platform modernization for retail and commerce businesses.">
+<meta name="keywords" content="retail tech CTO, retail technology consultant, omni-channel commerce architecture, marketplace integration consultant, OMS architecture, inventory synchronization platform, ERP integration retail, SAP retail integration, ecommerce platform modernization, retail platform consultant">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/retail-tech/">
+<meta property="og:title" content="RetailTech CTO Advisory & Commerce Platform Architecture — Sapan Kumar Mohanty">
+<meta property="og:description" content="Free 30-minute strategy session with a RetailTech CTO who has built and scaled omni-channel commerce platforms, marketplace integrations, OMS, and ERP/logistics systems across high-transaction environments.">
+<meta property="og:url" content="https://startupctopro.in/retail-tech/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty — CTO & VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RetailTech CTO Advisory — Sapan Kumar Mohanty">
+<meta name="twitter:description" content="Free 30-minute strategy session. Omni-channel commerce, marketplace integrations, OMS, ERP/SAP connectivity. 20+ years, 6 countries.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com",
+        "https://www.amazon.com/stores/Sapan-Kumar-Mohanty/author/B0GYDR1ZL6"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "RetailTech Platform Advisory",
+      "description": "Free 30-minute strategy session covering omni-channel commerce architecture, marketplace integrations, OMS, ERP/SAP connectivity, and platform modernization for retail and commerce businesses.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "RetailTech CTO Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/retail-tech/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "RetailTech Advisory", "item": "https://startupctopro.in/retail-tech/"}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+
+/* nav */
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* hero */
+.hero{padding:120px 40px 64px;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 22px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:36px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:var(--dark);font-size:13px;font-weight:700;text-decoration:none;border-radius:var(--r);transition:opacity .2s;letter-spacing:.02em;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--gold-b);color:var(--gold);font-size:13px;font-weight:500;text-decoration:none;border-radius:var(--r);transition:all .2s;}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+
+/* proof strip */
+.proof-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:18px 16px;text-align:center;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;line-height:1.1;}
+.proof-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px;}
+
+/* body */
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:64px auto 0;}
+
+/* problem grid */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.problem-icon{font-size:18px;color:var(--gold);margin-bottom:9px;}
+.problem-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;line-height:1.35;}
+.problem-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* service grid */
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-top:2px solid var(--teal);border-radius:0 0 12px 12px;padding:20px 18px;}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;line-height:1.35;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* domain */
+.domain-section{margin-top:28px;}
+.domain-cat{margin-bottom:20px;}
+.domain-cat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.domain-tag{font-size:12px;padding:5px 13px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark2);transition:border-color .2s;}
+.domain-tag:hover{border-color:var(--gold-b);color:var(--text2);}
+
+/* two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start;}
+.check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.check-list li i{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:2px;}
+
+/* ai cards */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* audience */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;line-height:1.35;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* stats */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+
+/* faq */
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+
+/* cta band */
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 40px;text-align:center;margin-top:80px;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:16px;}
+.cta-band h2 em{color:var(--gold);font-style:italic;}
+.cta-band p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 32px;font-weight:300;line-height:1.8;}
+
+/* footer */
+footer{max-width:900px;margin:0 auto;padding:44px 40px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+
+/* responsive */
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .hero{padding:100px 20px 48px;}
+  .body-wrap{padding:52px 20px 0;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col{grid-template-columns:1fr;}
+  .proof-item{min-width:45%;}
+  .cta-band{padding:56px 20px;}
+  footer{padding:32px 20px;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">RetailTech Leadership &amp; Advisory</div>
+  <h1 class="hero-title">Commerce Platform Leadership<br>for Retail Businesses That Need to<br><em>Scale Without Chaos</em></h1>
+  <p class="hero-sub">Omni-channel architecture, marketplace integrations, and order orchestration for commerce teams that can't afford systems that fall apart under growth.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-building-store"></i> 20+ Years in RetailTech</span>
+    <span><i class="ti ti-refresh"></i> OMS · ERP · Marketplace Systems</span>
+    <span><i class="ti ti-cloud"></i> AWS Cloud-Native Architecture</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Talk About Your Commerce Stack</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-n">20+</span><span class="proof-l">Technology Leadership</span></div>
+  <div class="proof-item"><span class="proof-n">RetailTech</span><span class="proof-l">&amp; Omni-Channel Commerce</span></div>
+  <div class="proof-item"><span class="proof-n">Marketplace</span><span class="proof-l">&amp; ERP Integrations</span></div>
+  <div class="proof-item"><span class="proof-n">Order Mgmt</span><span class="proof-l">&amp; Orchestration</span></div>
+  <div class="proof-item"><span class="proof-n">AWS</span><span class="proof-l">Cloud-Native Migration</span></div>
+  <div class="proof-item"><span class="proof-n">High-TXN</span><span class="proof-l">Commerce Platforms</span></div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- Problems -->
+  <div class="reveal">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-heading">What Breaks First<br>in <em>Retail Tech</em></h2>
+    <p class="body-text">Most retail and commerce platforms don't fail in a single moment. They accumulate fragility. Inventory drifts. Order statuses go stale. Integrations become brittle. By the time it's visible as a business problem, the architectural debt has been building for years.</p>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-package-off"></i></div>
+        <div class="problem-title">Inventory mismatch across channels</div>
+        <div class="problem-desc">What's in the warehouse doesn't match what's on Flipkart, Amazon, or your own site. Oversells happen. Cancellations spike. Ops teams spend half their week reconciling what should be automated.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-list-details"></i></div>
+        <div class="problem-title">Order lifecycle fragmentation</div>
+        <div class="problem-desc">Orders pass through five systems — OMS, ERP, warehouse, courier, returns — each with its own version of the truth. A customer asks where their order is. No one has a clean answer.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-plug-x"></i></div>
+        <div class="problem-title">Brittle marketplace integrations</div>
+        <div class="problem-desc">Amazon, Flipkart, Meesho connectivity built quickly and never properly maintained. Each marketplace update requires a manual fix. There's no abstraction layer — just bespoke code per channel.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-database-off"></i></div>
+        <div class="problem-title">ERP and POS sync that's always slightly wrong</div>
+        <div class="problem-desc">SAP or another ERP is the system of record, but the data is always a few hours behind. POS transactions take too long to reflect. Finance closes the books against numbers that don't reconcile.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-credit-card-off"></i></div>
+        <div class="problem-title">Payment and checkout complexity</div>
+        <div class="problem-desc">Multiple payment gateways, regional configurations, refund workflows, and reconciliation that doesn't tie back to orders cleanly. Every payment provider behaves differently under failure.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-eye-off"></i></div>
+        <div class="problem-title">No visibility into fulfilment</div>
+        <div class="problem-desc">You don't know what percentage of orders are on time, what's stuck at which courier, or where the bottleneck is in the warehouse pick-pack-ship cycle — until a customer complaint makes it visible.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-calculator-off"></i></div>
+        <div class="problem-title">Reconciliation issues that compound</div>
+        <div class="problem-desc">Revenue in the payment gateway doesn't match orders in the OMS, doesn't match invoices in the ERP. Someone manually bridges the gap every week. As volume grows, so does the discrepancy.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-rocket-off"></i></div>
+        <div class="problem-title">Sale-period scaling failures</div>
+        <div class="problem-desc">The platform handles normal traffic fine. A flash sale or campaign at 10x normal volume causes API timeouts, checkout failures, and inventory inconsistencies that take days to untangle.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Services -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Advisory Areas</div>
+    <h2 class="section-heading">What I Help Retail<br>Businesses <em>Solve</em></h2>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-title">Omni-Channel Commerce Architecture</div>
+        <div class="service-desc">Designing the data flows, system boundaries, and integration patterns that let retail platforms operate consistently across physical stores, digital channels, and marketplace ecosystems.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Marketplace Integration Strategy</div>
+        <div class="service-desc">Building maintainable, resilient connectivity to Amazon, Flipkart, Meesho, Nykaa, and other marketplace ecosystems — with a proper abstraction layer, not one-off connectors per channel.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">Order Management & Orchestration</div>
+        <div class="service-desc">OMS design, order lifecycle state management, fulfilment routing, and the integration contracts that keep orders moving cleanly from placement through delivery and returns.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Real-Time Inventory Synchronization</div>
+        <div class="service-desc">Architecture for keeping inventory accurate across warehouses, channels, and third-party logistics partners — without oversells, ghost inventory, or reconciliation backlogs compounding daily.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">ERP / SAP / POS / Payment / Logistics Integration</div>
+        <div class="service-desc">Defining how your commerce platform connects to back-office systems. Integration patterns that are stable, auditable, and survivable when individual downstream systems have downtime.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Platform Modernization & Microservices</div>
+        <div class="service-desc">Staged decomposition of monolithic retail or commerce platforms into independently deployable services — without disrupting ongoing operations or the delivery schedules sale seasons impose.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-title">Analytics & Operational Visibility</div>
+        <div class="service-desc">Building the data layers, event pipelines, and operational dashboards that give commerce teams real-time visibility into what's actually happening across orders, inventory, and fulfilment.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-title">Engineering Leadership & Delivery Governance</div>
+        <div class="service-desc">Working with founders, CTOs, and engineering leads to build the standards, team structures, and delivery processes that allow commerce engineering to move fast without breaking operations.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Domain depth -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Domain Knowledge</div>
+    <h2 class="section-heading">Retail Workflows &amp; Platforms<br>I <em>Understand</em></h2>
+    <p class="body-text">Commerce complexity doesn't live in any one system. It lives in the gaps — between the OMS and the ERP, between the inventory system and the marketplace feed, between what the payment gateway recorded and what finance can close against.</p>
+    <div class="domain-section">
+      <div class="domain-cat">
+        <div class="domain-cat-label">Commerce &amp; Channels</div>
+        <div class="domain-tags">
+          <span class="domain-tag">B2B Commerce Platforms</span><span class="domain-tag">B2C Ecommerce</span><span class="domain-tag">D2C Brand Platforms</span><span class="domain-tag">Omni-Channel Retail</span><span class="domain-tag">Quick Commerce</span><span class="domain-tag">Subscription Commerce</span><span class="domain-tag">Marketplace Seller Platforms</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Marketplace &amp; Integrations</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Amazon Seller / Vendor</span><span class="domain-tag">Flipkart Integration</span><span class="domain-tag">Meesho / Nykaa / Myntra APIs</span><span class="domain-tag">Custom Marketplace Connectors</span><span class="domain-tag">Marketplace Feed Management</span><span class="domain-tag">Multi-Marketplace Sync</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Back-Office Systems</div>
+        <div class="domain-tags">
+          <span class="domain-tag">OMS (Order Management)</span><span class="domain-tag">ERP / SAP Integration</span><span class="domain-tag">POS Connectivity</span><span class="domain-tag">WMS (Warehouse Management)</span><span class="domain-tag">3PL / Logistics APIs</span><span class="domain-tag">Payment Gateways</span><span class="domain-tag">Returns &amp; RMA Workflows</span>
+        </div>
+      </div>
+      <div class="domain-cat" style="margin-bottom:0;">
+        <div class="domain-cat-label">Operations &amp; Analytics</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Inventory Reconciliation</span><span class="domain-tag">Order Lifecycle Tracking</span><span class="domain-tag">Fulfilment Analytics</span><span class="domain-tag">Revenue Reconciliation</span><span class="domain-tag">Courier Performance</span><span class="domain-tag">Operational Dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Modernization -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Modernization</div>
+    <h2 class="section-heading">Modernising Retail Platforms<br>Without Disrupting <em>Operations</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">Retail and commerce platforms rarely have the luxury of going offline to modernize. Sale seasons are always coming. Integrations are always live. Teams are always on-call.</p>
+        <p class="body-text" style="margin-top:14px;">The approach I use is bounded and staged. Identify which parts of the platform create the most operational risk or block the most product velocity. Modernize those first, in parallel with what's running. Validate, then cut over.</p>
+        <p class="body-text" style="margin-top:14px;">The goal isn't architectural purity. It's a platform your operations team can trust, your engineering team can deploy reliably, and your business can scale on without operational chaos amplifying with every order of magnitude of growth.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li><i class="ti ti-check"></i>Marketplace integrations become maintainable and testable</li>
+          <li><i class="ti ti-check"></i>Inventory stays accurate across channels without manual correction</li>
+          <li><i class="ti ti-check"></i>Order status becomes a single source of truth, not a team consensus</li>
+          <li><i class="ti ti-check"></i>New channel onboarding takes weeks, not months</li>
+          <li><i class="ti ti-check"></i>Sale-period scaling is designed for, not discovered during</li>
+          <li><i class="ti ti-check"></i>Finance reconciliation moves from weekly firefighting to automated verification</li>
+          <li><i class="ti ti-check"></i>Engineering teams ship features instead of maintaining connectors</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Practical AI</div>
+    <h2 class="section-heading">Where AI Helps<br><em>Retail Operations</em></h2>
+    <p class="body-text">The retail use cases where AI genuinely earns its place are operational — not cosmetic. These are the ones worth looking at seriously, grounded in what commerce platforms can actually support today.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-title">Customer Support Automation</div>
+        <div class="ai-desc">Handling order status queries, return and exchange requests, and delivery exception questions without routing everything to a human agent. Grounded in your actual order data, not generic responses.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-title">Internal Operations Copilot</div>
+        <div class="ai-desc">Operations teams querying inventory levels, order statuses, and fulfilment exceptions using natural language — rather than pulling reports from five different systems at once.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-title">Catalog Enrichment Workflows</div>
+        <div class="ai-desc">Using LLM workflows to normalize product descriptions, extract attributes, generate marketplace-ready content, and maintain catalog quality at scale — reducing manual effort significantly.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-title">Anomaly Detection in Operations</div>
+        <div class="ai-desc">Identifying unusual patterns in inventory movements, order failures, courier performance, and payment discrepancies before they become business-impacting problems that surface as customer complaints.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-title">Demand & Operational Intelligence</div>
+        <div class="ai-desc">Surfacing signals across sales, inventory, and fulfilment data to help operations teams make faster decisions — without requiring a full data science function to maintain.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Who it's for -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The Businesses That<br>Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-role">Retail Founders &amp; CEOs</div>
+        <div class="audience-desc">Your commerce platform works — until it doesn't. During a sale, during rapid growth, or when you add a new channel and everything starts breaking at the edges. You need someone who understands the system coordination problem, not just the frontend.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-role">Ecommerce &amp; D2C Leaders</div>
+        <div class="audience-desc">Scaling D2C across channels means dealing with marketplace feeds, inventory sync, logistics APIs, and customer experience consistency simultaneously. These are coordination and architecture problems before they're operational ones.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-role">Commerce SaaS Companies</div>
+        <div class="audience-desc">Building a platform that retail businesses rely on means your architecture is their architecture. Platform stability, multi-tenant design, integration reliability, and API governance all need to be right before you can grow sustainably.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-role">Teams Modernizing Legacy Retail Stacks</div>
+        <div class="audience-desc">A monolithic platform built for 100 orders a day is now processing 10,000 — and it shows. You need a migration plan that doesn't require taking the platform offline or rebuilding everything from scratch.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Credibility -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">I Understand Retail Complexity<br><em>Beyond the Storefront</em></h2>
+    <p class="body-text">The retail challenge most people underestimate is system coordination. Revenue reliability depends on inventory staying accurate, orders moving cleanly through fulfilment, payments reconciling correctly, and integrations holding up when individual systems have downtime. Each one of those is an architecture problem before it's an operations problem.</p>
+    <p class="body-text" style="margin-top:14px;">I've worked inside commerce platforms at the point where these coordination problems become business-critical. The decisions I help teams make are grounded in having navigated that complexity — not in theory about how distributed commerce should work.</p>
+    <div class="stats-grid">
+      <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years in Technology Leadership</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">35+</div><div class="stat-l">Products Shipped to Production</div></div>
+      <div class="stat-box reveal"><div class="stat-n">35M+</div><div class="stat-l">API calls/day at peak scale</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">6</div><div class="stat-l">Countries — India, UAE, Maldives, US, Canada</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <div style="padding-top:64px;padding-bottom:20px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">What kind of retail and commerce platforms have you worked with? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">B2B and B2C commerce platforms, D2C brand stacks, marketplace seller platforms, omni-channel retail systems, and commerce SaaS products. Across India and with teams building for international markets, including high-transaction environments during sale periods.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you help with a specific integration — marketplace, ERP, or logistics? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. If you're dealing with a specific connectivity challenge — unreliable marketplace feeds, ERP sync issues, logistics API failures, or building a new integration cleanly — that's a productive thing to work through. Bring the specifics and we can get into it immediately.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do you work on the architecture side or the delivery side? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Both. For some teams I provide architecture guidance and directional input. For others I'm more actively involved in defining integration contracts, technical standards, and helping engineering leads navigate delivery decisions under pressure.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">We're mid-way through a modernization that's gone sideways. Can you help? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. This is actually a common entry point. If a migration is behind schedule or producing more fragility than it's removing, an independent read on what went wrong and what the realistic path forward is can be very useful — and faster to act on than a full restart.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you work with teams outside India? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. I've worked with teams remotely across UAE, the US, and other markets. Commerce architecture conversations work well in structured sessions and asynchronous communication across time zones.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Book a 30-minute session using the calendar on the strategy page. Come with one specific platform challenge — inventory sync, marketplace reliability, ERP integration, order management. The more specific the problem, the more useful the conversation.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Talk Through Your<br>Commerce Platform? <em>Let's Go.</em></h2>
+  <p>30 minutes. No pitch. A direct conversation about your platform, your constraints, and what's actually worth doing.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Message on WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+var ro=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.closest('.faq-item');
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
