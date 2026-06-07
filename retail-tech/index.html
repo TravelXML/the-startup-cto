@@ -20,7 +20,7 @@
 <meta property="og:locale" content="en_IN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="RetailTech CTO Advisory — Sapan Kumar Mohanty">
-<meta name="twitter:description" content="Free 30-minute strategy session. Omni-channel commerce, marketplace integrations, OMS, ERP/SAP connectivity. 20+ years, 6 countries.">
+<meta name="twitter:description" content="Free 30-minute strategy session. Omni-channel commerce, marketplace integrations, POS, courier aggregators, OMS, ERP/SAP. 20+ years across India &amp; international markets.">
 <meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
 <script type="application/ld+json">
@@ -186,6 +186,31 @@ footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
 footer a:hover{color:var(--gold);}
 .footer-copy a{color:var(--gold);}
 
+/* named integration cards (marketplace / POS / courier with brand chips) */
+.named-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.named-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden;}
+.named-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.named-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;}
+.named-brands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.named-brand{font-size:11px;padding:3px 10px;border:0.5px solid var(--gold-b);border-radius:100px;color:var(--gold);font-weight:500;}
+.named-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
+/* OMS flow cards */
+.oms-flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.oms-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px 20px 20px;position:relative;overflow:hidden;}
+.oms-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.oms-step{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);opacity:.4;margin-bottom:6px;line-height:1;}
+.oms-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.oms-body{font-size:12px;color:var(--muted);line-height:1.7;}
+
+/* courier/logistics cards */
+.courier-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.courier-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden;}
+.courier-card::before{content:'';position:absolute;bottom:0;left:0;width:100%;height:2px;background:var(--teal);}
+.courier-icon{font-size:18px;color:var(--teal);margin-bottom:8px;}
+.courier-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:7px;}
+.courier-desc{font-size:12px;color:var(--muted);line-height:1.65;}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -196,7 +221,7 @@ footer a:hover{color:var(--gold);}
   nav{padding:12px 20px;}
   .hero{padding:100px 20px 48px;}
   .body-wrap{padding:52px 20px 0;}
-  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col{grid-template-columns:1fr;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.named-grid,.oms-flow,.courier-grid{grid-template-columns:1fr;}
   .proof-item{min-width:45%;}
   .cta-band{padding:56px 20px;}
   footer{padding:32px 20px;flex-direction:column;text-align:center;}
@@ -285,6 +310,21 @@ footer a:hover{color:var(--gold);}
         <div class="problem-title">Sale-period scaling failures</div>
         <div class="problem-desc">The platform handles normal traffic fine. A flash sale or campaign at 10x normal volume causes API timeouts, checkout failures, and inventory inconsistencies that take days to untangle.</div>
       </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-truck-off"></i></div>
+        <div class="problem-title">Courier performance you can't see until it's a complaint</div>
+        <div class="problem-desc">SLA breaches, NDR spikes, and RTO (Return to Origin) rates climbing without anyone noticing until the customer NPS drops. Courier data lives in five different portals and nobody aggregates it until something goes wrong.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-device-desktop-off"></i></div>
+        <div class="problem-title">POS data that never reaches the commerce platform</div>
+        <div class="problem-desc">In-store transactions processed on Pine Labs or Mswipe terminals that don't sync reliably to the ERP or OMS. Omni-channel reports are always slightly wrong because offline sales are still partially manual.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-arrow-back-up"></i></div>
+        <div class="problem-title">Returns workflows handled outside the system</div>
+        <div class="problem-desc">Return requests raised on Flipkart or Meesho trigger manual ops work. Refunds processed in the gateway, not reflected in the OMS. Returned stock re-enters the warehouse but the inventory system doesn't know until someone physically counts it.</div>
+      </div>
     </div>
   </div>
 
@@ -332,6 +372,48 @@ footer a:hover{color:var(--gold);}
 
   <div class="divider"></div>
 
+  <!-- OMS ARCHITECTURE -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Order Management Architecture</div>
+    <h2 class="section-heading">Inside an OMS That Handles<br>Scale Without <em>Breaking</em></h2>
+    <p class="body-text">Order management is the operational backbone of any commerce platform. When it's done well, orders flow invisibly from placement to delivery. When it's done poorly, every new channel, new courier, or new sale season creates a new category of manual intervention.</p>
+    <p class="body-text" style="margin-top:14px;">The root cause is almost always the same: orders are a data record when they need to be a state machine. Here's what a properly architected OMS looks like at each stage.</p>
+    <div class="oms-flow">
+      <div class="oms-card reveal">
+        <div class="oms-step">01</div>
+        <div class="oms-title">Order Ingestion &amp; Normalisation</div>
+        <div class="oms-body">Orders arrive from your own site, Amazon, Flipkart, Meesho, Myntra, and physical POS — each with a different schema and fulfilment SLA. Normalisation at ingestion converts every channel's order format into a single internal order model before any downstream process touches it. Downstream systems never parse channel-specific formats.</div>
+      </div>
+      <div class="oms-card reveal rd1">
+        <div class="oms-step">02</div>
+        <div class="oms-title">Inventory Reservation &amp; Allocation</div>
+        <div class="oms-body">The moment an order is accepted, inventory must be reserved against the right warehouse or fulfilment location. Soft reservation during checkout, hard allocation at confirmation. Multi-warehouse allocation logic, safety stock buffers, and priority rules for same-day vs standard delivery all live here — not scattered across the ERP and warehouse system.</div>
+      </div>
+      <div class="oms-card reveal">
+        <div class="oms-step">03</div>
+        <div class="oms-title">Courier Selection &amp; Dispatch</div>
+        <div class="oms-body">Courier selection logic — based on pincode serviceability, delivery SLA, weight/volume, cost, and real-time courier performance — should run automatically. Shiprocket, Delhivery, Bluedart, Ecom Express, XpressBees, and Shadowfax all have different pincode coverage and failure rates. The OMS picks the right one; ops teams shouldn't be making that call per order.</div>
+      </div>
+      <div class="oms-card reveal rd1">
+        <div class="oms-step">04</div>
+        <div class="oms-title">Tracking &amp; Status Updates</div>
+        <div class="oms-body">Tracking events from couriers need to flow back into your system in near-real-time, update order status, and trigger customer communications — not sit in a portal nobody checks until a complaint arrives. When a courier marks a delivery as failed (NDR), the OMS should immediately trigger the retry or RTO workflow, not wait for an ops agent to notice it the next morning.</div>
+      </div>
+      <div class="oms-card reveal">
+        <div class="oms-step">05</div>
+        <div class="oms-title">Returns &amp; RMA Orchestration</div>
+        <div class="oms-body">A return request on Flipkart or Meesho triggers a chain: reverse pickup scheduled, item quality check at warehouse, inventory re-entry or disposal decision, refund initiation, and finance reconciliation. Each of those steps needs to be automated and auditable. When returns are handled ad hoc, the gap between what customers expect and what ops delivers grows with every sale season.</div>
+      </div>
+      <div class="oms-card reveal rd1">
+        <div class="oms-step">06</div>
+        <div class="oms-title">Reconciliation &amp; Finance Sync</div>
+        <div class="oms-body">Every marketplace pays out on a cycle, deducting returns, commissions, and penalties. Every courier charges on actuals that differ from estimates. Reconciling what you should have received against what actually landed in your account — per channel, per courier, per SKU — is a weekly finance task that should be automated, not the reason two people spend three days closing the month.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- Domain depth -->
   <div style="padding-top:64px;" class="reveal">
     <div class="section-label">Domain Knowledge</div>
@@ -341,26 +423,177 @@ footer a:hover{color:var(--gold);}
       <div class="domain-cat">
         <div class="domain-cat-label">Commerce &amp; Channels</div>
         <div class="domain-tags">
-          <span class="domain-tag">B2B Commerce Platforms</span><span class="domain-tag">B2C Ecommerce</span><span class="domain-tag">D2C Brand Platforms</span><span class="domain-tag">Omni-Channel Retail</span><span class="domain-tag">Quick Commerce</span><span class="domain-tag">Subscription Commerce</span><span class="domain-tag">Marketplace Seller Platforms</span>
+          <span class="domain-tag">B2B Commerce Platforms</span><span class="domain-tag">B2C Ecommerce</span><span class="domain-tag">D2C Brand Platforms</span><span class="domain-tag">Omni-Channel Retail</span><span class="domain-tag">Quick Commerce</span><span class="domain-tag">Subscription Commerce</span><span class="domain-tag">Marketplace Seller Platforms</span><span class="domain-tag">Headless Commerce</span>
         </div>
       </div>
       <div class="domain-cat">
-        <div class="domain-cat-label">Marketplace &amp; Integrations</div>
+        <div class="domain-cat-label">Marketplaces (India &amp; International)</div>
         <div class="domain-tags">
-          <span class="domain-tag">Amazon Seller / Vendor</span><span class="domain-tag">Flipkart Integration</span><span class="domain-tag">Meesho / Nykaa / Myntra APIs</span><span class="domain-tag">Custom Marketplace Connectors</span><span class="domain-tag">Marketplace Feed Management</span><span class="domain-tag">Multi-Marketplace Sync</span>
+          <span class="domain-tag">Amazon Seller Central</span><span class="domain-tag">Amazon Vendor Central</span><span class="domain-tag">Amazon SP-API / MWS</span><span class="domain-tag">Flipkart Seller Hub</span><span class="domain-tag">Flipkart Quick Commerce</span><span class="domain-tag">Meesho Supplier API</span><span class="domain-tag">Myntra Partner</span><span class="domain-tag">Nykaa Seller</span><span class="domain-tag">Tata CLiQ</span><span class="domain-tag">JioMart</span><span class="domain-tag">Reliance Digital</span><span class="domain-tag">Snapdeal</span><span class="domain-tag">IndiaMart (B2B)</span><span class="domain-tag">Udaan (B2B)</span><span class="domain-tag">Pepperfry</span><span class="domain-tag">BigBasket</span>
         </div>
       </div>
       <div class="domain-cat">
-        <div class="domain-cat-label">Back-Office Systems</div>
+        <div class="domain-cat-label">POS Systems</div>
         <div class="domain-tags">
-          <span class="domain-tag">OMS (Order Management)</span><span class="domain-tag">ERP / SAP Integration</span><span class="domain-tag">POS Connectivity</span><span class="domain-tag">WMS (Warehouse Management)</span><span class="domain-tag">3PL / Logistics APIs</span><span class="domain-tag">Payment Gateways</span><span class="domain-tag">Returns &amp; RMA Workflows</span>
+          <span class="domain-tag">Pine Labs (POS Terminal)</span><span class="domain-tag">Mswipe</span><span class="domain-tag">Razorpay POS / SmartPOS</span><span class="domain-tag">Paytm POS</span><span class="domain-tag">Ezetap (Razorpay)</span><span class="domain-tag">Shopify POS</span><span class="domain-tag">Square POS</span><span class="domain-tag">Lightspeed</span><span class="domain-tag">Ginesys (Retail ERP + POS)</span><span class="domain-tag">Posist (F&amp;B POS)</span><span class="domain-tag">Oracle MICROS</span><span class="domain-tag">MPOS / Mobile POS</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Courier &amp; Logistics Aggregators</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Shiprocket</span><span class="domain-tag">Delhivery</span><span class="domain-tag">Bluedart (DHL)</span><span class="domain-tag">DTDC</span><span class="domain-tag">Ecom Express</span><span class="domain-tag">XpressBees</span><span class="domain-tag">Shadowfax</span><span class="domain-tag">FedEx India</span><span class="domain-tag">Ekart (Flipkart Logistics)</span><span class="domain-tag">Amazon Logistics</span><span class="domain-tag">Dunzo</span><span class="domain-tag">Porter</span><span class="domain-tag">Rivigo</span><span class="domain-tag">Pickrr</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">ERP &amp; Back-Office Systems</div>
+        <div class="domain-tags">
+          <span class="domain-tag">SAP S/4HANA</span><span class="domain-tag">SAP Business One</span><span class="domain-tag">Oracle NetSuite</span><span class="domain-tag">Microsoft Dynamics 365</span><span class="domain-tag">Tally ERP</span><span class="domain-tag">Zoho ERP</span><span class="domain-tag">Marg ERP</span><span class="domain-tag">Busy Accounting</span><span class="domain-tag">WMS / 3PL APIs</span><span class="domain-tag">Returns &amp; RMA Workflows</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Ecommerce Platforms &amp; Aggregators</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Shopify / Shopify Plus</span><span class="domain-tag">Magento / Adobe Commerce</span><span class="domain-tag">WooCommerce</span><span class="domain-tag">BigCommerce</span><span class="domain-tag">Salesforce Commerce Cloud</span><span class="domain-tag">Unicommerce</span><span class="domain-tag">Increff OMS</span><span class="domain-tag">Vinculum</span>
         </div>
       </div>
       <div class="domain-cat" style="margin-bottom:0;">
         <div class="domain-cat-label">Operations &amp; Analytics</div>
         <div class="domain-tags">
-          <span class="domain-tag">Inventory Reconciliation</span><span class="domain-tag">Order Lifecycle Tracking</span><span class="domain-tag">Fulfilment Analytics</span><span class="domain-tag">Revenue Reconciliation</span><span class="domain-tag">Courier Performance</span><span class="domain-tag">Operational Dashboards</span>
+          <span class="domain-tag">Inventory Reconciliation</span><span class="domain-tag">Order Lifecycle Tracking</span><span class="domain-tag">Fulfilment Analytics</span><span class="domain-tag">Revenue Reconciliation</span><span class="domain-tag">Courier Performance Monitoring</span><span class="domain-tag">NDR &amp; RTO Analytics</span><span class="domain-tag">Operational Dashboards</span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- MARKETPLACE INTEGRATIONS DEEP DIVE -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Marketplace Architecture</div>
+    <h2 class="section-heading">Marketplace Integrations That<br>Don't Break <em>Your Operations</em></h2>
+    <p class="body-text">The problem with most marketplace integrations isn't the initial build — it's that they're built once, never abstracted, and become maintenance nightmares by the third or fourth channel. Each marketplace has its own schema, its own listing API, its own inventory feed, its own order webhook, and its own payment settlement format. Without a shared abstraction layer, every new marketplace is a full rebuild.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-title">Amazon India &amp; International</div>
+        <div class="named-brands">
+          <span class="named-brand">Seller Central</span><span class="named-brand">Vendor Central</span><span class="named-brand">SP-API</span><span class="named-brand">FBA</span><span class="named-brand">Advertising API</span>
+        </div>
+        <div class="named-desc">Amazon integration covers product listing sync, inventory feeds, order acknowledgement, shipping confirmation, FBA vs FBM fulfilment logic, returns reconciliation, and advertising data pulls. SP-API (Selling Partner API) replaced MWS and has distinct auth patterns and rate limits. FBA inventory updates and restock triggers are a separate integration layer from order management.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-title">Flipkart &amp; Ekart Logistics</div>
+        <div class="named-brands">
+          <span class="named-brand">Flipkart Seller Hub</span><span class="named-brand">Flipkart API</span><span class="named-brand">Ekart</span><span class="named-brand">FK Quick</span>
+        </div>
+        <div class="named-desc">Flipkart's seller API covers catalog, pricing, inventory, orders, returns, and settlement. Ekart as a fulfilment channel has its own label generation and tracking integration. Flipkart Quick (hyperlocal) uses a separate inventory model with slot-based availability. Return quality checks and seller protection claims have their own workflow — not part of the standard order API.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-title">Meesho, Glowroad &amp; Social Commerce</div>
+        <div class="named-brands">
+          <span class="named-brand">Meesho Supplier</span><span class="named-brand">Meesho API</span><span class="named-brand">Glowroad</span><span class="named-brand">DealShare</span>
+        </div>
+        <div class="named-desc">Meesho's API covers catalog, inventory push, order pull, and return workflows. Settlement frequency and return rate patterns differ significantly from Amazon/Flipkart — important for cash flow and inventory planning. Social commerce platforms like Glowroad and DealShare have more manual touchpoints and less mature API coverage; integration patterns need to account for fallback and manual sync scenarios.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-title">Myntra, Nykaa &amp; Fashion Platforms</div>
+        <div class="named-brands">
+          <span class="named-brand">Myntra Partner</span><span class="named-brand">Nykaa Seller</span><span class="named-brand">Ajio</span><span class="named-brand">Tata CLiQ</span>
+        </div>
+        <div class="named-desc">Fashion marketplaces have specific catalog requirements — size charts, fabric details, occasion tags — and strict image standards that require normalisation pipelines before listing. Myntra's content-heavy model means catalog sync is as complex as inventory sync. Returns rates in fashion are significantly higher than in other categories, requiring dedicated RMA workflow design.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-title">B2B Marketplaces</div>
+        <div class="named-brands">
+          <span class="named-brand">IndiaMart</span><span class="named-brand">Udaan</span><span class="named-brand">JioMart B2B</span><span class="named-brand">Tradeindia</span>
+        </div>
+        <div class="named-desc">B2B marketplace integration involves catalog management for bulk SKUs, tiered pricing per buyer segment, credit terms enforcement, and fulfilment at pallet or carton level rather than individual unit. IndiaMart lead integration — pulling buyer enquiries into your CRM or ERP — is often a higher-ROI integration than full order sync for smaller B2B operations.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-title">Quick Commerce &amp; Hyperlocal</div>
+        <div class="named-brands">
+          <span class="named-brand">Blinkit</span><span class="named-brand">Swiggy Instamart</span><span class="named-brand">Zepto</span><span class="named-brand">BigBasket</span><span class="named-brand">Dunzo</span>
+        </div>
+        <div class="named-desc">Quick commerce platforms operate on dark store inventory, not central warehouse stock. Integration means real-time inventory sync per dark store location, not per warehouse. Availability windows are typically 10–30 minutes, which requires an entirely different cache invalidation and availability update strategy compared to standard marketplace feeds that tolerate 15–60 minute update cycles.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- POS INTEGRATION ARCHITECTURE -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">POS Architecture</div>
+    <h2 class="section-heading">POS Integration Is More<br>Complex Than <em>It Looks</em></h2>
+    <p class="body-text">A POS terminal isn't just a payment device — it's a transaction record, an inventory event, a customer data point, and a reconciliation entry, all at the moment of sale. When POS isn't properly integrated into the commerce stack, offline transactions become an island. Inventory drifts. Finance reconciles against partial data. Omni-channel becomes aspirational rather than operational.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-title">Hardware POS Terminals (India)</div>
+        <div class="named-brands">
+          <span class="named-brand">Pine Labs</span><span class="named-brand">Mswipe</span><span class="named-brand">Ezetap</span><span class="named-brand">Razorpay SmartPOS</span><span class="named-brand">Paytm POS</span>
+        </div>
+        <div class="named-desc">India-market POS terminals from Pine Labs, Mswipe, and Ezetap (now Razorpay) handle card, UPI, and wallet payments. Their APIs expose transaction events and reconciliation reports. The integration challenge is getting those events into your OMS and ERP in real-time, not in batch at end of day — so omni-channel stock visibility is live, not stale by 24 hours.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-title">Software POS Systems</div>
+        <div class="named-brands">
+          <span class="named-brand">Shopify POS</span><span class="named-brand">Square</span><span class="named-brand">Lightspeed</span><span class="named-brand">Ginesys</span><span class="named-brand">Posist</span>
+        </div>
+        <div class="named-desc">Software POS systems like Shopify POS and Lightspeed have richer API surface areas — they expose inventory, customer, and discount data alongside transactions. Ginesys is widely used in Indian retail for its ERP+POS combination; Posist dominates F&amp;B. Integration here is about syncing sales orders, inventory deductions, and loyalty events into a central system rather than just capturing payment records.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-title">Offline-First &amp; Sync Architecture</div>
+        <div class="named-brands">
+          <span class="named-brand">Offline Mode</span><span class="named-brand">Sync Queue</span><span class="named-brand">Conflict Resolution</span>
+        </div>
+        <div class="named-desc">Store connectivity isn't guaranteed. A POS integration that fails when the internet drops is a business risk during high-footfall periods. Offline-first architecture means transactions queued locally, synced when connectivity returns, with conflict resolution logic for inventory that may have sold through the online channel in the interim. This is where most POS integrations underinvest.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-title">Omni-Channel Inventory from POS</div>
+        <div class="named-brands">
+          <span class="named-brand">Real-Time Deduction</span><span class="named-brand">BOPIS</span><span class="named-brand">Ship-from-Store</span>
+        </div>
+        <div class="named-desc">Each POS sale should trigger an inventory deduction visible to the online channel within seconds, not hours. Buy Online Pick-up In-Store (BOPIS) and ship-from-store fulfilment both depend on accurate store-level inventory. When POS and ecommerce inventory are out of sync, you're either overselling online or leaving store stock unavailable to the broader customer base.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COURIER & LOGISTICS ARCHITECTURE -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Courier &amp; Logistics</div>
+    <h2 class="section-heading">Courier Aggregators &amp;<br>Last-Mile <em>Architecture</em></h2>
+    <p class="body-text">Last-mile logistics is where the customer experience either holds up or falls apart. Courier selection, NDR management, tracking updates, and RTO reconciliation are operational workflows that need to run automatically at scale — not through daily ops team manual work across five different courier portals.</p>
+    <div class="courier-grid">
+      <div class="courier-card reveal">
+        <div class="courier-icon"><i class="ti ti-truck-delivery"></i></div>
+        <div class="courier-title">Shiprocket &amp; Multi-Courier Aggregators</div>
+        <div class="courier-desc">Shiprocket is India's dominant courier aggregator, giving access to Delhivery, Bluedart, Ecom Express, XpressBees, and DTDC through a single API. Aggregator integration means one contract, one tracking webhook, and courier auto-selection per order. The trade-off is less control over individual courier SLA enforcement — which matters at scale when you need courier-level performance visibility, not just aggregator-level metrics.</div>
+      </div>
+      <div class="courier-card reveal rd1">
+        <div class="courier-icon"><i class="ti ti-route"></i></div>
+        <div class="courier-title">Direct Courier APIs</div>
+        <div class="courier-desc">Direct API integration with Delhivery, Bluedart (DHL), Ecom Express, and XpressBees gives better SLA visibility, priority lanes, and dispute resolution. Delhivery's API covers forward shipping, reverse pickup, surface express, and cross-border. Bluedart is preferred for high-value and time-sensitive shipments. Shadowfax and Ekart dominate hyperlocal and marketplace-mandated fulfilment respectively.</div>
+      </div>
+      <div class="courier-card reveal">
+        <div class="courier-icon"><i class="ti ti-map-pin-exclamation"></i></div>
+        <div class="courier-title">NDR (Non-Delivery Report) Management</div>
+        <div class="courier-desc">NDR — when a delivery attempt fails — is one of the highest-cost events in last-mile logistics. Unmanaged NDR causes RTO (Return to Origin) rates to climb, adding reverse logistics cost and tying up working capital in in-transit inventory. Automated NDR management means: detect the failed attempt, trigger a customer reattempt flow, escalate unresponsive orders to RTO, and log the outcome for courier performance tracking.</div>
+      </div>
+      <div class="courier-card reveal rd1">
+        <div class="courier-icon"><i class="ti ti-arrow-back"></i></div>
+        <div class="courier-title">Reverse Logistics &amp; Returns Courier</div>
+        <div class="courier-desc">Returns triggered on marketplaces or your own site need a reverse pickup scheduled, a different courier SLA (typically 5–7 days vs 24–48h forward), and a QC check at the warehouse before inventory is re-entered. Reverse logistics APIs are less mature than forward shipping APIs — integration often requires custom webhook handling for pickup confirmation, in-transit tracking, and delivery-to-warehouse events.</div>
+      </div>
+      <div class="courier-card reveal">
+        <div class="courier-icon"><i class="ti ti-chart-bar"></i></div>
+        <div class="courier-title">Courier Performance &amp; SLA Monitoring</div>
+        <div class="courier-desc">Courier performance varies significantly by zone, weight band, and season. Without per-courier SLA data — delivery rates, NDR rates, RTO rates, average transit times — you're optimising courier selection on cost alone. Building a courier performance layer that feeds real-time data into selection logic means your routing improves automatically as courier performance data accumulates.</div>
+      </div>
+      <div class="courier-card reveal rd1">
+        <div class="courier-icon"><i class="ti ti-receipt"></i></div>
+        <div class="courier-title">Courier Invoice Reconciliation</div>
+        <div class="courier-desc">Couriers bill on actual weight/dimensions which often differ from estimates. Excess weight charges, fuel surcharges, and COD remittance discrepancies need to be reconciled against expected charges per shipment. Manual reconciliation at any meaningful volume is unsustainable. Automated courier reconciliation identifies billing errors, disputes, and remittance delays — typically recovering 2–5% of courier spend in billing corrections alone.</div>
       </div>
     </div>
   </div>
@@ -460,7 +693,7 @@ footer a:hover{color:var(--gold);}
       <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years in Technology Leadership</div></div>
       <div class="stat-box reveal rd1"><div class="stat-n">31+</div><div class="stat-l">Products Shipped to Production</div></div>
       <div class="stat-box reveal"><div class="stat-n">35M+</div><div class="stat-l">API calls/day at peak scale</div></div>
-      <div class="stat-box reveal rd1"><div class="stat-n">5</div><div class="stat-l">Countries — India, UAE, Maldives, USA Countries — India, UAE, Maldives, US, Canadaamp; Canada</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">5</div><div class="stat-l">India, UAE, Maldives, USA &amp; Canada</div></div>
     </div>
   </div>
 
@@ -492,8 +725,24 @@ footer a:hover{color:var(--gold);}
         <div class="faq-a">Yes. I've worked with teams remotely across UAE, the US, and other markets. Commerce architecture conversations work well in structured sessions and asynchronous communication across time zones.</div>
       </div>
       <div class="faq-item">
+        <div class="faq-q">We sell on Amazon, Flipkart, and Meesho simultaneously. Inventory sync is a constant problem. Where do we start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">The first question is whether you have a single authoritative inventory system or whether each marketplace is effectively its own inventory record. If it's the latter, the fix isn't a better sync tool — it's establishing a central inventory master that all channels read from and write to. Once that's clear, we can look at the specific failure modes: are you seeing oversells, update lag, or reconciliation discrepancies? Each has a different root cause and a different fix.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you approach POS and ERP integration for omni-channel retail? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">The pattern that works is treating the POS as a transaction event source, not a data store. Every sale from Pine Labs, Shopify POS, or Ginesys should emit an event that the central OMS and ERP consume — inventory deducted, sale recorded, loyalty updated — in near real-time. Batch-at-end-of-day sync is a legacy pattern that makes omni-channel inventory genuinely inaccurate during business hours. The integration work is straightforward; the harder part is usually getting the ERP team to accept event-driven updates rather than scheduled batch imports.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Our RTO rate is high and it's eating into margins. Is that an operations problem or an architecture problem? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Usually both, but they compound. Architecturally: if NDR events from Delhivery, Ecom Express, or Shadowfax aren't being detected and acted on automatically, failed deliveries silently convert to RTOs. Operationally: address verification at checkout, COD order validation, and proactive customer communication after first failed attempt each reduce RTO without any systems work. In my experience, fixing the automated NDR detection first gives you the data to understand what's driving RTO — and whether it's a courier, a product category, a geography, or a customer segment issue.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does building a proper multi-marketplace integration layer take? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">A properly abstracted marketplace integration layer — where adding a new channel is implementing a shared interface rather than building a new custom connector — typically takes 8–14 weeks for the first two or three marketplaces, depending on API maturity. Amazon SP-API is well-documented and stable. Flipkart is reasonable. Meesho has matured significantly. Fashion marketplaces (Myntra, Nykaa) require additional catalog normalisation work that adds time. The payoff is that the fourth and fifth marketplace integrations are significantly faster once the abstraction layer is in place.</div>
+      </div>
+      <div class="faq-item">
         <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
-        <div class="faq-a">Book a 30-minute session using the calendar on the strategy page. Come with one specific platform challenge — inventory sync, marketplace reliability, ERP integration, order management. The more specific the problem, the more useful the conversation.</div>
+        <div class="faq-a">Book a 30-minute session using the calendar on the strategy page. Come with one specific platform challenge — inventory sync, marketplace reliability, POS integration, courier NDR, ERP connectivity. The more specific the problem, the more useful the conversation.</div>
       </div>
     </div>
   </div>
