@@ -103,6 +103,9 @@ body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;lin
 nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
 .nav-logo span{color:var(--text2);font-weight:400;}
+.nav-services{display:flex;gap:18px;align-items:center;}
+.nav-svc{color:var(--muted);font-size:11px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;}
+.nav-svc:hover,.nav-svc.active{color:var(--gold);}
 .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
 .nav-back:hover{border-color:var(--gold);color:var(--gold);}
 
@@ -249,6 +252,7 @@ footer a:hover{color:var(--gold);}
 /* responsive */
 @media(max-width:680px){
   nav{padding:12px 20px;}
+  .nav-services{display:none;}
   .hero{padding:100px 20px 48px;}
   .body-wrap{padding:52px 20px 0;}
   .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.named-grid,.oms-flow,.courier-grid{grid-template-columns:1fr;}
@@ -262,6 +266,13 @@ footer a:hover{color:var(--gold);}
 
 <nav>
   <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <div class="nav-services">
+    <a href="https://startupctopro.in/startups/" class="nav-svc">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/" class="nav-svc">AI Startups</a>
+    <a href="https://startupctopro.in/travel-tech/" class="nav-svc">TravelTech</a>
+    <a href="https://startupctopro.in/retail-tech/" class="nav-svc active">RetailTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/" class="nav-svc">Enterprise</a>
+  </div>
   <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
 </nav>
 
@@ -818,6 +829,13 @@ footer a:hover{color:var(--gold);}
 
 <footer>
   <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://startupctopro.in/startups/">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/">AI Startups</a>
+    <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/retail-tech/">RetailTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
+  </div>
   <div style="display:flex;gap:20px;flex-wrap:wrap;">
     <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
     <a href="https://startupctopro.in/">startupctopro.in</a>

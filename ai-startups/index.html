@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Startup CTO Advisory, GenAI Architecture & LLMOps Consulting - Sapan Kumar Mohanty</title>
+<meta name="description" content="Book a free strategy session with Sapan Kumar Mohanty - AI startup CTO advisor with 20+ years experience. GenAI architecture, LLM integration, RAG pipelines, LLMOps, AI product engineering, and technical due diligence for AI-first and AI-native startups.">
+<meta name="keywords" content="AI startup CTO advisor, GenAI architecture consultant, LLM integration India, RAG pipeline architecture, LLMOps consulting, AI product engineering, AI startup technical due diligence, generative AI platform architecture, AI-native startup CTO, LLM application development, AI startup Bengaluru, AI infrastructure consulting India, AI product strategy, vector database architecture, AI engineering leadership">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/ai-startups/">
+<meta property="og:title" content="AI Startup CTO Advisory, GenAI Architecture & LLMOps Consulting - Sapan Kumar Mohanty">
+<meta property="og:description" content="Free 30-minute strategy session with an AI startup CTO advisor. GenAI architecture, LLM integration, RAG pipelines, LLMOps, and AI product engineering for AI-first startups.">
+<meta property="og:url" content="https://startupctopro.in/ai-startups/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty - CTO & VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sapanmohanty">
+<meta name="twitter:title" content="AI Startup CTO Advisory - Sapan Kumar Mohanty">
+<meta name="twitter:description" content="Free 30-minute strategy session. GenAI architecture, LLM integration, RAG pipelines, LLMOps. 20+ years across India & international markets.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com",
+        "https://www.amazon.com/stores/Sapan-Kumar-Mohanty/author/B0GYDR1ZL6"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "AI Startup CTO Advisory & GenAI Architecture",
+      "description": "Free 30-minute strategy session covering GenAI architecture, LLM integration, RAG pipeline design, LLMOps, AI product engineering, and technical due diligence for AI-first and AI-native startups.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "AI Startup CTO Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/ai-startups/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "AI Startup CTO Advisory", "item": "https://startupctopro.in/ai-startups/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "We're building an AI-native product. Where do we start on architecture?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the evaluation framework before the architecture. Before choosing between RAG vs fine-tuning, hosted vs self-hosted, OpenAI vs open source - you need to define what good output looks like for your use case, how you'll measure it, and what latency and cost constraints you're designing for. Most AI product architecture mistakes happen because these questions weren't answered first."}},
+        {"@type": "Question", "name": "When should we fine-tune a model versus using RAG?", "acceptedAnswer": {"@type": "Answer", "text": "RAG is the right starting point for most AI product use cases. It's faster to iterate, cheaper to maintain, and doesn't require training data you may not have. Fine-tuning makes sense when you need consistent output format, domain-specific tone that prompting can't achieve, or latency constraints that make RAG retrieval impractical. Most teams reach for fine-tuning too early, before they've exhausted what's achievable with well-designed RAG and prompting."}},
+        {"@type": "Question", "name": "How do we evaluate LLM output quality systematically?", "acceptedAnswer": {"@type": "Answer", "text": "You need an eval framework before you need an LLM pipeline. Define what correct looks like for your use case - factual accuracy, format adherence, relevance, safety. Build a golden dataset of expected inputs and outputs. Run evals on every model change, prompt change, and retrieval change. Without this, you're optimising by feel, and feel doesn't catch regressions."}},
+        {"@type": "Question", "name": "What does LLMOps actually involve for an early-stage AI startup?", "acceptedAnswer": {"@type": "Answer", "text": "At minimum: prompt versioning, eval pipelines, cost monitoring per request, latency tracking, and a way to trace failures back to specific prompt+context combinations. As you scale: A/B testing for prompts and models, user feedback integration into evals, guardrail monitoring, and model upgrade management. Most early-stage teams have none of these - which means they're flying blind on quality."}},
+        {"@type": "Question", "name": "We're using OpenAI. Should we be building model-agnostic?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with caveats. You don't need to abstract everything on day one. But your application code shouldn't contain direct references to specific model names or provider-specific SDK patterns if you can help it. Building a thin abstraction layer - even just a common interface for your LLM calls - means a model migration is a configuration change rather than a codebase refactor. The cost of this abstraction early is very low; the cost later is very high."}},
+        {"@type": "Question", "name": "How do we manage AI infrastructure costs as we scale?", "acceptedAnswer": {"@type": "Answer", "text": "The two biggest cost levers are context window size and call volume. Most teams pass too much context per request and make redundant API calls. Caching at the embedding level, semantic caching for repeated queries, and context compression before LLM calls can reduce token costs by 40-70%. For self-hosted models, GPU utilisation and batch inference scheduling are the primary levers. Cost monitoring per user, per feature, and per request type is essential before scaling."}},
+        {"@type": "Question", "name": "What's the best way to start?", "acceptedAnswer": {"@type": "Answer", "text": "Book a 30-minute session using the calendar on the strategy page. Come with one specific challenge - architecture decision, model selection, eval framework design, LLMOps tooling, or AI product strategy. The more specific the problem, the more useful the conversation."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+
+/* nav */
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-services{display:flex;gap:18px;align-items:center;}
+.nav-svc{color:var(--muted);font-size:11px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;}
+.nav-svc:hover,.nav-svc.active{color:var(--gold);}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+
+/* hero */
+.hero{padding:120px 40px 64px;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 22px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:36px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:var(--dark);font-size:13px;font-weight:700;text-decoration:none;border-radius:var(--r);transition:opacity .2s;letter-spacing:.02em;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--gold-b);color:var(--gold);font-size:13px;font-weight:500;text-decoration:none;border-radius:var(--r);transition:all .2s;}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+
+/* proof strip */
+.proof-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:18px 16px;text-align:center;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;line-height:1.1;}
+.proof-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px;}
+
+/* body */
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:64px auto 0;}
+
+/* problem grid */
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.problem-icon{font-size:15px;color:var(--gold);float:left;margin-right:7px;margin-top:2px;line-height:1.35;}
+.problem-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.35;overflow:hidden;margin-bottom:0;}
+.problem-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
+/* service grid */
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-top:2px solid var(--teal);border-radius:0 0 12px 12px;padding:20px 18px;}
+.service-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
+/* domain */
+.domain-section{margin-top:28px;}
+.domain-cat{margin-bottom:20px;}
+.domain-cat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.domain-tag{font-size:12px;padding:5px 13px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark2);transition:border-color .2s;}
+.domain-tag:hover{border-color:var(--gold-b);color:var(--text2);}
+
+/* two col */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start;}
+.check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.check-list li i{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:2px;}
+
+/* ai cards */
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.ai-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;overflow:hidden;line-height:1.4;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
+/* audience */
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.audience-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
+/* stats */
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+
+/* faq */
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+
+/* cta band */
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 40px;text-align:center;margin-top:80px;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:16px;}
+.cta-band h2 em{color:var(--gold);font-style:italic;}
+.cta-band p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 32px;font-weight:300;line-height:1.8;}
+
+/* footer */
+footer{max-width:900px;margin:0 auto;padding:44px 40px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+
+/* arch flow cards */
+.arch-flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.arch-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px 20px 20px;position:relative;overflow:hidden;}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.arch-step{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.03em;float:left;margin-right:10px;margin-top:1px;flex-shrink:0;}
+.arch-title{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;line-height:1.4;margin-bottom:0;padding-top:3px;}
+.arch-body{font-size:12px;color:var(--muted);line-height:1.7;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
+/* card hover */
+.problem-card,.service-card,.arch-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.arch-card:hover,.ai-card:hover,.audience-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.problem-title,.service-title,.arch-title,.ai-title,.audience-role{transition:color .2s;}
+.problem-desc,.service-desc,.arch-body,.ai-desc,.audience-desc{transition:color .2s;}
+.problem-card:hover .problem-title{color:var(--gold);}
+.service-card:hover .service-title,.arch-card:hover .arch-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.problem-card:hover .problem-desc,.service-card:hover .service-desc,.arch-card:hover .arch-body,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc{color:var(--text2);}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+
+/* responsive */
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .nav-services{display:none;}
+  .hero{padding:100px 20px 48px;}
+  .body-wrap{padding:52px 20px 0;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.arch-flow{grid-template-columns:1fr;}
+  .proof-item{min-width:45%;}
+  .cta-band{padding:56px 20px;}
+  footer{padding:32px 20px;flex-direction:column;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <div class="nav-services">
+    <a href="https://startupctopro.in/startups/" class="nav-svc">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/" class="nav-svc active">AI Startups</a>
+    <a href="https://startupctopro.in/travel-tech/" class="nav-svc">TravelTech</a>
+    <a href="https://startupctopro.in/retail-tech/" class="nav-svc">RetailTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/" class="nav-svc">Enterprise</a>
+  </div>
+  <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">AI Startup CTO Advisory &amp; GenAI Architecture</div>
+  <h1 class="hero-title">AI Product Engineering for Startups<br>Building on LLMs That Need to<br><em>Work in Production</em></h1>
+  <p class="hero-sub">GenAI architecture, RAG pipeline design, LLMOps, and AI product engineering for AI-first startups that need systems that are reliable, cost-controlled, and actually measurable.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-brain"></i> GenAI · RAG · LLMOps</span>
+    <span><i class="ti ti-building"></i> 20+ Years Technology Leadership</span>
+    <span><i class="ti ti-circuit-capacitor"></i> Architecture · Evaluation · Production</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Talk About Your AI Stack</a>
+  </div>
+</div>
+
+<!-- PROOF STRIP -->
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-n">20+</span><span class="proof-l">Years Technology Leadership</span></div>
+  <div class="proof-item"><span class="proof-n">GenAI</span><span class="proof-l">&amp; LLM Architecture</span></div>
+  <div class="proof-item"><span class="proof-n">RAG Pipelines</span><span class="proof-l">&amp; Vector Systems</span></div>
+  <div class="proof-item"><span class="proof-n">LLMOps</span><span class="proof-l">&amp; Eval Frameworks</span></div>
+  <div class="proof-item"><span class="proof-n">AI Product</span><span class="proof-l">Engineering &amp; Delivery</span></div>
+  <div class="proof-item"><span class="proof-n">AI Due</span><span class="proof-l">Diligence &amp; Review</span></div>
+</div>
+
+<!-- BODY -->
+<div class="body-wrap">
+
+  <!-- Problems -->
+  <div class="reveal">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-heading">What Breaks First<br>in <em>AI Product Engineering</em></h2>
+    <p class="body-text">Most AI startups don't fail because the model isn't good enough. They fail because the system around the model wasn't designed for production. Evaluation gaps, cost surprises, hallucination rates that only surface at scale, and architecture decisions that made sense in a demo but don't survive real user behaviour.</p>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-test-pipe-off"></i></div>
+        <div class="problem-title">No evaluation framework before building the pipeline</div>
+        <div class="problem-desc">The most common AI product mistake: building the full RAG or agentic pipeline before defining what correct output looks like. Without a golden eval dataset and measurable quality criteria, you're optimising by feel. Model upgrades, prompt changes, and retrieval tuning have no reliable way to be validated.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-currency-off"></i></div>
+        <div class="problem-title">Token costs that aren't modelled before launch</div>
+        <div class="problem-desc">A RAG pipeline that costs $0.08 per query with 200 beta users costs $800/day at 10,000 users. Most AI startups discover their unit economics problem after launch, not before. Token cost modelling at realistic usage volumes is engineering work, not a finance concern.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-brain-off"></i></div>
+        <div class="problem-title">Hallucinations that are acceptable in demo, not in production</div>
+        <div class="problem-desc">LLM hallucinations in a demo context are forgiven. In a production system handling customer queries, legal documents, or medical information, they're business and liability risks. Most teams don't have guardrail layers, output validation, or human escalation paths designed before the first real user touches the product.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-archive-off"></i></div>
+        <div class="problem-title">RAG retrieval that degrades at scale</div>
+        <div class="problem-desc">A retrieval pipeline that works with 10,000 documents often degrades significantly at 1M. Chunking strategy, embedding model choice, vector index configuration, and re-ranking logic all affect retrieval quality in ways that aren't visible in small-scale testing but become the primary source of output quality problems in production.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-plug-x"></i></div>
+        <div class="problem-title">Provider lock-in with no abstraction layer</div>
+        <div class="problem-desc">Application code that directly calls gpt-4o or claude-3-5-sonnet API endpoints isn't architecturally wrong - until OpenAI changes pricing, a new model requires prompt rewrites, or a customer requires a self-hosted model for data residency. The abstraction cost is low early; the migration cost is high late.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-chart-dots-off"></i></div>
+        <div class="problem-title">No observability into what the LLM is actually doing</div>
+        <div class="problem-desc">If you can't trace a bad user interaction back to the specific prompt, context window, and model response that caused it, you can't fix it reliably. LLM applications need tracing at the request level - every prompt, every retrieval result, every model output - so debugging is deterministic, not probabilistic.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-user-off"></i></div>
+        <div class="problem-title">User feedback that isn't integrated into evaluation</div>
+        <div class="problem-desc">User thumbs-up and thumbs-down signals are the highest-signal eval data available for production AI systems. Most teams collect this data and don't use it. It should feed directly into the eval dataset, inform prompt improvement cycles, and flag output categories where the model is systematically underperforming.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-shield-off"></i></div>
+        <div class="problem-title">No content safety or guardrail layer</div>
+        <div class="problem-desc">LLMs will produce unexpected outputs when users push boundaries - intentionally or not. Prompt injection, jailbreaking, and off-topic generation are real surface areas in production AI applications. Building guardrails as an afterthought is significantly more expensive than designing them in from the start.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-git-branch-off"></i></div>
+        <div class="problem-title">Prompts deployed without version control or testing</div>
+        <div class="problem-desc">A prompt is production code. Changing it without versioning, without eval coverage, and without a rollback mechanism is the AI equivalent of deploying untested code directly to production. Most AI teams don't treat prompts this way until a prompt change causes a customer-visible regression they can't easily reverse.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-robot-off"></i></div>
+        <div class="problem-title">Agentic systems with no control or failure handling</div>
+        <div class="problem-desc">Multi-step AI agents that can write code, call APIs, or modify data are powerful and inherently risky. Without tool call validation, permission boundaries, loop detection, and graceful failure handling, an agentic system that works 95% of the time causes disproportionate damage in the 5% where it doesn't.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Services -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Advisory Areas</div>
+    <h2 class="section-heading">What I Help AI Startups<br><em>Get Right</em></h2>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-layout-grid"></i></div>
+        <div class="service-title">GenAI Architecture &amp; System Design</div>
+        <div class="service-desc">Designing the full AI application stack - model selection, retrieval architecture, context management, orchestration patterns, and the infrastructure decisions that determine whether the system is maintainable and cost-efficient at production scale.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-database-search"></i></div>
+        <div class="service-title">RAG Pipeline Design &amp; Optimisation</div>
+        <div class="service-desc">Building retrieval pipelines that work at scale - chunking strategy, embedding model selection, vector database configuration, hybrid search, and re-ranking. Diagnosing why retrieval quality degrades and what the structural fixes are rather than iterating on hyperparameters that don't address root cause.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-clipboard-check"></i></div>
+        <div class="service-title">Evaluation Framework Design</div>
+        <div class="service-desc">Defining what good looks like for your specific AI use case. Building golden datasets, automated eval pipelines, human evaluation workflows, and regression testing that catches quality degradation when models, prompts, or retrieval logic change.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-settings-automation"></i></div>
+        <div class="service-title">LLMOps &amp; Production Tooling</div>
+        <div class="service-desc">Prompt versioning, request tracing, cost monitoring per feature, latency dashboards, A/B testing for models and prompts, and guardrail monitoring. The operational layer that lets a small team manage an AI application in production without constant manual intervention.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <div class="service-title">Fine-Tuning vs RAG vs Prompting Decision</div>
+        <div class="service-desc">Structuring the build-vs-buy-vs-fine-tune decision for each AI feature. Most teams reach for fine-tuning too early. Most prompting strategies have more headroom than teams realise. Getting this architecture decision right before spending engineering time and training costs is high-leverage work.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-cpu"></i></div>
+        <div class="service-title">AI Infrastructure &amp; Cost Architecture</div>
+        <div class="service-desc">Token cost modelling at realistic usage volumes, caching strategies, context compression, batch inference design, and self-hosted vs API trade-offs. Building cost monitoring from the start and designing for the unit economics that make the business sustainable.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-robot"></i></div>
+        <div class="service-title">Agentic System Architecture</div>
+        <div class="service-desc">Designing multi-step AI agents with appropriate control mechanisms - tool call boundaries, permission models, loop detection, failure handling, and human escalation paths. Building agentic systems that are both capable and safe to deploy to real users.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-zoom-code"></i></div>
+        <div class="service-title">AI Technical Due Diligence</div>
+        <div class="service-desc">Independent review of AI product architecture for investors and acquirers. Covering model selection rationale, retrieval quality, evaluation coverage, cost structure, safety posture, and whether the technical approach supports the business thesis at scale.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Architecture section -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">GenAI Architecture</div>
+    <h2 class="section-heading">Building an AI Application That<br>Holds Up in <em>Production</em></h2>
+    <p class="body-text">The gap between an AI demo and a production AI system is larger than most teams expect. The model is rarely the bottleneck. The retrieval quality, the evaluation coverage, the cost structure, the guardrail layer, and the operational tooling are where most production AI systems fall short - not because teams don't know these things matter, but because building the product felt more urgent than building the system.</p>
+    <div class="arch-flow">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-title">Evaluation Framework First</div>
+        <div class="arch-body">Before building the pipeline, define what correct output looks like. Create a golden dataset of representative inputs and expected outputs. Define measurable quality criteria: factual accuracy, format adherence, relevance, safety. Build automated evals that run on every model change, prompt change, and retrieval change. Without this, every improvement is anecdotal and every regression goes undetected until a user reports it.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-title">Retrieval Architecture &amp; Indexing</div>
+        <div class="arch-body">RAG quality is 60% retrieval, 40% generation. Chunking strategy - size, overlap, semantic vs fixed - determines whether the right context gets retrieved. Embedding model selection affects recall quality. Hybrid search (dense + sparse) often outperforms pure vector search for domain-specific content. Re-ranking with a cross-encoder improves precision at the top of the result set. These aren't optimisation details; they're the primary determinants of output quality.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-title">Prompt Engineering &amp; Version Control</div>
+        <div class="arch-body">Prompts are production code. They need version control, eval coverage before deployment, and rollback capability. System prompt architecture - separating persona, context injection, formatting instructions, and safety constraints - makes prompts maintainable as requirements evolve. Chain-of-thought, few-shot examples, and output format specification are high-leverage prompt techniques that most teams underuse.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-title">Cost Architecture &amp; Token Optimisation</div>
+        <div class="arch-body">Model token costs at scale are a business variable, not a technical detail. Context compression - summarising conversation history, trimming retrieved context to relevance - can reduce token costs 40-60% with no quality degradation. Semantic caching for repeated or similar queries reduces API calls. Per-feature cost monitoring gives visibility into which product features are economically sustainable before they become a problem at user scale.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-title">Guardrails &amp; Safety Layer</div>
+        <div class="arch-body">Input validation, output filtering, content safety classification, and prompt injection detection are not optional features. They're the difference between a production AI system and a liability. The guardrail layer should run independently of the primary inference path - so safety checks don't add to latency for clean requests, but do intercept problematic inputs and outputs before they reach users or downstream systems.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-title">LLMOps &amp; Observability</div>
+        <div class="arch-body">Every production LLM request should be traceable: input prompt, retrieved context, model response, latency, token count, cost, and user feedback signal. This trace is the operational foundation for diagnosing quality problems, optimising costs, and running controlled experiments. LLM-specific tooling - LangSmith, Helicone, or Arize - provides this without building it from scratch. Without traceability, debugging AI application problems is guesswork.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Domain depth -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Domain Knowledge</div>
+    <h2 class="section-heading">AI Stacks &amp; Frameworks<br>I <em>Work With</em></h2>
+    <p class="body-text">AI application engineering spans more stack decisions than most teams anticipate. Model selection, orchestration framework, vector infrastructure, embedding pipeline, evaluation tooling, and observability all need to be chosen and integrated deliberately - not assembled from tutorials and held together with hope.</p>
+    <div class="domain-section">
+      <div class="domain-cat">
+        <div class="domain-cat-label">LLM Providers &amp; Models</div>
+        <div class="domain-tags">
+          <span class="domain-tag">OpenAI (GPT-4o, o1, o3)</span><span class="domain-tag">Anthropic Claude (3.5, 3.7, 4)</span><span class="domain-tag">Google Gemini (1.5, 2.0)</span><span class="domain-tag">Meta Llama (3.1, 3.2, 3.3)</span><span class="domain-tag">Mistral</span><span class="domain-tag">Cohere</span><span class="domain-tag">AWS Bedrock</span><span class="domain-tag">Google Vertex AI</span><span class="domain-tag">Azure OpenAI</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Orchestration &amp; Frameworks</div>
+        <div class="domain-tags">
+          <span class="domain-tag">LangChain</span><span class="domain-tag">LlamaIndex</span><span class="domain-tag">LangGraph</span><span class="domain-tag">CrewAI</span><span class="domain-tag">AutoGen</span><span class="domain-tag">Semantic Kernel</span><span class="domain-tag">Haystack</span><span class="domain-tag">DSPy</span><span class="domain-tag">Vercel AI SDK</span><span class="domain-tag">Instructor</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Vector Databases &amp; Search</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Pinecone</span><span class="domain-tag">Weaviate</span><span class="domain-tag">Qdrant</span><span class="domain-tag">Milvus</span><span class="domain-tag">ChromaDB</span><span class="domain-tag">pgvector (PostgreSQL)</span><span class="domain-tag">Redis Vector</span><span class="domain-tag">OpenSearch</span><span class="domain-tag">Elasticsearch kNN</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Embedding Models</div>
+        <div class="domain-tags">
+          <span class="domain-tag">OpenAI text-embedding-3</span><span class="domain-tag">Cohere Embed v3</span><span class="domain-tag">Google text-embedding</span><span class="domain-tag">Sentence Transformers</span><span class="domain-tag">BGE (BAAI)</span><span class="domain-tag">E5 (Microsoft)</span><span class="domain-tag">Nomic Embed</span><span class="domain-tag">Jina Embeddings</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">LLMOps &amp; Evaluation</div>
+        <div class="domain-tags">
+          <span class="domain-tag">LangSmith</span><span class="domain-tag">Helicone</span><span class="domain-tag">Arize Phoenix</span><span class="domain-tag">Weights &amp; Biases</span><span class="domain-tag">MLflow</span><span class="domain-tag">Ragas</span><span class="domain-tag">DeepEval</span><span class="domain-tag">PromptLayer</span><span class="domain-tag">Braintrust</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Self-Hosted &amp; Open Source</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Ollama</span><span class="domain-tag">vLLM</span><span class="domain-tag">llama.cpp</span><span class="domain-tag">Hugging Face Inference</span><span class="domain-tag">TGI (Text Generation Inference)</span><span class="domain-tag">LocalAI</span><span class="domain-tag">Triton Inference Server</span>
+        </div>
+      </div>
+      <div class="domain-cat" style="margin-bottom:0;">
+        <div class="domain-cat-label">AI Application Patterns</div>
+        <div class="domain-tags">
+          <span class="domain-tag">RAG (Retrieval-Augmented Generation)</span><span class="domain-tag">Agentic Systems</span><span class="domain-tag">Tool Use / Function Calling</span><span class="domain-tag">Multi-Agent Orchestration</span><span class="domain-tag">Semantic Caching</span><span class="domain-tag">Context Compression</span><span class="domain-tag">Hybrid Search</span><span class="domain-tag">Re-ranking</span><span class="domain-tag">Fine-Tuning</span><span class="domain-tag">RLHF</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Modernization -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Production AI</div>
+    <h2 class="section-heading">Taking an AI Product from<br>Demo to <em>Production</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">Most AI products live in a permanent demo-to-production gap. The prototype works. The architecture review reveals the production gaps. The team knows they need evals, guardrails, and observability - but the product roadmap keeps moving before the infrastructure catches up.</p>
+        <p class="body-text" style="margin-top:14px;">The approach I use is pragmatic: identify which production gaps create actual business or quality risk at your current user scale, and close those first. You don't need a fully mature LLMOps stack at 500 users. You do need it before you 10x.</p>
+        <p class="body-text" style="margin-top:14px;">The goal is a production AI system that a small team can operate confidently - where quality regressions are caught before users see them, costs are understood and controlled, and failures are diagnosable rather than mysterious.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li><i class="ti ti-check"></i>Output quality is measurable, not just impressionistic</li>
+          <li><i class="ti ti-check"></i>Model and prompt changes can be validated before deployment</li>
+          <li><i class="ti ti-check"></i>Token costs are understood per feature and per user segment</li>
+          <li><i class="ti ti-check"></i>Bad outputs are traceable to their root cause in minutes</li>
+          <li><i class="ti ti-check"></i>Retrieval quality doesn't degrade as the knowledge base grows</li>
+          <li><i class="ti ti-check"></i>Guardrails catch safety and content issues before users see them</li>
+          <li><i class="ti ti-check"></i>User feedback feeds back into evaluation and improvement cycles</li>
+          <li><i class="ti ti-check"></i>The architecture isn't locked to a single provider or model family</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI cards (practical AI beyond the obvious) -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Beyond the Obvious</div>
+    <h2 class="section-heading">AI Application Areas<br>Worth Getting <em>Right</em></h2>
+    <p class="body-text">The highest-value AI applications aren't always the most visible ones. These are the areas where thoughtful architecture design separates AI products that compound in quality over time from ones that plateau or degrade.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-search"></i></div>
+        <div class="ai-title">Semantic Search &amp; Knowledge Retrieval</div>
+        <div class="ai-desc">Enterprise knowledge search, documentation retrieval, and internal tool search built on vector embeddings rather than keyword matching. The quality delta between well-designed and poorly-designed RAG retrieval is large and directly user-visible.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-message-chatbot"></i></div>
+        <div class="ai-title">Domain-Specific AI Assistants</div>
+        <div class="ai-desc">AI assistants grounded in proprietary domain knowledge - legal, medical, financial, technical - where hallucination cost is high and factual accuracy is the product differentiator. Retrieval quality, source citation, and confidence calibration are the architectural decisions that matter.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-file-text"></i></div>
+        <div class="ai-title">Document Processing &amp; Extraction</div>
+        <div class="ai-desc">LLM-powered extraction of structured data from unstructured documents - contracts, invoices, reports, forms. The architecture decisions around chunking, schema validation, and extraction confidence thresholds determine whether the pipeline is production-reliable or prototype-quality.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-robot"></i></div>
+        <div class="ai-title">Agentic Workflow Automation</div>
+        <div class="ai-desc">Multi-step AI agents that can research, reason, and execute actions across tools and systems. The challenge isn't building agentic capability - it's designing the control, permission, and failure-handling boundaries that make agents deployable to real users at scale.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-code"></i></div>
+        <div class="ai-title">AI-Assisted Developer Tooling</div>
+        <div class="ai-desc">Code generation, review automation, test generation, and documentation tooling built for internal engineering teams. The ROI on well-implemented developer AI tooling for small engineering teams is high - but the implementation quality determines whether adoption sticks.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Who it's for -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The Teams That<br>Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-rocket"></i></div>
+        <div class="audience-role">AI-First Startup Founders</div>
+        <div class="audience-desc">You're building a product where AI is the core value proposition - not a feature added to an existing product. You need architecture guidance that's specific to the AI application layer: evaluation, retrieval, cost, guardrails, and the operational stack that keeps it working after launch.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-building"></i></div>
+        <div class="audience-role">Founders Adding AI to Existing Products</div>
+        <div class="audience-desc">You have a working product. You're adding AI features - customer support automation, document processing, internal search, or a natural language interface. You need an architecture that integrates cleanly with what exists and doesn't create a parallel system that's expensive to maintain.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-user-star"></i></div>
+        <div class="audience-role">Engineering Leads Inheriting AI Systems</div>
+        <div class="audience-desc">You've joined a team with an AI product that's live but fragile. No evals, no observability, prompts deployed manually, costs not monitored. You need a pragmatic plan for what to fix first and what the production-ready version of this system looks like.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-chart-line"></i></div>
+        <div class="audience-role">Investors Evaluating AI Startups</div>
+        <div class="audience-desc">Technical due diligence for AI startup investments. An independent read on whether the AI architecture is defensible, whether the evaluation coverage is real, whether the cost structure is sustainable, and whether the team has the technical depth to execute on the AI thesis.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Credibility -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">I Understand AI Product<br>Complexity <em>From Production</em></h2>
+    <p class="body-text">AI application engineering is a new discipline with a fast-growing set of best practices - and a large collection of patterns that look right in tutorials but fail in production. The hallucination handling that works on a demo dataset, the RAG pipeline that degrades at scale, the token cost model that wasn't run at realistic usage volumes - these are production failure modes, not theoretical ones.</p>
+    <p class="body-text" style="margin-top:14px;">I bring the perspective of someone who has designed large-scale production systems for 20 years - applied to the specific challenges of AI application engineering. The architectural discipline that makes distributed systems reliable is the same discipline that makes AI systems reliable. The tools are new; the principles are not.</p>
+    <div class="stats-grid">
+      <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years in Technology Leadership</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">31+</div><div class="stat-l">Products Shipped to Production</div></div>
+      <div class="stat-box reveal"><div class="stat-n">35M+</div><div class="stat-l">API calls/day at peak scale</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">India &amp; UAE</div><div class="stat-l">&amp; International Markets</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <div style="padding-top:64px;padding-bottom:20px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">We're building an AI-native product. Where do we start on architecture? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Start with the evaluation framework before the architecture. Before choosing between RAG vs fine-tuning, hosted vs self-hosted, OpenAI vs open source - define what good output looks like for your use case, how you'll measure it, and what latency and cost constraints you're designing for. Most AI product architecture mistakes happen because these questions weren't answered first.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When should we fine-tune a model versus using RAG? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">RAG is the right starting point for most AI product use cases. It's faster to iterate, cheaper to maintain, and doesn't require training data you may not have. Fine-tuning makes sense when you need consistent output format, domain-specific tone that prompting can't achieve, or latency constraints that make RAG retrieval impractical. Most teams reach for fine-tuning too early, before they've exhausted what's achievable with well-designed RAG and prompting.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do we evaluate LLM output quality systematically? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">You need an eval framework before you need an LLM pipeline. Define what correct looks like for your use case - factual accuracy, format adherence, relevance, safety. Build a golden dataset of expected inputs and outputs. Run evals on every model change, prompt change, and retrieval change. Without this, you're optimising by feel, and feel doesn't catch regressions before users do.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What does LLMOps actually involve for an early-stage AI startup? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">At minimum: prompt versioning, eval pipelines, cost monitoring per request, latency tracking, and a way to trace failures back to specific prompt and context combinations. As you scale: A/B testing for prompts and models, user feedback integration into evals, guardrail monitoring, and model upgrade management. Most early-stage teams have none of these, which means they're flying blind on quality and cost.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">We're using OpenAI. Should we be building model-agnostic? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes, with caveats. You don't need to abstract everything on day one. But your application code shouldn't contain direct references to specific model names or provider-specific SDK patterns if you can help it. A thin abstraction layer means a model migration is a configuration change rather than a codebase refactor. The cost of this abstraction early is very low; the cost later is very high - especially when a model gets deprecated or a better option emerges.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do we manage AI infrastructure costs as we scale? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">The two biggest cost levers are context window size and call volume. Most teams pass too much context per request and make redundant API calls. Caching at the embedding level, semantic caching for repeated queries, and context compression before LLM calls can reduce token costs by 40-70%. For self-hosted models, GPU utilisation and batch inference scheduling are the primary levers. Cost monitoring per user, per feature, and per request type is essential before scaling.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Our RAG pipeline quality is inconsistent. What are the most common root causes? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">The most common root causes in order of frequency: chunking strategy that splits semantic units across chunks so the right information is never fully retrieved; embedding model mismatch where the model used at query time differs from the one used at indexing time; top-k retrieval returning noise at higher k values without re-ranking to improve precision; and context window stuffing where retrieved chunks exceed what the LLM can effectively use. Each has a different fix - which is why diagnosing before iterating matters.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you help with AI technical due diligence for an investment? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. AI startup due diligence involves questions that general technical reviewers often miss: Is the evaluation coverage real or superficial? Is the RAG architecture designed to scale? Is the cost structure sustainable at 10x users? Is there genuine model defensibility or just a thin wrapper? Does the team have the depth to maintain and improve the AI system as model capabilities evolve? I can provide an independent technical review that answers these questions clearly.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Book a 30-minute session using the calendar on the strategy page. Come with one specific challenge - architecture decision, eval framework design, retrieval quality problem, LLMOps tooling, or AI product strategy. The more specific the problem, the more useful the conversation.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Ready to Talk Through Your<br>AI Product Architecture? <em>Let's Go.</em></h2>
+  <p>30 minutes. No pitch. A direct conversation about your AI stack, your production gaps, and what's actually worth fixing right now.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Message on WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://startupctopro.in/startups/">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/">AI Startups</a>
+    <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/retail-tech/">RetailTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+var ro=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.closest('.faq-item');
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
