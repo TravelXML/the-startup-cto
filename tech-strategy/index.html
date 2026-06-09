@@ -92,9 +92,6 @@ body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;lin
 nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
 .nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
 .nav-logo span{color:var(--text2);font-weight:400;}
-.nav-services{display:flex;gap:18px;align-items:center;}
-.nav-svc{color:var(--muted);font-size:11px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s;}
-.nav-svc:hover,.nav-svc.active{color:var(--gold);}
 .nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
 .nav-back:hover{border-color:var(--gold);color:var(--gold);}
 
@@ -165,7 +162,7 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;j
 .faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
 
 /* footer */
-footer{max-width:900px;margin:0 auto;padding:48px 40px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;font-size:12px;color:var(--muted);}
+footer{max-width:900px;margin:0 auto;padding:22px 40px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;color:var(--muted);}
 footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
 footer a:hover{color:var(--gold);}
 .footer-copy a{color:var(--gold);}
@@ -212,7 +209,6 @@ footer a:hover{color:var(--gold);}
 /* responsive */
 @media(max-width:680px){
   nav{padding:12px 20px;}
-  .nav-services{display:none;}
   .hero{padding:100px 20px 0;}
   .body-wrap{padding:52px 20px 0;}
   .guarantee{padding:22px 20px;flex-direction:column;gap:12px;}
@@ -220,7 +216,7 @@ footer a:hover{color:var(--gold);}
   .cal-header{padding:16px 18px;}
   .cal-frame-wrap{height:900px;}
   .cal-frame-wrap iframe{height:1200px;}
-  footer{padding:32px 20px;flex-direction:column;text-align:center;}
+  footer{padding:20px;flex-direction:column;text-align:center;gap:12px;}
 }
 </style>
 </head>
@@ -229,13 +225,6 @@ footer a:hover{color:var(--gold);}
 <!-- NAV -->
 <nav>
   <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
-  <div class="nav-services">
-    <a href="https://startupctopro.in/startups/" class="nav-svc">Startups</a>
-    <a href="https://startupctopro.in/ai-startups/" class="nav-svc">AI Startups</a>
-    <a href="https://startupctopro.in/travel-tech/" class="nav-svc">TravelTech</a>
-    <a href="https://startupctopro.in/retail-tech/" class="nav-svc">RetailTech</a>
-    <a href="https://startupctopro.in/enterprise-architecture/" class="nav-svc">Enterprise</a>
-  </div>
   <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
 </nav>
 
