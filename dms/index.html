@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DMS & Distribution Management Advisory - Sapan Kumar Mohanty</title>
+<meta name="description" content="CTO advisory for DMS architecture, FMCG distribution management, salesperson apps, scheme management, and primary-secondary sales platforms. 20+ years in distribution technology.">
+<meta name="keywords" content="DMS architecture, distribution management system, FMCG distribution platform, Bizom integration, FieldAssist consultant, secondary sales visibility, salesperson app design, beat planning system, scheme management DMS, primary secondary sales platform India">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/dms/">
+<meta property="og:title" content="DMS & Distribution Management Advisory - Sapan Kumar Mohanty">
+<meta property="og:description" content="Free strategy session covering DMS architecture, FMCG distribution platforms, SFA apps, scheme management, and primary-secondary sales visibility for distribution businesses.">
+<meta property="og:url" content="https://startupctopro.in/dms/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty - CTO & VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sapanmohanty">
+<meta name="twitter:title" content="DMS Advisory - Sapan Kumar Mohanty">
+<meta name="twitter:description" content="Free 30-minute strategy session. DMS architecture, FMCG distribution, SFA apps, scheme management, primary-secondary sales platforms. 20+ years.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com",
+        "https://www.amazon.com/stores/Sapan-Kumar-Mohanty/author/B0GYDR1ZL6"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "DMS & Distribution Platform Advisory",
+      "description": "CTO advisory for distribution management systems, FMCG distribution platforms, SFA apps, scheme management, and primary-secondary sales visibility.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "DMS Architecture Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/dms/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "DMS Advisory", "item": "https://startupctopro.in/dms/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What types of businesses benefit from DMS advisory?", "acceptedAnswer": {"@type": "Answer", "text": "FMCG companies managing hundreds of distributors, pharma distribution businesses, consumer electronics and FMCD companies with dealer networks, and platforms building DMS products. The common denominator is a multi-tier distribution structure where primary and secondary sales data need to flow back into planning and operations."}},
+        {"@type": "Question", "name": "Can you help with Bizom or FieldAssist integration with our ERP?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Both Bizom and FieldAssist have API layers that can be integrated with SAP, Oracle, Tally, and custom ERPs. The integration covers primary order sync, scheme validation, distributor inventory, and secondary sales data. The architecture decisions - sync frequency, data contracts, error handling - are where advisory is most useful."}},
+        {"@type": "Question", "name": "We have a custom-built DMS that doesn't scale. Where do we start?", "acceptedAnswer": {"@type": "Answer", "text": "The first step is understanding what's actually breaking. Custom DMS systems most commonly fail at scheme management complexity, concurrent order booking under load, and ERP sync reliability. An architecture review identifies which of these is the binding constraint before any rebuild work starts."}},
+        {"@type": "Question", "name": "How do we get real-time secondary sales visibility from distributors?", "acceptedAnswer": {"@type": "Answer", "text": "Secondary sales visibility requires either the distributor running your DMS module, uploading a standardised data file, or using a salesperson app that captures retailer billing data at the point of order. Each approach has different adoption rates and data quality trade-offs. The architecture should handle all three fallback modes, not just the ideal scenario."}},
+        {"@type": "Question", "name": "Our SFA app has very low adoption by field reps. Is that a product problem or an architecture problem?", "acceptedAnswer": {"@type": "Answer", "text": "Usually both. Architecturally: if the app requires connectivity in areas with poor network coverage, requires too many steps per order, or doesn't give reps useful data in return (scheme eligibility, stock availability, pending payments), adoption suffers. Offline-first design and reducing the booking flow to the minimum viable steps are the starting points."}},
+        {"@type": "Question", "name": "What's the best architecture for scheme management in a DMS?", "acceptedAnswer": {"@type": "Answer", "text": "Scheme management needs a rules engine, not hardcoded logic. Schemes have start/end dates, eligibility conditions (distributor tier, geography, SKU, quantity), stacking rules, and budget caps. A rules engine lets marketing configure schemes without engineering involvement and validates eligibility at order booking, not at month-end reconciliation."}},
+        {"@type": "Question", "name": "How long does a DMS overhaul typically take?", "acceptedAnswer": {"@type": "Answer", "text": "A phased DMS overhaul - starting with order booking and scheme management, then secondary sales capture, then analytics - typically runs 12-20 weeks for the core platform. ERP integration adds 4-8 weeks depending on the ERP. The bottleneck is usually distributor onboarding and field rep training, not the technology build."}},
+        {"@type": "Question", "name": "What's the best way to start?", "acceptedAnswer": {"@type": "Answer", "text": "Book a 30-minute strategy session. Bring your specific distribution challenge - whether it's secondary sales visibility, scheme management, SFA adoption, or ERP integration. The more specific the problem, the more useful the conversation."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+.hero{padding:120px 40px 64px;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 22px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:36px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:var(--dark);font-size:13px;font-weight:700;text-decoration:none;border-radius:var(--r);transition:opacity .2s;letter-spacing:.02em;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--gold-b);color:var(--gold);font-size:13px;font-weight:500;text-decoration:none;border-radius:var(--r);transition:all .2s;}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+.proof-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:18px 16px;text-align:center;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;line-height:1.1;}
+.proof-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px;}
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:64px auto 0;}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.problem-icon{font-size:15px;color:var(--gold);float:left;margin-right:7px;margin-top:2px;line-height:1.35;}
+.problem-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.35;overflow:hidden;margin-bottom:0;}
+.problem-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-top:2px solid var(--teal);border-radius:0 0 12px 12px;padding:20px 18px;}
+.service-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.domain-section{margin-top:28px;}
+.domain-cat{margin-bottom:20px;}
+.domain-cat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.domain-tag{font-size:12px;padding:5px 13px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark2);transition:border-color .2s;}
+.domain-tag:hover{border-color:var(--gold-b);color:var(--text2);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start;}
+.check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.check-list li i{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:2px;}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.ai-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;overflow:hidden;line-height:1.4;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.audience-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 40px;text-align:center;margin-top:80px;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:16px;}
+.cta-band h2 em{color:var(--gold);font-style:italic;}
+.cta-band p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 32px;font-weight:300;line-height:1.8;}
+footer{padding:18px 60px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+.named-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.named-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden;}
+.named-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.named-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.named-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;overflow:hidden;line-height:1.35;}
+.named-brands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0;clear:both;}
+.named-brand{font-size:11px;padding:3px 10px;border:0.5px solid var(--gold-b);border-radius:100px;color:var(--gold);font-weight:500;}
+.named-desc{font-size:12px;color:var(--muted);line-height:1.65;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.arch-flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.arch-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px 20px 20px;position:relative;overflow:hidden;}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.arch-step{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.03em;float:left;margin-right:10px;margin-top:1px;flex-shrink:0;}
+.arch-title{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;line-height:1.4;margin-bottom:0;padding-top:3px;}
+.arch-body{font-size:12px;color:var(--muted);line-height:1.7;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.problem-card,.service-card,.named-card,.arch-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.named-card:hover,.arch-card:hover,.ai-card:hover,.audience-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.problem-title,.service-title,.named-title,.arch-title,.ai-title,.audience-role{transition:color .2s;}
+.problem-card:hover .problem-title{color:var(--gold);}
+.service-card:hover .service-title,.named-card:hover .named-title,.arch-card:hover .arch-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .hero{padding:100px 20px 48px;}
+  .body-wrap{padding:52px 20px 0;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.named-grid,.arch-flow{grid-template-columns:1fr;}
+  .proof-item{min-width:45%;}
+  .cta-band{padding:56px 20px;}
+  footer{padding:20px;flex-direction:column;text-align:center;gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">DMS &amp; Distribution Technology Advisory</div>
+  <h1 class="hero-title">Distribution Management That<br>Gives You Visibility Beyond<br><em>the Primary Invoice</em></h1>
+  <p class="hero-sub">Architecture advisory for DMS platforms, FMCG distribution networks, salesperson apps, and secondary sales systems that let you see what's actually happening in your distribution channel.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-building-warehouse"></i> FMCG &amp; Pharma Distribution</span>
+    <span><i class="ti ti-device-mobile"></i> SFA App Architecture</span>
+    <span><i class="ti ti-chart-bar"></i> Primary &amp; Secondary Sales Platforms</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Talk About Your Distribution Stack</a>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-n">20+</span><span class="proof-l">Years Technology Leadership</span></div>
+  <div class="proof-item"><span class="proof-n">DMS</span><span class="proof-l">Architecture &amp; Advisory</span></div>
+  <div class="proof-item"><span class="proof-n">FMCG</span><span class="proof-l">Distribution Platforms</span></div>
+  <div class="proof-item"><span class="proof-n">SFA Apps</span><span class="proof-l">Field Force Technology</span></div>
+  <div class="proof-item"><span class="proof-n">Primary</span><span class="proof-l">&amp; Secondary Sales Systems</span></div>
+  <div class="proof-item"><span class="proof-n">Scheme</span><span class="proof-l">Management &amp; Analytics</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="reveal">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-heading">What Breaks First<br>in <em>Distribution Technology</em></h2>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-eye-off"></i></div>
+        <div class="problem-title">Zero Secondary Sales Visibility</div>
+        <div class="problem-desc">You know how much you shipped to distributors. You have no reliable data on how much they sold to retailers. By the time secondary sales data reaches you, it's a week old and partially inaccurate.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-percentage"></i></div>
+        <div class="problem-title">Scheme Reconciliation at Month-End</div>
+        <div class="problem-desc">Trade schemes are configured in spreadsheets, communicated via WhatsApp, and reconciled weeks after the fact. Distributor claims don't match internal records. Finance spends days resolving discrepancies.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-map-off"></i></div>
+        <div class="problem-title">Beat Planning Without Data</div>
+        <div class="problem-desc">Field reps plan their own routes without system support. High-potential outlets get visited weekly. Low-coverage areas go unvisited for months. You find out when a competitor wins the shelf.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-credit-card-off"></i></div>
+        <div class="problem-title">Distributor Credit Is a Spreadsheet</div>
+        <div class="problem-desc">Outstanding balances and credit limits for hundreds of distributors are managed manually. Orders get booked against distributors who are already over limit. Credit risk is discovered at collection, not at order booking.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-package-off"></i></div>
+        <div class="problem-title">No Distributor Stock Visibility</div>
+        <div class="problem-desc">You don't know how much inventory a distributor is holding until they place the next replenishment order. Overstocked distributors sit on working capital. Understocked ones lose sales you never see.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-device-mobile-off"></i></div>
+        <div class="problem-title">SFA App That Nobody Uses</div>
+        <div class="problem-desc">The salesperson app was built or bought, rolled out to the field, and adoption collapsed within months. Reps fall back to WhatsApp orders and manual reporting. The app data doesn't reflect reality.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <div class="problem-title">DMS and ERP Are Out of Sync</div>
+        <div class="problem-desc">Primary orders booked in the DMS don't reflect in the ERP until end-of-day batch processing. Finance is reconciling on yesterday's data. Dispatch decisions happen without visibility into actual confirmed orders.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-arrow-back"></i></div>
+        <div class="problem-title">Returns and Claims Are a Black Hole</div>
+        <div class="problem-desc">Distributor returns - expired stock, damaged goods, scheme claims - are logged differently across regions. Some go into the ERP, some don't. Reconciliation against what was actually returned takes weeks.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-chart-off"></i></div>
+        <div class="problem-title">Market Coverage Is Unknown</div>
+        <div class="problem-desc">You know your revenue by geography. You don't know which retailers are being actively covered, which have dropped off, or where coverage gaps are letting a competitor build shelf presence you don't know about.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-calendar-off"></i></div>
+        <div class="problem-title">Seasonal Schemes Operationally Painful</div>
+        <div class="problem-desc">Festival season schemes require configuring offers across hundreds of distributors and thousands of SKUs. It takes a week to deploy, runs on static spreadsheets, and creates chaos when the field doesn't get the right information in time.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Advisory Areas</div>
+    <h2 class="section-heading">What I Help Distribution<br>Businesses <em>Solve</em></h2>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-building-warehouse"></i></div>
+        <div class="service-title">DMS Architecture & Platform Design</div>
+        <div class="service-desc">Designing the data model, module architecture, and integration contracts for distribution management systems - from greenfield builds to re-architecture of systems that have hit their growth ceiling.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-device-mobile"></i></div>
+        <div class="service-title">Sales Force Automation (SFA) App Design</div>
+        <div class="service-desc">Architecting salesperson apps that field reps actually use - offline-first, minimal booking flow, scheme visibility at order time, and retailer outlet management. Adoption is an architecture problem before it's a training problem.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-users"></i></div>
+        <div class="service-title">Distributor Portal & Management Platform</div>
+        <div class="service-desc">Designing the distributor-facing portal covering order management, scheme eligibility, account statements, and inventory visibility - giving distributors a reason to interact with your system rather than manage via WhatsApp.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-percentage"></i></div>
+        <div class="service-title">Scheme & Discount Management Engine</div>
+        <div class="service-desc">Architecture for a rules-based scheme engine that validates eligibility at order booking, not at month-end. Covers stackable offers, quantity-based tiers, geography and distributor segment rules, and budget cap enforcement.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="service-title">Beat Planning & Territory Management</div>
+        <div class="service-desc">Building the outlet master, visit scheduling, and beat adherence tracking layer that turns field coverage from gut feel into a measurable, improvable metric grounded in actual sales and coverage data.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-chart-bar"></i></div>
+        <div class="service-title">Primary & Secondary Sales Analytics</div>
+        <div class="service-desc">Building the data pipeline that captures secondary sales from DMS modules, distributor uploads, and SFA billing, and normalizes it into a single reporting layer for demand planning, scheme ROI, and coverage analytics.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-credit-card"></i></div>
+        <div class="service-title">Distributor Credit & Limit Management</div>
+        <div class="service-desc">Integrating real-time credit limit enforcement into the order booking flow - checking outstanding balance, credit limit, and overdue status before confirming an order. Credit decisions at dispatch time instead of surprise at collection.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-plug-connected"></i></div>
+        <div class="service-title">ERP-DMS Integration Architecture</div>
+        <div class="service-desc">Defining the data contracts, sync frequency, and error-handling patterns for DMS-to-ERP integration - covering primary orders, scheme deductions, distributor balances, and returns, so both systems stay consistent without manual intervention.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">DMS Architecture Flow</div>
+    <h2 class="section-heading">How a Well-Architected DMS<br>Runs Distribution <em>End to End</em></h2>
+    <p class="body-text">The gap in most distribution operations isn't primary sales - it's everything downstream. Primary orders are in the ERP. Secondary sales are on WhatsApp. Distributor stock is unknown. A well-designed DMS closes each of those gaps systematically, layer by layer.</p>
+    <div class="arch-flow">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-title">Order Booking via SFA App</div>
+        <div class="arch-body">Field reps book retailer orders through the salesperson app at the point of visit. The app shows real-time scheme eligibility, distributor stock availability, and the retailer's order history. Offline-first design ensures orders are captured even without network connectivity and synced when the connection returns. The app is the first data collection point - if adoption fails here, the entire downstream visibility breaks.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-title">Scheme Validation at Order Time</div>
+        <div class="arch-body">As each order is booked, the scheme engine validates eligibility against the current rules - quantity thresholds, SKU combinations, distributor segment, geography, and scheme period. Applicable discounts and freebies are calculated and attached to the order record. This eliminates the month-end scheme claim reconciliation problem: the scheme is locked at booking, not negotiated after the fact.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-title">Distributor Fulfilment & Secondary Sales Capture</div>
+        <div class="arch-body">Approved orders are dispatched by the distributor and invoiced to the retailer. The DMS captures this as a secondary sales event - distributor-to-retailer - updating the distributor's stock balance and creating a secondary sales record. This is the most critical data point in distribution: it's what feeds accurate demand signals into your planning systems, not primary orders placed in batch.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-title">Primary Order Generation & ERP Sync</div>
+        <div class="arch-body">When distributor stock falls below reorder level, the DMS generates a primary replenishment order from company to distributor. This is synced to the ERP in real-time, not as a batch upload. The ERP confirms dispatch, which updates the distributor's incoming stock position in the DMS. Primary and secondary flows are connected through this loop rather than operating in parallel silos.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-title">Credit & Outstanding Balance Enforcement</div>
+        <div class="arch-body">Each order booking checks the distributor's current outstanding balance against their credit limit before confirmation. If the distributor is over limit or has overdue invoices beyond the configured threshold, the order is held for credit approval. This happens at booking, not at dispatch - preventing fulfilled orders that become collection problems. Credit data is synced from ERP in near-real-time, not from a nightly batch.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-title">Analytics: Coverage, Performance & Demand Signals</div>
+        <div class="arch-body">Secondary sales data, beat adherence records, and scheme redemption data feed into the analytics layer. Coverage analytics shows which outlets were visited vs planned, which haven't been visited in X days, and where coverage is deteriorating. Demand signals from secondary sales flow into demand planning for more accurate replenishment. Scheme ROI is calculated against actual redemption, not estimated reach.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Domain Knowledge</div>
+    <h2 class="section-heading">DMS Platforms &amp; Distribution<br>Workflows I <em>Understand</em></h2>
+    <p class="body-text">Distribution complexity lives in the channel dynamics - the distributor agreements, scheme structures, beat patterns, and secondary sales flows that differ across FMCG, pharma, FMCD, and industrial categories. The platforms are tools; the channel knowledge is what makes the architecture decisions right.</p>
+    <div class="domain-section">
+      <div class="domain-cat">
+        <div class="domain-cat-label">DMS Platforms</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Bizom</span><span class="domain-tag">FieldAssist</span><span class="domain-tag">Meraqi</span><span class="domain-tag">Yara DMS</span><span class="domain-tag">SAP DMS</span><span class="domain-tag">Salesforce (DMS)</span><span class="domain-tag">Ivy Mobility</span><span class="domain-tag">Custom DMS</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">SFA &amp; Field Force Apps</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Beatroute</span><span class="domain-tag">SalesDiary</span><span class="domain-tag">Busy Field Force</span><span class="domain-tag">StockRoute</span><span class="domain-tag">Salesforce Mobile</span><span class="domain-tag">Custom SFA Apps</span><span class="domain-tag">Offline-First SFA</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">ERP &amp; Back-Office Integration</div>
+        <div class="domain-tags">
+          <span class="domain-tag">SAP S/4HANA</span><span class="domain-tag">SAP Business One</span><span class="domain-tag">Oracle NetSuite</span><span class="domain-tag">Microsoft Dynamics 365</span><span class="domain-tag">Tally ERP</span><span class="domain-tag">Busy Accounting</span><span class="domain-tag">Marg ERP</span><span class="domain-tag">Zoho ERP</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Distribution Categories</div>
+        <div class="domain-tags">
+          <span class="domain-tag">FMCG Distribution</span><span class="domain-tag">Pharma Distribution</span><span class="domain-tag">Consumer Electronics (FMCD)</span><span class="domain-tag">Beverages</span><span class="domain-tag">Agri Input Distribution</span><span class="domain-tag">FMCG Modern Trade</span><span class="domain-tag">B2B Industrial</span><span class="domain-tag">General Trade</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Distribution Operations</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Primary Sales</span><span class="domain-tag">Secondary Sales</span><span class="domain-tag">Tertiary Sales</span><span class="domain-tag">Beat Planning</span><span class="domain-tag">Outlet Management</span><span class="domain-tag">Scheme Management</span><span class="domain-tag">Distributor Credit</span><span class="domain-tag">Market Coverage</span><span class="domain-tag">Van Sales</span>
+        </div>
+      </div>
+      <div class="domain-cat" style="margin-bottom:0;">
+        <div class="domain-cat-label">Analytics &amp; Intelligence</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Secondary Sales Analytics</span><span class="domain-tag">Coverage Analytics</span><span class="domain-tag">Beat Efficiency</span><span class="domain-tag">Scheme ROI</span><span class="domain-tag">Distributor Performance</span><span class="domain-tag">Demand Signals</span><span class="domain-tag">Market Share Tracking</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Platform Deep Dive</div>
+    <h2 class="section-heading">DMS Platforms &amp; Capabilities<br>I Work <em>With</em></h2>
+    <p class="body-text">India's DMS market has matured significantly in the last decade. Bizom and FieldAssist dominate FMCG. Custom-built systems are common in mid-market and in categories where off-the-shelf platforms don't fit the channel structure. Here's the advisory lens I apply across each platform type.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-building-warehouse"></i></div>
+        <div class="named-title">Bizom</div>
+        <div class="named-brands">
+          <span class="named-brand">Order Management</span><span class="named-brand">SFA</span><span class="named-brand">Distributor Portal</span><span class="named-brand">Analytics</span>
+        </div>
+        <div class="named-desc">Bizom is India's most widely deployed DMS for FMCG, covering order booking, scheme management, secondary sales, beat planning, and distributor management in a single platform. The integration advisory focus is on connecting Bizom's secondary sales data to your demand planning system, syncing primary orders to the ERP in real-time, and configuring the scheme engine to match your specific trade scheme structure without workarounds.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-device-mobile"></i></div>
+        <div class="named-title">FieldAssist</div>
+        <div class="named-brands">
+          <span class="named-brand">Field Force</span><span class="named-brand">Retail Execution</span><span class="named-brand">Market Intelligence</span>
+        </div>
+        <div class="named-desc">FieldAssist focuses on field force effectiveness - beat planning, outlet coverage, merchandising compliance, and market execution analytics. Strong on the retail execution and market intelligence side. Advisory covers integration with your existing ERP and order management systems, and building the analytics pipeline that converts FieldAssist's field data into actionable demand signals for your planning function.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-code"></i></div>
+        <div class="named-title">Custom-Built DMS</div>
+        <div class="named-brands">
+          <span class="named-brand">Custom SFA</span><span class="named-brand">Distributor Portal</span><span class="named-brand">ERP-Integrated</span>
+        </div>
+        <div class="named-desc">Custom DMS platforms are common when the business has unusual channel structures, specific scheme complexity, or ERP integrations that off-the-shelf platforms can't accommodate. The typical failure mode is a custom DMS that works well at 50 distributors and breaks at 500. Advisory covers identifying where the architecture is hitting its ceiling and designing the targeted re-architecture that unblocks scale without a full rebuild.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-percentage"></i></div>
+        <div class="named-title">Scheme Management Engine</div>
+        <div class="named-brands">
+          <span class="named-brand">Rules Engine</span><span class="named-brand">Stackable Offers</span><span class="named-brand">Budget Caps</span><span class="named-brand">Eligibility Logic</span>
+        </div>
+        <div class="named-desc">Scheme management is the highest-complexity module in any DMS. Trade schemes combine quantity conditions, SKU eligibility, distributor segment rules, geography, stacking rules, and budget caps - all of which change every month. A rules-based scheme engine configured by marketing without engineering involvement, with scheme validation at order booking rather than month-end, is the architecture standard. Advisory covers both the engine design and the operational workflow for scheme configuration and reconciliation.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="named-title">Beat Planning & Outlet Master</div>
+        <div class="named-brands">
+          <span class="named-brand">Outlet Master</span><span class="named-brand">Route Scheduling</span><span class="named-brand">Visit Compliance</span><span class="named-brand">Coverage Analytics</span>
+        </div>
+        <div class="named-desc">A beat planning system starts with a clean outlet master - every retail outlet geocoded, classified by channel, size, and segment. Beats are routes assigned to field reps with scheduled visit frequency by outlet tier. The system tracks planned vs actual visits, identifies coverage gaps, and surfaces declining coverage before it becomes a sales problem. Advisory covers outlet master design, beat construction methodology, and the analytics layer that makes coverage actionable.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-plug-connected"></i></div>
+        <div class="named-title">ERP Integration Layer</div>
+        <div class="named-brands">
+          <span class="named-brand">SAP Integration</span><span class="named-brand">Real-Time Sync</span><span class="named-brand">Order Confirmation</span><span class="named-brand">Credit Enforcement</span>
+        </div>
+        <div class="named-desc">DMS-ERP integration is where most distribution systems leak data. The integration must cover: primary order sync in real-time (not end-of-day batch), dispatch confirmation back to DMS, credit limit and outstanding balance sync, scheme deduction posting, and returns and claims reconciliation. Error handling - what happens when the ERP is down or rejects an order - needs to be designed explicitly, not discovered in production when a batch fails overnight.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Modernization</div>
+    <h2 class="section-heading">Transforming Distribution Operations<br>Without <em>Disrupting the Channel</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">Distribution channel disruption is expensive. Distributors resist system changes. Field reps resist new apps. Re-onboarding hundreds of distributors to a new portal carries real business risk during the transition.</p>
+        <p class="body-text" style="margin-top:14px;">The modernization approach I use is additive and phased. Start with order booking and scheme management - the highest-pain, highest-ROI modules. Validate adoption and data quality. Then extend to secondary sales capture and analytics. Distributor portal last.</p>
+        <p class="body-text" style="margin-top:14px;">The goal is a distribution operation where secondary sales data is as reliable as primary, scheme reconciliation is automated, and field coverage is visible to management in real time - not reconstructed from field reports.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li><i class="ti ti-check"></i>Secondary sales visible within 24 hours, not a week late</li>
+          <li><i class="ti ti-check"></i>Scheme eligibility validated at order booking, not month-end</li>
+          <li><i class="ti ti-check"></i>Distributor credit enforced automatically at order time</li>
+          <li><i class="ti ti-check"></i>Primary orders in ERP within minutes, not a nightly batch</li>
+          <li><i class="ti ti-check"></i>Beat coverage visible to RSMs and NSMs in real time</li>
+          <li><i class="ti ti-check"></i>SFA app adoption above 80% within 3 months of rollout</li>
+          <li><i class="ti ti-check"></i>Demand planning grounded in real secondary sell-through data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Practical AI</div>
+    <h2 class="section-heading">Where AI Helps<br><em>Distribution Operations</em></h2>
+    <p class="body-text">Distribution AI use cases that genuinely earn their place are grounded in the data you already have - secondary sales, beat records, outlet performance, and scheme redemption. These are the applications worth looking at seriously.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-brain"></i></div>
+        <div class="ai-title">Demand Signal Intelligence</div>
+        <div class="ai-desc">Using secondary sales velocity data at the outlet level to generate more accurate replenishment signals for primary ordering - moving from distributor-stock-based ordering to actual consumer sell-through signals.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-percentage"></i></div>
+        <div class="ai-title">Scheme ROI Prediction</div>
+        <div class="ai-desc">Analysing historical scheme redemption and secondary sales uplift data to predict which scheme structures deliver genuine sell-through vs those that just load distributors who then discount to clear stock.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="ai-title">Beat Optimisation</div>
+        <div class="ai-desc">Optimising beat schedules based on outlet productivity, visit conversion rates, and travel time - surfacing outlets that need more frequent coverage and those that can be served less often without revenue impact.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div class="ai-title">Distributor Risk Scoring</div>
+        <div class="ai-desc">Scoring distributors on payment behaviour, stock turnover, secondary sales growth, and coverage trends to identify at-risk relationships before they become delinquent accounts or channel vacuums.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-chart-bar"></i></div>
+        <div class="ai-title">Market Coverage Forecasting</div>
+        <div class="ai-desc">Identifying coverage decline patterns before they become visible in revenue - outlets with reducing visit frequency, declining order sizes, or increasing competitor shelf presence signals in survey data.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The Businesses That<br>Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-building-factory-2"></i></div>
+        <div class="audience-role">FMCG &amp; Consumer Goods Companies</div>
+        <div class="audience-desc">Managing hundreds of distributors with primary sales visibility but near-zero secondary data. Either evaluating Bizom or FieldAssist, or stuck with a custom DMS that's hitting its limits as the network grows.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-pill"></i></div>
+        <div class="audience-role">Pharma Distribution Businesses</div>
+        <div class="audience-desc">Distribution technology in pharma adds regulatory traceability, batch and expiry tracking, and compliance requirements on top of standard DMS functionality. The channel structure also differs - stockists, CFA, and super-stockist layers each need different system treatment.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-device-tv"></i></div>
+        <div class="audience-role">Consumer Electronics &amp; FMCD</div>
+        <div class="audience-desc">Dealer and distributor networks for consumer electronics combine DMS functionality with dealer management - demo stock, warranty registration, and service center coordination alongside standard distribution flows.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-code"></i></div>
+        <div class="audience-role">Platforms Building DMS Products</div>
+        <div class="audience-desc">SaaS companies building DMS or SFA platforms for FMCG or distribution verticals. Product architecture, API design, scheme engine design, and multi-tenant DMS architecture are the advisory areas most relevant here.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">Distribution Technology Is Harder<br>Than <em>It Looks from Outside</em></h2>
+    <p class="body-text">The distribution channel is where most consumer goods companies lose visibility. Primary sales go into the ERP cleanly. Everything downstream is manual, delayed, or absent. The companies that win distribution do so by turning secondary sales data, field coverage, and scheme execution into operational intelligence - not by operating on instinct and primary invoice data.</p>
+    <p class="body-text" style="margin-top:14px;">I've worked with distribution technology at the intersection of field operations, ERP systems, and analytics - across FMCG, pharma, and consumer goods categories. The decisions I help teams make are grounded in that operational complexity, not in generic software architecture principles.</p>
+    <div class="stats-grid">
+      <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years in Technology Leadership</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">31+</div><div class="stat-l">Products Shipped to Production</div></div>
+      <div class="stat-box reveal"><div class="stat-n">35M+</div><div class="stat-l">API calls/day at peak scale</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">5</div><div class="stat-l">India, UAE, Maldives, USA &amp; Canada</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;padding-bottom:20px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">What types of businesses benefit from DMS advisory? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">FMCG companies managing hundreds of distributors, pharma distribution businesses, consumer electronics and FMCD companies with dealer networks, and platforms building DMS products. The common denominator is a multi-tier distribution structure where primary and secondary sales data need to flow back into planning and operations.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can you help with Bizom or FieldAssist integration with our ERP? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes. Both Bizom and FieldAssist have API layers that can be integrated with SAP, Oracle, Tally, and custom ERPs. The integration covers primary order sync, scheme validation, distributor inventory, and secondary sales data. The architecture decisions - sync frequency, data contracts, error handling - are where advisory is most useful.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">We have a custom-built DMS that doesn't scale. Where do we start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">The first step is understanding what's actually breaking. Custom DMS systems most commonly fail at scheme management complexity, concurrent order booking under load, and ERP sync reliability. An architecture review identifies which is the binding constraint before any rebuild work starts.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do we get real-time secondary sales visibility from distributors? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Secondary sales visibility requires either the distributor running your DMS module, uploading a standardised data file, or using a salesperson app that captures retailer billing data at the point of order. Each approach has different adoption rates and data quality trade-offs. The architecture should handle all three fallback modes, not just the ideal scenario.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Our SFA app has very low adoption. Is that a product problem or an architecture problem? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Usually both. Architecturally: if the app requires connectivity in areas with poor network coverage, requires too many steps per order, or doesn't give reps useful data in return (scheme eligibility, stock availability, pending payments), adoption suffers. Offline-first design and reducing the booking flow to the minimum viable steps are the starting points.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the right architecture for scheme management in a DMS? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Scheme management needs a rules engine, not hardcoded logic. Schemes have start/end dates, eligibility conditions (distributor tier, geography, SKU, quantity), stacking rules, and budget caps. A rules engine lets marketing configure schemes without engineering involvement and validates eligibility at order booking, not at month-end reconciliation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does a DMS overhaul typically take? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">A phased DMS overhaul - starting with order booking and scheme management, then secondary sales capture, then analytics - typically runs 12-20 weeks for the core platform. ERP integration adds 4-8 weeks depending on the ERP. The bottleneck is usually distributor onboarding and field rep training, not the technology build.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Book a 30-minute strategy session. Bring your specific distribution challenge - whether it's secondary sales visibility, scheme management, SFA adoption, or ERP integration. The more specific the problem, the more useful the conversation.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-band reveal">
+  <h2>Ready to Fix Your<br><em>Distribution Visibility?</em></h2>
+  <p>Book a free 30-minute strategy session. One specific distribution problem - DMS architecture, scheme management, secondary sales, SFA adoption - is all you need to start.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Free Strategy Session</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://startupctopro.in/startups/">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/">AI Startups</a>
+    <a href="https://startupctopro.in/retail-tech/">RetailTech</a>
+    <a href="https://startupctopro.in/dms/">DMS</a>
+    <a href="https://startupctopro.in/supply-chain/">Supply Chain</a>
+    <a href="https://startupctopro.in/logistics/">Logistics</a>
+    <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');});});
+</script>
+</body>
+</html>

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supply Chain Platform Architecture Advisory - Sapan Kumar Mohanty</title>
+<meta name="description" content="CTO advisory for supply chain platform architecture - WMS integration, 3PL integration, demand planning, SCM platforms, vendor management, and inventory positioning for retail and commerce businesses.">
+<meta name="keywords" content="supply chain architecture, WMS integration, 3PL integration consultant, SAP SCM advisory, demand planning platform, inventory positioning, warehouse management system, supply chain CTO India, Increff WMS, Blue Yonder integration">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/supply-chain/">
+<meta property="og:title" content="Supply Chain Platform Architecture Advisory - Sapan Kumar Mohanty">
+<meta property="og:description" content="Free strategy session on supply chain platform architecture - WMS, 3PL, demand planning, SCM integration, vendor management, and inventory positioning for retail and commerce.">
+<meta property="og:url" content="https://startupctopro.in/supply-chain/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty - CTO & VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sapanmohanty">
+<meta name="twitter:title" content="Supply Chain Advisory - Sapan Kumar Mohanty">
+<meta name="twitter:description" content="Free 30-minute strategy session. Supply chain architecture, WMS, 3PL, demand planning, SCM integration. 20+ years in commerce and retail technology.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "Supply Chain Platform Architecture Advisory",
+      "description": "CTO advisory for supply chain platforms - WMS integration, 3PL, demand planning, SCM, vendor management, and inventory positioning for retail and commerce.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "Supply Chain Architecture Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/supply-chain/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "Supply Chain Advisory", "item": "https://startupctopro.in/supply-chain/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What's the difference between OMS and SCM in commerce?", "acceptedAnswer": {"@type": "Answer", "text": "OMS (Order Management System) manages the customer-facing order lifecycle - from placement through fulfilment to delivery. SCM (Supply Chain Management) manages the upstream supply side - demand forecasting, procurement, vendor management, and inventory positioning across the fulfilment network. They need to be tightly integrated: OMS demand signals should drive SCM replenishment decisions, and SCM inventory positions should constrain OMS fulfilment routing."}},
+        {"@type": "Question", "name": "We have SAP but it's not integrated with our WMS. Where do we start?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the data contracts: what does SAP need from the WMS and what does the WMS need from SAP? Typically SAP needs GRN confirmation, inventory positions, and dispatch events. WMS needs approved POs, item master, and inbound ASNs. Map those flows, define sync frequency and error handling, then implement the integration in stages - inbound first, then inventory, then outbound dispatch."}},
+        {"@type": "Question", "name": "How do you approach demand planning integration?", "acceptedAnswer": {"@type": "Answer", "text": "Demand planning integration needs two data streams to work well: historical sales velocity at the SKU-location level, and forward signals from OMS (open orders, committed inventory). Without both, the demand plan is either lagged or disconnected from what's actually selling. The integration architecture needs to deliver both streams with defined latency - near-real-time OMS signals, daily historical reconciliation."}},
+        {"@type": "Question", "name": "Our 3PL gives us reports instead of API data. Is that a problem?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, if you're managing more than a few hundred orders per day. Report-based 3PL data means your OMS is always behind on inventory position and dispatch status. The practical path is either getting the 3PL to enable their API (most enterprise 3PLs have one), building a data ingestion layer from the reports, or switching to a 3PL with better connectivity. I can help evaluate which path makes sense for your situation."}},
+        {"@type": "Question", "name": "How do we build visibility into multi-warehouse inventory positioning?", "acceptedAnswer": {"@type": "Answer", "text": "Multi-warehouse visibility requires a single inventory ledger that aggregates positions across all fulfilment nodes - each WMS, each 3PL, each dark store. Each location publishes inventory events; the central ledger applies them in order. The OMS reads from this ledger when making fulfilment routing decisions, not from individual WMS systems directly. This is the architecture that makes multi-node fulfilment reliable."}},
+        {"@type": "Question", "name": "How long does supply chain platform integration typically take?", "acceptedAnswer": {"@type": "Answer", "text": "WMS-to-OMS integration for a single warehouse typically takes 6-10 weeks. Adding 3PL integration adds 4-8 weeks per 3PL partner, depending on their API maturity. SCM demand planning integration is a longer engagement - 12-20 weeks for a meaningful implementation. The right sequencing is usually: WMS first (biggest operational impact), then 3PL, then demand planning."}},
+        {"@type": "Question", "name": "What's the best way to start?", "acceptedAnswer": {"@type": "Answer", "text": "Book a 30-minute strategy session. Bring the specific supply chain problem - whether it's WMS integration, 3PL data gaps, inventory positioning, or SCM platform selection. One specific problem makes the conversation productive immediately."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+.hero{padding:120px 40px 64px;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 22px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:36px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:var(--dark);font-size:13px;font-weight:700;text-decoration:none;border-radius:var(--r);transition:opacity .2s;letter-spacing:.02em;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--gold-b);color:var(--gold);font-size:13px;font-weight:500;text-decoration:none;border-radius:var(--r);transition:all .2s;}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+.proof-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:18px 16px;text-align:center;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;line-height:1.1;}
+.proof-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px;}
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:64px auto 0;}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.problem-icon{font-size:15px;color:var(--gold);float:left;margin-right:7px;margin-top:2px;line-height:1.35;}
+.problem-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.35;overflow:hidden;margin-bottom:0;}
+.problem-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-top:2px solid var(--teal);border-radius:0 0 12px 12px;padding:20px 18px;}
+.service-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.domain-section{margin-top:28px;}
+.domain-cat{margin-bottom:20px;}
+.domain-cat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.domain-tag{font-size:12px;padding:5px 13px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark2);transition:border-color .2s;}
+.domain-tag:hover{border-color:var(--gold-b);color:var(--text2);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start;}
+.check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.check-list li i{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:2px;}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.ai-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;overflow:hidden;line-height:1.4;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.audience-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 40px;text-align:center;margin-top:80px;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:16px;}
+.cta-band h2 em{color:var(--gold);font-style:italic;}
+.cta-band p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 32px;font-weight:300;line-height:1.8;}
+footer{padding:18px 60px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+.named-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.named-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden;}
+.named-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.named-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.named-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;overflow:hidden;line-height:1.35;}
+.named-brands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0;clear:both;}
+.named-brand{font-size:11px;padding:3px 10px;border:0.5px solid var(--gold-b);border-radius:100px;color:var(--gold);font-weight:500;}
+.named-desc{font-size:12px;color:var(--muted);line-height:1.65;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.arch-flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.arch-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px 20px 20px;position:relative;overflow:hidden;}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.arch-step{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(201,168,76,.4);color:var(--gold);font-family:'Inter',sans-serif;font-size:10px;font-weight:700;letter-spacing:.03em;float:left;margin-right:10px;margin-top:1px;flex-shrink:0;}
+.arch-title{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;line-height:1.4;margin-bottom:0;padding-top:3px;}
+.arch-body{font-size:12px;color:var(--muted);line-height:1.7;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.problem-card,.service-card,.named-card,.arch-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.named-card:hover,.arch-card:hover,.ai-card:hover,.audience-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.problem-title,.service-title,.named-title,.arch-title,.ai-title,.audience-role{transition:color .2s;}
+.problem-card:hover .problem-title{color:var(--gold);}
+.service-card:hover .service-title,.named-card:hover .named-title,.arch-card:hover .arch-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .hero{padding:100px 20px 48px;}
+  .body-wrap{padding:52px 20px 0;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.named-grid,.arch-flow{grid-template-columns:1fr;}
+  .proof-item{min-width:45%;}
+  .cta-band{padding:56px 20px;}
+  footer{padding:20px;flex-direction:column;text-align:center;gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://startupctopro.in/" class="nav-logo">Sapan <span>Kumar Mohanty</span></a>
+  <a href="https://startupctopro.in/" class="nav-back"><i class="ti ti-arrow-left"></i> Portfolio</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Supply Chain Architecture Advisory</div>
+  <h1 class="hero-title">Supply Chain Platforms That<br>Keep Inventory Where<br><em>Demand Actually Is</em></h1>
+  <p class="hero-sub">Architecture advisory for supply chain platforms, WMS and 3PL integration, demand planning systems, and the data contracts that keep your OMS, warehouse, and SCM in agreement.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-boxes"></i> WMS &amp; Warehouse Architecture</span>
+    <span><i class="ti ti-truck"></i> 3PL Integration</span>
+    <span><i class="ti ti-chart-line"></i> Demand Planning Platforms</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Strategy Call</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Talk About Your Supply Chain</a>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-n">20+</span><span class="proof-l">Years Technology Leadership</span></div>
+  <div class="proof-item"><span class="proof-n">WMS</span><span class="proof-l">Architecture &amp; Integration</span></div>
+  <div class="proof-item"><span class="proof-n">3PL</span><span class="proof-l">Fulfilment Networks</span></div>
+  <div class="proof-item"><span class="proof-n">SCM</span><span class="proof-l">Platform Architecture</span></div>
+  <div class="proof-item"><span class="proof-n">Demand</span><span class="proof-l">Planning Integration</span></div>
+  <div class="proof-item"><span class="proof-n">Vendor</span><span class="proof-l">Management Systems</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <div class="reveal">
+    <div class="section-label">The Reality</div>
+    <h2 class="section-heading">What Breaks First<br>in <em>Supply Chain Technology</em></h2>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-chart-off"></i></div>
+        <div class="problem-title">Demand Signals Disconnected from Replenishment</div>
+        <div class="problem-desc">Demand planning runs on last month's data while the OMS has real-time sell-through velocity. The replenishment plan is always lagging reality - you're restocking what sold last month, not what's selling now.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-map-off"></i></div>
+        <div class="problem-title">Inventory in the Wrong Fulfilment Nodes</div>
+        <div class="problem-desc">Stock is available in the network but positioned at the wrong warehouse. Mumbai orders are being routed from Delhi. Last-mile cost spikes. SLA misses increase. The root cause is inventory positioning that doesn't reflect order geography.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-plug-x"></i></div>
+        <div class="problem-title">WMS and OMS Run Independently</div>
+        <div class="problem-desc">The warehouse has inventory the OMS doesn't know about. Orders are released to fulfilment against theoretical stock. Pick failures happen because the WMS and OMS are only reconciled at end of day, not in real time.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-user-x"></i></div>
+        <div class="problem-title">Vendor Onboarding Takes Months</div>
+        <div class="problem-desc">Adding a new supplier requires manual catalog setup, PO template configuration, and custom EDI mapping. By the time the vendor is operational, the season or the opportunity has passed.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-building-off"></i></div>
+        <div class="problem-title">3PL Data Lives in Their Portal</div>
+        <div class="problem-desc">Your third-party logistics provider sends weekly reports. You have no API access to inventory positions or dispatch events. Your OMS is running on data that's 24-48 hours behind actual warehouse state.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-temperature-off"></i></div>
+        <div class="problem-title">Cold Chain Has No Compliance Tracking</div>
+        <div class="problem-desc">Temperature-sensitive products move through your supply chain without automated temperature excursion alerts, expiry tracking, or FEFO enforcement at pick. Compliance is managed manually, audited after the fact.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-receipt-off"></i></div>
+        <div class="problem-title">Procurement Is Outside the System</div>
+        <div class="problem-desc">Purchase orders are raised in email and tracked in spreadsheets. There's no system visibility into inbound lead times, supplier confirmation status, or expected receipt dates - so inventory planning is based on estimates, not actuals.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-eye-off"></i></div>
+        <div class="problem-title">Visibility Stops at the DC Gate</div>
+        <div class="problem-desc">You know what left the distribution centre. You don't know where it is in transit, when it will arrive at the downstream fulfilment node, or when it's available to promise. Customers are told delivery dates based on hope, not data.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-package-off"></i></div>
+        <div class="problem-title">Inbound Lead Times Not in the Plan</div>
+        <div class="problem-desc">Demand planning generates replenishment orders based on depletion rate without factoring in actual supplier lead times. Orders are raised too late. Stockouts happen while the PO is in transit. Reorder points are theoretical, not calibrated.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <div class="problem-title">SCM Platform Bought, Never Integrated</div>
+        <div class="problem-desc">A demand planning or SCM platform was licensed, partially configured, and abandoned when the integration to the ERP and OMS proved more complex than expected. It's now running in parallel with spreadsheets, not replacing them.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Advisory Areas</div>
+    <h2 class="section-heading">What I Help Supply Chain<br>Businesses <em>Solve</em></h2>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-topology-star-3"></i></div>
+        <div class="service-title">SCM Platform Architecture</div>
+        <div class="service-desc">Designing the supply chain platform layer - module boundaries, data contracts between SCM, OMS, WMS, and ERP, and the integration patterns that keep demand signals and inventory positions synchronized across the fulfilment network.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-chart-line"></i></div>
+        <div class="service-title">Demand Planning Integration</div>
+        <div class="service-desc">Building the data pipelines that feed demand planning systems with real-time OMS sell-through velocity and historical sales data - so replenishment decisions are grounded in current demand, not last month's batch export.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-boxes"></i></div>
+        <div class="service-title">WMS Architecture & Integration</div>
+        <div class="service-desc">Designing the WMS integration layer - inbound ASN flows, bin-level inventory sync to OMS, pick-pack-ship event processing, and the real-time bidirectional sync that keeps warehouse and order management in agreement.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-truck"></i></div>
+        <div class="service-title">3PL Integration & Fulfilment Network</div>
+        <div class="service-desc">Defining the integration patterns for third-party logistics partners - ASN, GRN, inventory visibility, order release, and dispatch events - so your systems maintain accurate inventory ownership without depending on the 3PL's reporting portal.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-users"></i></div>
+        <div class="service-title">Vendor Management System Design</div>
+        <div class="service-desc">Designing the vendor portal and onboarding workflow - catalog submission, PO acknowledgement, lead time commitments, and inbound ASN - with a self-service vendor interface that reduces procurement team manual work.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-receipt"></i></div>
+        <div class="service-title">Procurement Platform Architecture</div>
+        <div class="service-desc">Bringing procurement into the system with PO lifecycle management, supplier confirmation tracking, inbound ETA visibility, and automated GRN reconciliation - replacing email-and-spreadsheet procurement with a connected workflow.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="service-title">Inventory Positioning Strategy</div>
+        <div class="service-desc">Designing the fulfilment network logic that routes inventory to nodes based on order geography and SKU velocity - so stock is positioned where demand actually is, not distributed equally or based on historical intuition.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-temperature-snow"></i></div>
+        <div class="service-title">Cold Chain & Compliance Systems</div>
+        <div class="service-desc">Designing cold chain compliance layers - FEFO picking enforcement, temperature excursion monitoring, expiry tracking, and regulatory traceability documentation - for pharma, grocery, fresh produce, and FMCG categories with temperature-sensitive SKUs.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Supply Chain Architecture Flow</div>
+    <h2 class="section-heading">From Demand Signal<br>to <em>Fulfilled Order</em></h2>
+    <p class="body-text">Supply chain architecture is a loop, not a pipeline. Demand signals drive procurement, procurement drives inbound, inbound drives warehouse inventory, and warehouse inventory constrains OMS fulfilment. When any stage runs on stale data, the whole loop degrades. Here's what each stage needs to work correctly.</p>
+    <div class="arch-flow">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-title">Demand Signals from OMS</div>
+        <div class="arch-body">Real-time order velocity from the OMS is the most accurate forward demand signal available. Historical sales by SKU and fulfilment node feed the statistical baseline. The demand planning system needs both: real-time velocity for short-horizon signals and historical data for seasonality and trend models. The integration latency between OMS and demand planning determines how quickly the replenishment plan responds to demand shifts.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-title">Demand Planning & Replenishment</div>
+        <div class="arch-body">The demand planning system generates replenishment requirements per SKU per fulfilment node, factoring in current stock levels from WMS, inbound in-transit quantities, safety stock policy, and supplier lead times. Output is a time-phased replenishment plan: what to order, when, and in what quantity. The plan is revised continuously as new OMS velocity data arrives, not regenerated weekly from a batch export.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-title">Procurement & Vendor Confirmation</div>
+        <div class="arch-body">Approved replenishment requirements become purchase orders routed to the right supplier. Vendors confirm the PO and commit to an ETA via the vendor portal or EDI. Those ETAs update in-transit inventory records in the demand planning system, adjusting the reorder recommendation for the lead time already committed. PO status - pending, confirmed, dispatched, partially received - is visible to the planning team without email follow-up.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-title">Inbound & GRN at Warehouse</div>
+        <div class="arch-body">Supplier dispatch creates an ASN (Advance Ship Notice) that flows to the WMS before the goods arrive. When the inbound shipment arrives, the WMS performs GRN (Goods Received Note) against the ASN - checking quantities, condition, and expiry (for perishables). GRN events update the demand planning system's in-transit inventory and trigger putaway in the WMS. Discrepancies between ASN and GRN generate automatic supplier notifications and update the outstanding PO balance.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-title">Warehouse Operations & OMS Sync</div>
+        <div class="arch-body">The WMS manages bin-level inventory, pick-pack-ship workflows, and returns processing. Each inventory event in the WMS - putaway, pick, cycle count adjustment, damage write-off - updates the inventory ledger that the OMS reads when making fulfilment decisions. The OMS only releases orders to the WMS when the WMS confirms available inventory at the bin level. This bidirectional sync is what prevents pick failures and ghost stock from compounding.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-title">Fulfilment & Supply Chain Analytics</div>
+        <div class="arch-body">Dispatch events from the WMS close the order in the OMS and feed back into supply chain analytics: actual fulfilment rate by SKU, node, and time period. These actuals are compared against the demand plan to measure forecast accuracy. Persistent gaps between forecast and actuals are surfaced as inputs to improve the demand model. Supply chain analytics also tracks supplier lead time performance, inbound quality rates, and WMS productivity - closing the loop from demand signal to delivery outcome.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Domain Knowledge</div>
+    <h2 class="section-heading">Supply Chain Platforms &amp;<br>Systems I <em>Understand</em></h2>
+    <p class="body-text">Supply chain complexity sits in the integration gaps - between the demand plan and the WMS, between the WMS and the OMS, between procurement and inbound visibility. Understanding each platform's data model and API surface is necessary but not sufficient; knowing how they need to connect is where architecture decisions matter.</p>
+    <div class="domain-section">
+      <div class="domain-cat">
+        <div class="domain-cat-label">SCM Platforms</div>
+        <div class="domain-tags">
+          <span class="domain-tag">SAP S/4HANA SCM</span><span class="domain-tag">Oracle SCM Cloud</span><span class="domain-tag">Blue Yonder</span><span class="domain-tag">Kinaxis RapidResponse</span><span class="domain-tag">Manhattan SCM</span><span class="domain-tag">Infor SCM</span><span class="domain-tag">Microsoft Dynamics SCM</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">WMS Platforms (India &amp; Global)</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Increff WMS</span><span class="domain-tag">Vinculum WMS</span><span class="domain-tag">Fynd WMS</span><span class="domain-tag">SnapFulfil</span><span class="domain-tag">Oracle WMS Cloud</span><span class="domain-tag">Manhattan WMS</span><span class="domain-tag">SAP EWM</span><span class="domain-tag">HighJump</span><span class="domain-tag">Custom WMS</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">3PL &amp; Fulfilment Partners</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Delhivery Fulfilment</span><span class="domain-tag">Ecom Express Warehouse</span><span class="domain-tag">XpressBees 3PL</span><span class="domain-tag">Shadowfax</span><span class="domain-tag">FedEx Supply Chain</span><span class="domain-tag">DHL Supply Chain</span><span class="domain-tag">Mahindra Logistics</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">ERP &amp; Procurement Systems</div>
+        <div class="domain-tags">
+          <span class="domain-tag">SAP S/4HANA</span><span class="domain-tag">SAP Business One</span><span class="domain-tag">Oracle NetSuite</span><span class="domain-tag">Microsoft Dynamics 365</span><span class="domain-tag">Tally ERP</span><span class="domain-tag">Zoho ERP</span><span class="domain-tag">Coupa (Procurement)</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Cold Chain &amp; Specialized</div>
+        <div class="domain-tags">
+          <span class="domain-tag">FEFO Picking</span><span class="domain-tag">Cold Chain Compliance</span><span class="domain-tag">Temperature Monitoring APIs</span><span class="domain-tag">Expiry Tracking</span><span class="domain-tag">Pharmaceutical Distribution</span><span class="domain-tag">Fresh Produce Logistics</span>
+        </div>
+      </div>
+      <div class="domain-cat" style="margin-bottom:0;">
+        <div class="domain-cat-label">Integration Patterns</div>
+        <div class="domain-tags">
+          <span class="domain-tag">ASN / GRN</span><span class="domain-tag">EDI Integration</span><span class="domain-tag">Inventory Ledger Design</span><span class="domain-tag">Multi-Node Inventory</span><span class="domain-tag">OMS-WMS Sync</span><span class="domain-tag">Demand Planning APIs</span><span class="domain-tag">Real-Time vs Batch Sync</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Platform Deep Dive</div>
+    <h2 class="section-heading">Supply Chain Platforms<br>I Work <em>With</em></h2>
+    <p class="body-text">Supply chain platform selection is often less important than the integration architecture. A well-integrated mid-market WMS outperforms a poorly-integrated enterprise SCM platform. Here's the advisory lens I apply across the major platform categories.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-boxes"></i></div>
+        <div class="named-title">Increff, Vinculum &amp; Fynd WMS</div>
+        <div class="named-brands">
+          <span class="named-brand">Increff WMS</span><span class="named-brand">Vinculum OMS</span><span class="named-brand">Fynd</span><span class="named-brand">Multi-Channel</span>
+        </div>
+        <div class="named-desc">Increff, Vinculum, and Fynd are the dominant WMS platforms in India's commerce market. Increff specialises in fashion and apparel with strong size-set management. Vinculum covers WMS, OMS, and multi-channel fulfilment in one platform, widely used in D2C and marketplace-first businesses. Fynd extends into in-store inventory and omni-channel retail. Advisory covers WMS-OMS integration design, sync frequency, inventory event architecture, and the bidirectional data contracts each platform exposes.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-topology-star-3"></i></div>
+        <div class="named-title">SAP SCM &amp; Oracle SCM Cloud</div>
+        <div class="named-brands">
+          <span class="named-brand">SAP S/4HANA</span><span class="named-brand">SAP EWM</span><span class="named-brand">Oracle SCM</span><span class="named-brand">Demand Planning</span>
+        </div>
+        <div class="named-desc">SAP and Oracle SCM platforms are enterprise-grade with deep functionality but significant integration complexity. SAP EWM (Extended Warehouse Management) and Oracle WMS Cloud require careful data contract design with your OMS and ERP. The common failure mode is an SAP SCM implementation that runs in batch sync with the OMS, making real-time fulfilment decisions unreliable. Advisory covers the integration architecture, sync patterns, and the data model decisions that determine whether the platform works in real operations.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-chart-line"></i></div>
+        <div class="named-title">Blue Yonder &amp; Kinaxis</div>
+        <div class="named-brands">
+          <span class="named-brand">Blue Yonder Demand</span><span class="named-brand">Kinaxis RapidResponse</span><span class="named-brand">Demand Planning</span>
+        </div>
+        <div class="named-desc">Blue Yonder (formerly JDA) and Kinaxis are specialist demand planning and supply chain visibility platforms. Their value depends entirely on the quality of the data flowing in - OMS sell-through velocity, WMS inventory positions, and supplier lead time actuals. Advisory covers the integration architecture for feeding these platforms with real-time data, and defining the API contracts between your OMS and the demand planning layer so replenishment decisions are genuinely data-driven.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-truck"></i></div>
+        <div class="named-title">3PL Integration Patterns</div>
+        <div class="named-brands">
+          <span class="named-brand">API Integration</span><span class="named-brand">ASN / GRN</span><span class="named-brand">Inventory Events</span><span class="named-brand">Order Release</span>
+        </div>
+        <div class="named-desc">3PL integration requires four data flows: inbound ASN from your procurement system to the 3PL WMS, GRN confirmation back from the 3PL on receipt, real-time inventory positions from the 3PL to your inventory ledger, and order release from your OMS to the 3PL pick workflow. The pattern that fails most often is relying on the 3PL's portal for inventory data rather than building an API integration - you need events, not reports, to maintain accurate inventory positions in real time.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-users"></i></div>
+        <div class="named-title">Vendor Management &amp; Procurement Portals</div>
+        <div class="named-brands">
+          <span class="named-brand">Vendor Portal</span><span class="named-brand">PO Management</span><span class="named-brand">Lead Time Tracking</span><span class="named-brand">ASN</span>
+        </div>
+        <div class="named-desc">A vendor management platform gives suppliers self-service access to POs, delivery windows, and ASN submission - replacing email-based procurement with a connected workflow. The integration challenge is syncing PO data from your ERP or procurement system to the vendor portal in real-time, and flowing vendor ASN submissions back to the WMS for inbound preparation. Advisory covers vendor portal architecture, onboarding workflow design, and the ERP-to-portal data contracts.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-temperature-snow"></i></div>
+        <div class="named-title">Cold Chain &amp; FEFO Systems</div>
+        <div class="named-brands">
+          <span class="named-brand">FEFO Picking</span><span class="named-brand">Temperature APIs</span><span class="named-brand">Expiry Tracking</span><span class="named-brand">Compliance Docs</span>
+        </div>
+        <div class="named-desc">Cold chain adds temperature compliance, expiry-based inventory management, and regulatory traceability on top of standard WMS functionality. FEFO (First Expiry First Out) picking rules must be enforced at the WMS pick instruction level, not managed manually by warehouse staff. Temperature excursion monitoring requires IoT sensor integration with the WMS, with automatic quarantine of affected batches. Advisory covers the WMS configuration decisions, IoT integration patterns, and compliance documentation architecture for pharma, grocery, and FMCG categories.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Modernization</div>
+    <h2 class="section-heading">Connecting the Supply Chain<br>Without Disrupting <em>Operations</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">Supply chain modernization carries significant operational risk. Switching WMS systems mid-season, changing 3PL partners during peak, or re-integrating an SCM platform while orders are flowing requires precise sequencing and fallback planning.</p>
+        <p class="body-text" style="margin-top:14px;">The approach I use is layer-by-layer. Establish the inventory ledger first - a single source of truth for inventory positions across all nodes. Integrate the WMS to that ledger. Then connect demand planning. Then extend to 3PL partners and vendor management. Each layer validates independently before the next builds on it.</p>
+        <p class="body-text" style="margin-top:14px;">The goal is a supply chain where inventory positions are accurate in real time, replenishment decisions are data-driven, and the fulfilment network can be extended to new nodes without re-architecting the integration layer.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li><i class="ti ti-check"></i>WMS and OMS inventory synchronized in real time</li>
+          <li><i class="ti ti-check"></i>Demand planning grounded in current OMS sell-through data</li>
+          <li><i class="ti ti-check"></i>3PL inventory visible in your system, not just their portal</li>
+          <li><i class="ti ti-check"></i>Inbound ASN and GRN flowing between supplier, WMS, and ERP</li>
+          <li><i class="ti ti-check"></i>Vendor lead times tracked in the system, not via email</li>
+          <li><i class="ti ti-check"></i>Cold chain FEFO enforced at pick, not managed manually</li>
+          <li><i class="ti ti-check"></i>New fulfilment nodes added without re-integrating the OMS</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Practical AI</div>
+    <h2 class="section-heading">Where AI Helps<br><em>Supply Chain Operations</em></h2>
+    <p class="body-text">Supply chain AI use cases that work are grounded in data you already have - OMS velocity, WMS inventory positions, supplier lead times, and historical fulfilment data. These are the applications worth looking at seriously.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-brain"></i></div>
+        <div class="ai-title">Demand Forecasting Intelligence</div>
+        <div class="ai-desc">ML-based demand forecasting on top of OMS velocity data and historical sales, with seasonality, promotional, and external signal inputs - producing more accurate SKU-level replenishment signals than statistical models alone.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-map-pin"></i></div>
+        <div class="ai-title">Inventory Positioning Optimisation</div>
+        <div class="ai-desc">Optimising inventory allocation across fulfilment nodes based on predicted order geography and SKU velocity - minimising last-mile cost and SLA misses by positioning stock closer to where demand will actually occur.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-alert-triangle"></i></div>
+        <div class="ai-title">Supply Chain Anomaly Detection</div>
+        <div class="ai-desc">Detecting unusual patterns in inventory movements, inbound receipt rates, and supplier lead times before they cause stockouts or overstocking - surfacing risks early enough for intervention rather than after the damage is done.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-users"></i></div>
+        <div class="ai-title">Supplier Performance Scoring</div>
+        <div class="ai-desc">Scoring supplier performance on lead time adherence, fill rate, quality reject rate, and ASN accuracy - building the data layer that informs vendor management decisions and identifies which suppliers create supply chain risk.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-terminal"></i></div>
+        <div class="ai-title">Supply Chain Operations Copilot</div>
+        <div class="ai-desc">Natural language queries across supply chain data - inventory positions, inbound ETAs, stockout risks, and fulfilment exceptions - letting planning and operations teams get answers without pulling reports from multiple systems.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The Businesses That<br>Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-building-store"></i></div>
+        <div class="audience-role">Retail &amp; Commerce Businesses</div>
+        <div class="audience-desc">Growing retail operations where WMS, OMS, and ERP are running as separate silos. Inventory accuracy is declining, fulfilment costs are rising, and replenishment is always reactive. The supply chain architecture needs to catch up with the order volume.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-building-factory-2"></i></div>
+        <div class="audience-role">FMCG &amp; Consumer Goods Companies</div>
+        <div class="audience-desc">Managing primary distribution alongside D2C and marketplace fulfilment. Supply chain architecture must connect distribution, warehouse, and last-mile layers with a consistent inventory view across all channels.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-cloud"></i></div>
+        <div class="audience-role">Commerce &amp; Supply Chain SaaS</div>
+        <div class="audience-desc">Building WMS, SCM, or fulfilment platforms for retail customers. Platform architecture, multi-tenant WMS design, API-first integration patterns, and supply chain data model design are the advisory areas most relevant here.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <div class="audience-role">Teams Modernising Legacy Supply Chains</div>
+        <div class="audience-desc">A supply chain built for 1,000 orders a day that's now processing 100,000. Every new warehouse, 3PL partner, or channel integration requires custom engineering. You need a supply chain architecture that extends without bespoke work per integration.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">Supply Chain Is Where<br>Commerce <em>Margins Are Made</em></h2>
+    <p class="body-text">Supply chain architecture decisions have direct P&amp;L consequences. Inventory positioned in the wrong nodes drives up last-mile cost. WMS-OMS sync gaps cause pick failures that cost fulfilment labour and customer trust. Demand plans disconnected from real-time OMS data create overstock and stockout cycles simultaneously.</p>
+    <p class="body-text" style="margin-top:14px;">The businesses that manage supply chain costs well aren't the ones with the most expensive platforms. They're the ones with the cleanest integration architecture - where inventory positions are accurate, demand signals are real-time, and every system reads from a shared source of truth.</p>
+    <div class="stats-grid">
+      <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years in Technology Leadership</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">31+</div><div class="stat-l">Products Shipped to Production</div></div>
+      <div class="stat-box reveal"><div class="stat-n">35M+</div><div class="stat-l">API calls/day at peak scale</div></div>
+      <div class="stat-box reveal rd1"><div class="stat-n">5</div><div class="stat-l">India, UAE, Maldives, USA &amp; Canada</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div style="padding-top:64px;padding-bottom:20px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div>
+      <div class="faq-item">
+        <div class="faq-q">What's the difference between OMS and SCM in commerce? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">OMS manages the customer-facing order lifecycle - from placement through fulfilment to delivery. SCM manages the upstream supply side - demand forecasting, procurement, vendor management, and inventory positioning across the fulfilment network. They need to be tightly integrated: OMS demand signals should drive SCM replenishment decisions, and SCM inventory positions should constrain OMS fulfilment routing.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">We have SAP but it's not integrated with our WMS. Where do we start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Start with the data contracts: what does SAP need from the WMS and what does the WMS need from SAP? Typically SAP needs GRN confirmation, inventory positions, and dispatch events. WMS needs approved POs, item master, and inbound ASNs. Map those flows, define sync frequency and error handling, then implement the integration in stages - inbound first, then inventory sync, then outbound dispatch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do you approach demand planning integration? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Demand planning integration needs two data streams: real-time OMS order velocity at the SKU-location level, and historical sales data for trend and seasonality models. Without both, the demand plan is either lagged or disconnected from what's actually selling. The integration architecture needs defined latency - near-real-time OMS signals, daily historical reconciliation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Our 3PL gives us reports instead of API data. Is that a problem? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Yes, if you're managing more than a few hundred orders per day. Report-based 3PL data means your OMS is always behind on inventory position and dispatch status. The practical path is either getting the 3PL to enable their API (most enterprise 3PLs have one), building a data ingestion layer from the reports, or switching to a 3PL with better connectivity.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do we build visibility into multi-warehouse inventory positioning? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Multi-warehouse visibility requires a single inventory ledger that aggregates positions across all fulfilment nodes. Each location publishes inventory events; the central ledger applies them in order. The OMS reads from this ledger when making fulfilment routing decisions, not from individual WMS systems directly. This is the architecture that makes multi-node fulfilment reliable.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's your approach to cold chain compliance systems? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Cold chain compliance requires FEFO picking enforced at the WMS pick instruction level, temperature monitoring integrated with the WMS (not a separate system), and traceability documentation generated automatically at dispatch. Manual cold chain management doesn't scale and creates compliance gaps. Advisory covers WMS configuration choices, IoT integration patterns, and regulatory documentation architecture.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How long does supply chain platform integration typically take? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">WMS-to-OMS integration for a single warehouse typically takes 6-10 weeks. Adding 3PL integration adds 4-8 weeks per partner. SCM demand planning integration is a longer engagement - 12-20 weeks for a meaningful implementation. The right sequencing is usually: WMS first, then 3PL, then demand planning.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What's the best way to start? <i class="ti ti-plus"></i></div>
+        <div class="faq-a">Book a 30-minute strategy session. Bring the specific supply chain problem - WMS integration, 3PL data gaps, inventory positioning, SCM platform selection. One specific problem makes the conversation productive immediately.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-band reveal">
+  <h2>Ready to Fix Your<br><em>Supply Chain Architecture?</em></h2>
+  <p>Book a free 30-minute strategy session. One specific supply chain problem - WMS integration, 3PL connectivity, demand planning, inventory positioning - is all you need to start.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/tech-strategy/#book" class="btn-primary"><i class="ti ti-calendar"></i> Book a Free Strategy Session</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://startupctopro.in/startups/">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/">AI Startups</a>
+    <a href="https://startupctopro.in/retail-tech/">RetailTech</a>
+    <a href="https://startupctopro.in/dms/">DMS</a>
+    <a href="https://startupctopro.in/supply-chain/">Supply Chain</a>
+    <a href="https://startupctopro.in/logistics/">Logistics</a>
+    <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);}});},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.parentElement;const wasOpen=item.classList.contains('open');document.querySelectorAll('.faq-item.open').forEach(i=>i.classList.remove('open'));if(!wasOpen)item.classList.add('open');});});
+</script>
+</body>
+</html>
