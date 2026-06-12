@@ -270,6 +270,22 @@ footer a:hover{color:var(--gold);}
 .service-card:hover .service-title,.arch-card:hover .arch-card-title,.pattern-card:hover .pattern-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role,.named-card:hover .named-title{color:var(--gold);}
 .problem-card:hover .card-desc,.service-card:hover .service-desc,.arch-card:hover .arch-card-body,.segment-card:hover .segment-desc,.ops-card:hover .ops-desc,.pattern-card:hover .pattern-desc,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc,.named-card:hover .named-desc{color:var(--text2);}
 
+/* integration marquee */
+.int-block{margin-top:48px;}
+.int-block:first-child{margin-top:32px;}
+.int-cat-heading{font-size:13px;font-weight:700;color:var(--text);letter-spacing:.04em;margin-bottom:12px;display:flex;align-items:center;gap:9px;}
+.int-cat-heading i{font-size:16px;color:var(--gold);width:28px;height:28px;border-radius:50%;border:1px solid var(--gold-b);background:rgba(201,168,76,.08);line-height:28px;text-align:center;flex-shrink:0;}
+.int-cat-heading span{color:var(--gold);}
+.marquee-wrap{position:relative;overflow:hidden;}
+.marquee-wrap::before,.marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+.marquee-wrap::before{left:0;background:linear-gradient(to right,var(--dark),transparent);}
+.marquee-wrap::after{right:0;background:linear-gradient(to left,var(--dark),transparent);}
+.marquee-track{display:flex;gap:10px;width:max-content;padding:4px 0 10px;animation:mq-scroll var(--mq-dur,36s) linear infinite;}
+.marquee-track:hover{animation-play-state:paused;}
+.mq-chip{display:inline-flex;align-items:center;padding:7px 16px;background:var(--dark2);border:0.5px solid var(--border);border-radius:100px;font-size:12px;color:var(--text2);white-space:nowrap;font-weight:500;transition:border-color .2s,color .2s,background .2s;}
+.mq-chip:hover{border-color:var(--gold-b);color:var(--gold);background:rgba(201,168,76,.05);}
+@keyframes mq-scroll{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.in{opacity:1;transform:translateY(0);}
@@ -780,6 +796,71 @@ footer a:hover{color:var(--gold);}
         <div class="named-desc">Building your own B2B distribution API allows travel agents, corporates, and affiliates to access your inventory programmatically - without going through a bed bank that takes margin. The API must handle authentication (OAuth/API key per sub-agent), rate limits, margin control (different markup rules per agent tier), and per-consumer usage analytics. The common failure mode is building bespoke integrations per B2B client rather than a single governed API that all B2B consumers implement against.</div>
       </div>
     </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- INTEGRATION MARQUEE -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Integration Coverage</div>
+    <h2 class="section-heading">Are You Looking For<br><em>Integrations?</em></h2>
+    <p class="body-text">From bed banks and channel managers to OTAs, PMS, GDS, and supplier systems — these are the platforms and APIs with direct integration experience across connectivity architecture, booking flows, and data synchronisation.</p>
+
+    <!-- 1. Aggregators / Bed Banks -->
+    <div class="int-block">
+      <div class="int-cat-heading"><i class="ti ti-building-bank"></i> <span>01</span> Bed Banks &amp; Aggregators</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" style="--mq-dur:38s;">
+          <span class="mq-chip">Hotelbeds</span><span class="mq-chip">WebBeds</span><span class="mq-chip">TBO Holidays</span><span class="mq-chip">Juniper</span><span class="mq-chip">GTA (Kuoni)</span><span class="mq-chip">Travco</span><span class="mq-chip">W2M</span><span class="mq-chip">Stuba</span><span class="mq-chip">Bedsonline</span><span class="mq-chip">HotelsPro</span><span class="mq-chip">DOTW</span><span class="mq-chip">Restel</span><span class="mq-chip">Bonotel</span><span class="mq-chip">Tourico</span><span class="mq-chip">Agoda B2B</span><span class="mq-chip">Expedia Partner Solutions</span><span class="mq-chip">MakeMyTrip B2B</span><span class="mq-chip">Yatra B2B</span><span class="mq-chip">Rakuten Travel</span><span class="mq-chip">Global Hotel Exchange</span>
+          <span class="mq-chip">Hotelbeds</span><span class="mq-chip">WebBeds</span><span class="mq-chip">TBO Holidays</span><span class="mq-chip">Juniper</span><span class="mq-chip">GTA (Kuoni)</span><span class="mq-chip">Travco</span><span class="mq-chip">W2M</span><span class="mq-chip">Stuba</span><span class="mq-chip">Bedsonline</span><span class="mq-chip">HotelsPro</span><span class="mq-chip">DOTW</span><span class="mq-chip">Restel</span><span class="mq-chip">Bonotel</span><span class="mq-chip">Tourico</span><span class="mq-chip">Agoda B2B</span><span class="mq-chip">Expedia Partner Solutions</span><span class="mq-chip">MakeMyTrip B2B</span><span class="mq-chip">Yatra B2B</span><span class="mq-chip">Rakuten Travel</span><span class="mq-chip">Global Hotel Exchange</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. Channel Managers -->
+    <div class="int-block">
+      <div class="int-cat-heading"><i class="ti ti-arrows-exchange"></i> <span>02</span> Channel Managers</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" style="--mq-dur:32s;">
+          <span class="mq-chip">SiteMinder</span><span class="mq-chip">STAAH</span><span class="mq-chip">RateGain</span><span class="mq-chip">Cloudbeds CM</span><span class="mq-chip">eZee Centrix</span><span class="mq-chip">AxisRooms</span><span class="mq-chip">RateTiger</span><span class="mq-chip">MyAllocator</span><span class="mq-chip">D-EDGE</span><span class="mq-chip">TravelClick</span><span class="mq-chip">Availpro</span><span class="mq-chip">HotelRunner</span><span class="mq-chip">Rentals United</span><span class="mq-chip">Lodgify</span><span class="mq-chip">Beds24</span><span class="mq-chip">SmartHotel360</span><span class="mq-chip">Octorate</span><span class="mq-chip">YieldPlanet</span><span class="mq-chip">CultSwitch</span><span class="mq-chip">BookingFactory</span>
+          <span class="mq-chip">SiteMinder</span><span class="mq-chip">STAAH</span><span class="mq-chip">RateGain</span><span class="mq-chip">Cloudbeds CM</span><span class="mq-chip">eZee Centrix</span><span class="mq-chip">AxisRooms</span><span class="mq-chip">RateTiger</span><span class="mq-chip">MyAllocator</span><span class="mq-chip">D-EDGE</span><span class="mq-chip">TravelClick</span><span class="mq-chip">Availpro</span><span class="mq-chip">HotelRunner</span><span class="mq-chip">Rentals United</span><span class="mq-chip">Lodgify</span><span class="mq-chip">Beds24</span><span class="mq-chip">SmartHotel360</span><span class="mq-chip">Octorate</span><span class="mq-chip">YieldPlanet</span><span class="mq-chip">CultSwitch</span><span class="mq-chip">BookingFactory</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. OTAs -->
+    <div class="int-block">
+      <div class="int-cat-heading"><i class="ti ti-world"></i> <span>03</span> Online Travel Agencies (OTAs)</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" style="--mq-dur:42s;">
+          <span class="mq-chip">Booking.com</span><span class="mq-chip">Expedia</span><span class="mq-chip">Airbnb</span><span class="mq-chip">Agoda</span><span class="mq-chip">MakeMyTrip</span><span class="mq-chip">Goibibo</span><span class="mq-chip">Hotels.com</span><span class="mq-chip">Trip.com</span><span class="mq-chip">Yatra</span><span class="mq-chip">Cleartrip</span><span class="mq-chip">EaseMyTrip</span><span class="mq-chip">ixigo</span><span class="mq-chip">TripAdvisor</span><span class="mq-chip">Vrbo</span><span class="mq-chip">Trivago</span><span class="mq-chip">Kayak</span><span class="mq-chip">HappyEasyGo</span><span class="mq-chip">Paytm Travel</span><span class="mq-chip">Thomas Cook</span><span class="mq-chip">Cox &amp; Kings</span>
+          <span class="mq-chip">Booking.com</span><span class="mq-chip">Expedia</span><span class="mq-chip">Airbnb</span><span class="mq-chip">Agoda</span><span class="mq-chip">MakeMyTrip</span><span class="mq-chip">Goibibo</span><span class="mq-chip">Hotels.com</span><span class="mq-chip">Trip.com</span><span class="mq-chip">Yatra</span><span class="mq-chip">Cleartrip</span><span class="mq-chip">EaseMyTrip</span><span class="mq-chip">ixigo</span><span class="mq-chip">TripAdvisor</span><span class="mq-chip">Vrbo</span><span class="mq-chip">Trivago</span><span class="mq-chip">Kayak</span><span class="mq-chip">HappyEasyGo</span><span class="mq-chip">Paytm Travel</span><span class="mq-chip">Thomas Cook</span><span class="mq-chip">Cox &amp; Kings</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Supplier / PMS Systems -->
+    <div class="int-block">
+      <div class="int-cat-heading"><i class="ti ti-building-hotel"></i> <span>04</span> Supplier &amp; PMS Systems</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" style="--mq-dur:35s;">
+          <span class="mq-chip">Opera Cloud (Oracle)</span><span class="mq-chip">Cloudbeds PMS</span><span class="mq-chip">Mews</span><span class="mq-chip">Protel Air</span><span class="mq-chip">Little Hotelier</span><span class="mq-chip">IDS Next</span><span class="mq-chip">Hotelogix</span><span class="mq-chip">eZee FrontDesk</span><span class="mq-chip">RoomRaccoon</span><span class="mq-chip">Agilysys</span><span class="mq-chip">Guestline</span><span class="mq-chip">Shiji</span><span class="mq-chip">Infor HMS</span><span class="mq-chip">StayNTouch</span><span class="mq-chip">Maestro PMS</span><span class="mq-chip">Clock PMS+</span><span class="mq-chip">WebRezPro</span><span class="mq-chip">Checkfront</span><span class="mq-chip">Preno PMS</span><span class="mq-chip">Sirvoy</span>
+          <span class="mq-chip">Opera Cloud (Oracle)</span><span class="mq-chip">Cloudbeds PMS</span><span class="mq-chip">Mews</span><span class="mq-chip">Protel Air</span><span class="mq-chip">Little Hotelier</span><span class="mq-chip">IDS Next</span><span class="mq-chip">Hotelogix</span><span class="mq-chip">eZee FrontDesk</span><span class="mq-chip">RoomRaccoon</span><span class="mq-chip">Agilysys</span><span class="mq-chip">Guestline</span><span class="mq-chip">Shiji</span><span class="mq-chip">Infor HMS</span><span class="mq-chip">StayNTouch</span><span class="mq-chip">Maestro PMS</span><span class="mq-chip">Clock PMS+</span><span class="mq-chip">WebRezPro</span><span class="mq-chip">Checkfront</span><span class="mq-chip">Preno PMS</span><span class="mq-chip">Sirvoy</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. GDS & Other Systems -->
+    <div class="int-block">
+      <div class="int-cat-heading"><i class="ti ti-network"></i> <span>05</span> GDS &amp; Other Systems</div>
+      <div class="marquee-wrap">
+        <div class="marquee-track" style="--mq-dur:40s;">
+          <span class="mq-chip">Amadeus GDS</span><span class="mq-chip">Sabre GDS</span><span class="mq-chip">Travelport</span><span class="mq-chip">Galileo</span><span class="mq-chip">Worldspan</span><span class="mq-chip">Apollo GDS</span><span class="mq-chip">IATA NDC</span><span class="mq-chip">IBS Software</span><span class="mq-chip">Navitaire</span><span class="mq-chip">Radixx</span><span class="mq-chip">SilverRail</span><span class="mq-chip">SITA</span><span class="mq-chip">OpenJaw</span><span class="mq-chip">Farelogix</span><span class="mq-chip">AeroCRS</span><span class="mq-chip">Hahn Air</span><span class="mq-chip">Pegasus CRS</span><span class="mq-chip">Travelsky</span><span class="mq-chip">Trust International</span><span class="mq-chip">Worldline Travel</span>
+          <span class="mq-chip">Amadeus GDS</span><span class="mq-chip">Sabre GDS</span><span class="mq-chip">Travelport</span><span class="mq-chip">Galileo</span><span class="mq-chip">Worldspan</span><span class="mq-chip">Apollo GDS</span><span class="mq-chip">IATA NDC</span><span class="mq-chip">IBS Software</span><span class="mq-chip">Navitaire</span><span class="mq-chip">Radixx</span><span class="mq-chip">SilverRail</span><span class="mq-chip">SITA</span><span class="mq-chip">OpenJaw</span><span class="mq-chip">Farelogix</span><span class="mq-chip">AeroCRS</span><span class="mq-chip">Hahn Air</span><span class="mq-chip">Pegasus CRS</span><span class="mq-chip">Travelsky</span><span class="mq-chip">Trust International</span><span class="mq-chip">Worldline Travel</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="divider"></div>
