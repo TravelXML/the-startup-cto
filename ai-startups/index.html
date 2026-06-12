@@ -292,7 +292,7 @@ footer a:hover{color:var(--gold);}
         <div class="problem-desc">A RAG pipeline that costs $0.08 per query with 200 beta users costs $800/day at 10,000 users. Most AI startups discover their unit economics problem after launch, not before. Token cost modelling at realistic usage volumes is engineering work, not a finance concern.</div>
       </div>
       <div class="problem-card reveal">
-        <div class="problem-icon"><i class="ti ti-brain-off"></i></div>
+        <div class="problem-icon"><i class="ti ti-brain"></i></div>
         <div class="problem-title">Hallucinations that are acceptable in demo, not in production</div>
         <div class="problem-desc">LLM hallucinations in a demo context are forgiven. In a production system handling customer queries, legal documents, or medical information, they're business and liability risks. Most teams don't have guardrail layers, output validation, or human escalation paths designed before the first real user touches the product.</div>
       </div>
@@ -307,7 +307,7 @@ footer a:hover{color:var(--gold);}
         <div class="problem-desc">Application code that directly calls gpt-4o or claude-3-5-sonnet API endpoints isn't architecturally wrong - until OpenAI changes pricing, a new model requires prompt rewrites, or a customer requires a self-hosted model for data residency. The abstraction cost is low early; the migration cost is high late.</div>
       </div>
       <div class="problem-card reveal rd1">
-        <div class="problem-icon"><i class="ti ti-chart-dots-off"></i></div>
+        <div class="problem-icon"><i class="ti ti-chart-dots-3"></i></div>
         <div class="problem-title">No observability into what the LLM is actually doing</div>
         <div class="problem-desc">If you can't trace a bad user interaction back to the specific prompt, context window, and model response that caused it, you can't fix it reliably. LLM applications need tracing at the request level - every prompt, every retrieval result, every model output - so debugging is deterministic, not probabilistic.</div>
       </div>
@@ -322,7 +322,7 @@ footer a:hover{color:var(--gold);}
         <div class="problem-desc">LLMs will produce unexpected outputs when users push boundaries - intentionally or not. Prompt injection, jailbreaking, and off-topic generation are real surface areas in production AI applications. Building guardrails as an afterthought is significantly more expensive than designing them in from the start.</div>
       </div>
       <div class="problem-card reveal">
-        <div class="problem-icon"><i class="ti ti-git-branch-off"></i></div>
+        <div class="problem-icon"><i class="ti ti-git-branch"></i></div>
         <div class="problem-title">Prompts deployed without version control or testing</div>
         <div class="problem-desc">A prompt is production code. Changing it without versioning, without eval coverage, and without a rollback mechanism is the AI equivalent of deploying untested code directly to production. Most AI teams don't treat prompts this way until a prompt change causes a customer-visible regression they can't easily reverse.</div>
       </div>
