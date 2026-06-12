@@ -634,6 +634,65 @@ footer a:hover{color:var(--gold);}
 
   <div class="divider"></div>
 
+  <!-- ERP INTEGRATIONS -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">ERP Integration Architecture</div>
+    <h2 class="section-heading">ERP & Back-Office Integrations<br>That Actually <em>Stay Stable</em></h2>
+    <p class="body-text">ERP integration is where commerce platforms most commonly accumulate technical debt. End-of-day batch jobs that replace real-time sync. Direct DB connections instead of API contracts. Custom fields added to work around schema mismatches. The result is a commerce-ERP integration that works until it doesn't - and when it breaks, nobody knows where to start. Here's how I approach each ERP integration layer.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-building-factory-2"></i></div>
+        <div class="named-title">SAP S/4HANA &amp; SAP Business One</div>
+        <div class="named-brands">
+          <span class="named-brand">SAP S/4HANA</span><span class="named-brand">SAP Business One</span><span class="named-brand">SAP BAPI</span><span class="named-brand">RFC / IDoc</span><span class="named-brand">SAP Fiori</span>
+        </div>
+        <div class="named-desc">SAP integration for commerce covers order sync (OMS-to-SAP for financial posting), inventory master data sync (SAP→OMS for stock positions), and accounts receivable/payable for marketplace settlement reconciliation. SAP S/4HANA uses BAPIs and RFC calls for transactional integration and IDocs for batch. OData APIs are the modern path for REST-based integration. The architecture decision that matters most is whether to integrate synchronously (blocking OMS operations on SAP confirmation) or asynchronously (publish to queue, SAP processes independently) - the latter is almost always the right answer for commerce platforms where SAP downtime must not block order processing.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-database"></i></div>
+        <div class="named-title">Oracle NetSuite</div>
+        <div class="named-brands">
+          <span class="named-brand">NetSuite SuiteTalk</span><span class="named-brand">SuiteScript</span><span class="named-brand">REST API</span><span class="named-brand">CSV Import</span><span class="named-brand">Saved Searches</span>
+        </div>
+        <div class="named-desc">NetSuite is commonly used by mid-market D2C and ecommerce businesses as the ERP of record. NetSuite's SuiteTalk REST API covers sales orders, inventory items, customers, and financial transactions. The integration covers order creation from OMS, inventory sync back to OMS, and payment/settlement data flowing to NetSuite for revenue recognition. The practical challenge is NetSuite's API rate limits and the complexity of its multi-subsidiary data model for businesses operating across multiple entities or geographies.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-brand-windows"></i></div>
+        <div class="named-title">Microsoft Dynamics 365</div>
+        <div class="named-brands">
+          <span class="named-brand">Dynamics 365 Finance</span><span class="named-brand">Dynamics SCM</span><span class="named-brand">Dataverse API</span><span class="named-brand">Power Automate</span>
+        </div>
+        <div class="named-desc">Dynamics 365 Finance and Supply Chain Management is common in mid-to-large retail and manufacturing businesses. The Dataverse API (formerly Common Data Service) provides REST-based access to business entities. Commerce integration covers order sync, inventory positions from Dynamics SCM, procurement workflows, and financial close data for reconciliation. Power Automate is often used for lighter integration flows, but for high-volume commerce data the Dataverse API with proper batch handling is more reliable than Power Automate triggers at scale.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-calculator"></i></div>
+        <div class="named-title">Tally ERP &amp; Zoho ERP</div>
+        <div class="named-brands">
+          <span class="named-brand">Tally Prime</span><span class="named-brand">TallyConnector</span><span class="named-brand">Zoho Books</span><span class="named-brand">Zoho Inventory</span><span class="named-brand">Zoho Commerce</span>
+        </div>
+        <div class="named-desc">Tally is India's most widely deployed accounting system for SMB retail. Tally's ODBC connector and XML-based API allow bidirectional data exchange with commerce platforms - pushing sales orders, purchase receipts, and payment entries. Zoho's ERP suite (Books, Inventory, Commerce) is API-first and better suited for integration; its REST API covers items, orders, inventory adjustments, and customer management. Advisory covers the integration architecture that keeps Tally or Zoho in sync with the OMS without requiring nightly batch exports and manual reconciliation.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-arrows-shuffle"></i></div>
+        <div class="named-title">ERP Integration Patterns &amp; Middleware</div>
+        <div class="named-brands">
+          <span class="named-brand">Async Event Queue</span><span class="named-brand">Idempotent Sync</span><span class="named-brand">MuleSoft</span><span class="named-brand">Boomi</span><span class="named-brand">AWS EventBridge</span>
+        </div>
+        <div class="named-desc">The integration pattern matters more than the specific ERP. Synchronous OMS-to-ERP calls make your order flow dependent on ERP uptime. Asynchronous event queues (SQS, EventBridge, Kafka) decouple OMS operations from ERP processing - orders are posted to a queue, the ERP consumes them at its own pace, and failures are retried automatically without affecting the customer checkout flow. Idempotency keys prevent duplicate financial postings on retry. This pattern works across SAP, Oracle, Dynamics, and custom ERPs - the ERP's internal model doesn't dictate the OMS integration architecture.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-receipt"></i></div>
+        <div class="named-title">Finance &amp; Reconciliation Integration</div>
+        <div class="named-brands">
+          <span class="named-brand">Revenue Recognition</span><span class="named-brand">Marketplace Settlement</span><span class="named-brand">Payment Gateway Reconciliation</span><span class="named-brand">GST/Tax</span>
+        </div>
+        <div class="named-desc">Finance integration goes beyond order sync. Marketplace settlement files (Amazon, Flipkart) need to be matched against expected payments per order. Payment gateway transaction records (Razorpay, Stripe, PayU) need to be reconciled against orders in the OMS and against ERP revenue entries. GST/tax data for B2B invoicing needs to flow accurately to the ERP for tax filings. This layer typically surfaces the most discrepancies - and the most value - because manual reconciliation at any commerce volume is unsustainable.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- COURIER & LOGISTICS ARCHITECTURE -->
   <div style="padding-top:64px;" class="reveal">
     <div class="section-label">Courier &amp; Logistics</div>
@@ -736,24 +795,64 @@ footer a:hover{color:var(--gold);}
 
   <!-- Modernization -->
   <div style="padding-top:64px;" class="reveal">
-    <div class="section-label">Modernization</div>
-    <h2 class="section-heading">Modernising Retail Platforms<br>Without Disrupting <em>Operations</em></h2>
+    <div class="section-label">Scale-Up &amp; Modernization</div>
+    <h2 class="section-heading">Scaling &amp; Modernising Retail Platforms<br>Without Disrupting <em>Operations</em></h2>
     <div class="two-col">
       <div>
         <p class="body-text">Retail and commerce platforms rarely have the luxury of going offline to modernize. Sale seasons are always coming. Integrations are always live. Teams are always on-call.</p>
-        <p class="body-text" style="margin-top:14px;">The approach I use is bounded and staged. Identify which parts of the platform create the most operational risk or block the most product velocity. Modernize those first, in parallel with what's running. Validate, then cut over.</p>
-        <p class="body-text" style="margin-top:14px;">The goal isn't architectural purity. It's a platform your operations team can trust, your engineering team can deploy reliably, and your business can scale on without operational chaos amplifying with every order of magnitude of growth.</p>
+        <p class="body-text" style="margin-top:14px;">The approach I use is bounded and staged. Identify which parts of the platform create the most operational risk or block the most product velocity. Scale and modernize those first, in parallel with what's running. Validate at load, then cut over with confidence.</p>
+        <p class="body-text" style="margin-top:14px;">The goal isn't architectural purity — it's a platform your operations team can trust, your engineering team can deploy reliably, and your business can scale on without operational chaos multiplying with every order of magnitude of growth.</p>
       </div>
       <div>
         <ul class="check-list">
-          <li><i class="ti ti-check"></i>Marketplace integrations become maintainable and testable</li>
-          <li><i class="ti ti-check"></i>Inventory stays accurate across channels without manual correction</li>
+          <li><i class="ti ti-check"></i>Marketplace integrations become maintainable, testable, and independently deployable</li>
+          <li><i class="ti ti-check"></i>Inventory stays accurate across all channels without manual correction</li>
           <li><i class="ti ti-check"></i>Order status becomes a single source of truth, not a team consensus</li>
           <li><i class="ti ti-check"></i>New channel onboarding takes weeks, not months</li>
-          <li><i class="ti ti-check"></i>Sale-period scaling is designed for, not discovered during</li>
+          <li><i class="ti ti-check"></i>Sale-period and festival scaling is designed for, not discovered during</li>
           <li><i class="ti ti-check"></i>Finance reconciliation moves from weekly firefighting to automated verification</li>
-          <li><i class="ti ti-check"></i>Engineering teams ship features instead of maintaining connectors</li>
+          <li><i class="ti ti-check"></i>Engineering teams ship product features instead of firefighting connector breakages</li>
+          <li><i class="ti ti-check"></i>Monolith decomposed into domain services - OMS, inventory, catalog, fulfilment</li>
+          <li><i class="ti ti-check"></i>Event-driven architecture replacing synchronous chains that break under load</li>
+          <li><i class="ti ti-check"></i>Cloud-native infrastructure with autoscaling for peak and idle periods</li>
         </ul>
+      </div>
+    </div>
+    <div style="margin-top:36px;">
+      <div class="section-label" style="font-size:11px;margin-bottom:16px;">Scale Patterns I Apply</div>
+      <div class="named-grid">
+        <div class="named-card reveal">
+          <div class="named-icon"><i class="ti ti-components"></i></div>
+          <div class="named-title">Domain-Driven Decomposition</div>
+          <div class="named-brands">
+            <span class="named-brand">OMS Domain</span><span class="named-brand">Inventory Domain</span><span class="named-brand">Catalog Domain</span><span class="named-brand">Fulfilment Domain</span>
+          </div>
+          <div class="named-desc">Breaking the monolith by bounded context rather than technical layer. OMS handles order lifecycle. Inventory owns stock positions and movements. Catalog owns product data. Fulfilment owns WMS, courier, and last-mile. Each domain deploys independently and owns its data store.</div>
+        </div>
+        <div class="named-card reveal rd1">
+          <div class="named-icon"><i class="ti ti-arrow-right-rhombus"></i></div>
+          <div class="named-title">Event-Driven Integration Backbone</div>
+          <div class="named-brands">
+            <span class="named-brand">Kafka</span><span class="named-brand">SQS/SNS</span><span class="named-brand">EventBridge</span><span class="named-brand">RabbitMQ</span>
+          </div>
+          <div class="named-desc">Replacing synchronous API chains with event streams. Order placed → inventory reserved → fulfilment triggered → marketplace notified - all asynchronous with guaranteed delivery. This is what allows peak traffic spikes to be absorbed rather than causing cascading failures.</div>
+        </div>
+        <div class="named-card reveal">
+          <div class="named-icon"><i class="ti ti-database"></i></div>
+          <div class="named-title">Read/Write Separation &amp; Caching</div>
+          <div class="named-brands">
+            <span class="named-brand">Redis Cache</span><span class="named-brand">Read Replicas</span><span class="named-brand">CQRS Pattern</span><span class="named-brand">CDN Edge</span>
+          </div>
+          <div class="named-desc">Separating the high-read paths (catalog display, inventory check, order status) from write paths (order creation, inventory updates). Read replicas for reporting and analytics queries. Redis caching for catalog and pricing layers. CDN edge for static and semi-static content.</div>
+        </div>
+        <div class="named-card reveal rd1">
+          <div class="named-icon"><i class="ti ti-cloud"></i></div>
+          <div class="named-title">Cloud-Native Infrastructure &amp; Autoscaling</div>
+          <div class="named-brands">
+            <span class="named-brand">ECS/EKS</span><span class="named-brand">Lambda</span><span class="named-brand">Auto Scaling Groups</span><span class="named-brand">Spot Instances</span>
+          </div>
+          <div class="named-desc">Container-based deployments with horizontal pod autoscaling triggered on queue depth and request rate - not just CPU. Separate scaling profiles for sale-event bursts vs steady-state. Cost-optimised with spot/preemptible nodes for batch processing workloads like reconciliation and report generation.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -762,34 +861,49 @@ footer a:hover{color:var(--gold);}
 
   <!-- AI -->
   <div style="padding-top:64px;" class="reveal">
-    <div class="section-label">Practical AI</div>
-    <h2 class="section-heading">Where AI Helps<br><em>Retail Operations</em></h2>
-    <p class="body-text">The retail use cases where AI genuinely earns its place are operational - not cosmetic. These are the ones worth looking at seriously, grounded in what commerce platforms can actually support today.</p>
+    <div class="section-label">AI Innovation &amp; Implementation</div>
+    <h2 class="section-heading">AI That Earns Its Place<br>in <em>Retail Operations</em></h2>
+    <p class="body-text">The retail AI applications that deliver real value are grounded in operational data - order history, inventory positions, customer behaviour, and fulfilment events. These are the implementations worth building seriously, covering prediction engines, recommendation systems, and AI-powered operations platforms.</p>
     <div class="ai-grid">
       <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-chart-dots-3"></i></div>
+        <div class="ai-title">Prediction Engine</div>
+        <div class="ai-desc">Demand prediction at the SKU-location level using OMS sell-through velocity, seasonal patterns, and promotional signals. Stockout prediction surfacing at-risk SKUs before they hit zero. Replenishment recommendation grounded in real lead times and safety stock policy - moving from reactive reordering to predictive inventory management.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="ai-title">Recommendation Engine</div>
+        <div class="ai-desc">Personalised product recommendations, cross-sell, and upsell powered by purchase history, browsing behaviour, and basket analysis. Replacing static "frequently bought together" rules with ML-driven suggestions that adapt per customer segment. Also applicable to internal catalog recommendations - surfacing the right SKUs for marketing campaigns, bundling, and pricing decisions.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-packages"></i></div>
+        <div class="ai-title">Order &amp; Warehouse Management Engine</div>
+        <div class="ai-desc">AI-optimised order routing that selects the best fulfilment node based on inventory position, last-mile cost, delivery SLA, and carrier performance - not static nearest-warehouse rules. WMS picking path optimisation that reduces pick time per order. Dynamic slotting recommendations for warehouse layout based on SKU velocity and co-pick frequency patterns.</div>
+      </div>
+      <div class="ai-card reveal rd1">
         <div class="ai-icon"><i class="ti ti-headset"></i></div>
         <div class="ai-title">Customer Support Automation</div>
         <div class="ai-desc">Handling order status queries, return and exchange requests, and delivery exception questions without routing everything to a human agent. Grounded in your actual order data, not generic responses.</div>
       </div>
-      <div class="ai-card reveal rd1">
+      <div class="ai-card reveal">
         <div class="ai-icon"><i class="ti ti-terminal"></i></div>
         <div class="ai-title">Internal Operations Copilot</div>
         <div class="ai-desc">Operations teams querying inventory levels, order statuses, and fulfilment exceptions using natural language - rather than pulling reports from five different systems at once.</div>
       </div>
-      <div class="ai-card reveal">
+      <div class="ai-card reveal rd1">
         <div class="ai-icon"><i class="ti ti-file-description"></i></div>
         <div class="ai-title">Catalog Enrichment Workflows</div>
-        <div class="ai-desc">Using LLM workflows to normalize product descriptions, extract attributes, generate marketplace-ready content, and maintain catalog quality at scale - reducing manual effort significantly.</div>
+        <div class="ai-desc">Using LLM workflows to normalise product descriptions, extract attributes, generate marketplace-ready content, and maintain catalog quality at scale - reducing manual effort significantly across thousands of SKUs.</div>
       </div>
-      <div class="ai-card reveal rd1">
+      <div class="ai-card reveal">
         <div class="ai-icon"><i class="ti ti-alert-triangle"></i></div>
         <div class="ai-title">Anomaly Detection in Operations</div>
         <div class="ai-desc">Identifying unusual patterns in inventory movements, order failures, courier performance, and payment discrepancies before they become business-impacting problems that surface as customer complaints.</div>
       </div>
-      <div class="ai-card reveal">
+      <div class="ai-card reveal rd1">
         <div class="ai-icon"><i class="ti ti-brain"></i></div>
-        <div class="ai-title">Demand & Operational Intelligence</div>
-        <div class="ai-desc">Surfacing signals across sales, inventory, and fulfilment data to help operations teams make faster decisions - without requiring a full data science function to maintain.</div>
+        <div class="ai-title">Demand &amp; Operational Intelligence</div>
+        <div class="ai-desc">Surfacing signals across sales, inventory, and fulfilment data to help operations teams make faster decisions - without requiring a full data science function to maintain. Natural language analytics over your commerce data.</div>
       </div>
     </div>
   </div>
@@ -912,6 +1026,8 @@ footer a:hover{color:var(--gold);}
     <a href="https://startupctopro.in/supply-chain/">Supply Chain</a>
     <a href="https://startupctopro.in/logistics/">Logistics</a>
     <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/edtech/">EdTech</a>
+    <a href="https://startupctopro.in/healthcare/">HealthTech</a>
     <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
   </div>
   <div style="display:flex;gap:20px;flex-wrap:wrap;">

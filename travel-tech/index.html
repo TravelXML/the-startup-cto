@@ -251,14 +251,24 @@ footer a:hover{color:var(--gold);}
 .stack-block{background:var(--dark2);border:0.5px solid var(--border);border-radius:14px;padding:24px 26px;}
 .stack-block-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:14px;}
 
+/* named integration cards with brand chips */
+.named-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.named-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:22px;position:relative;overflow:hidden;}
+.named-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.named-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.named-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;overflow:hidden;line-height:1.35;}
+.named-brands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0;clear:both;}
+.named-brand{font-size:11px;padding:3px 10px;border:0.5px solid var(--gold-b);border-radius:100px;color:var(--gold);font-weight:500;}
+.named-desc{font-size:12px;color:var(--muted);line-height:1.65;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+
 /* card hover */
-.problem-card,.service-card,.arch-card,.segment-card,.pattern-card,.ops-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
-.problem-card:hover,.service-card:hover,.arch-card:hover,.segment-card:hover,.ops-card:hover,.ai-card:hover,.audience-card:hover,.pattern-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
-.card-title,.service-title,.arch-card-title,.segment-title,.ops-title,.pattern-title,.ai-title,.audience-role{transition:color .2s;}
-.card-desc,.service-desc,.arch-card-body,.segment-desc,.ops-desc,.pattern-desc,.ai-desc,.audience-desc{transition:color .2s;}
+.problem-card,.service-card,.arch-card,.segment-card,.pattern-card,.ops-card,.ai-card,.audience-card,.named-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.arch-card:hover,.segment-card:hover,.ops-card:hover,.ai-card:hover,.audience-card:hover,.pattern-card:hover,.named-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.card-title,.service-title,.arch-card-title,.segment-title,.ops-title,.pattern-title,.ai-title,.audience-role,.named-title{transition:color .2s;}
+.card-desc,.service-desc,.arch-card-body,.segment-desc,.ops-desc,.pattern-desc,.ai-desc,.audience-desc,.named-desc{transition:color .2s;}
 .problem-card:hover .card-title,.segment-card:hover .segment-title,.ops-card:hover .ops-title{color:var(--gold);}
-.service-card:hover .service-title,.arch-card:hover .arch-card-title,.pattern-card:hover .pattern-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
-.problem-card:hover .card-desc,.service-card:hover .service-desc,.arch-card:hover .arch-card-body,.segment-card:hover .segment-desc,.ops-card:hover .ops-desc,.pattern-card:hover .pattern-desc,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc{color:var(--text2);}
+.service-card:hover .service-title,.arch-card:hover .arch-card-title,.pattern-card:hover .pattern-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role,.named-card:hover .named-title{color:var(--gold);}
+.problem-card:hover .card-desc,.service-card:hover .service-desc,.arch-card:hover .arch-card-body,.segment-card:hover .segment-desc,.ops-card:hover .ops-desc,.pattern-card:hover .pattern-desc,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc,.named-card:hover .named-desc{color:var(--text2);}
 
 /* reveal */
 .reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
@@ -267,7 +277,7 @@ footer a:hover{color:var(--gold);}
 
 /* responsive */
 @media(max-width:800px){
-  .card-grid,.service-card-grid,.domain-blocks,.two-col,.ai-grid,.audience-grid,.stats-grid,.arch-layers,.segment-grid,.pattern-grid,.ops-grid,.stack-blocks{grid-template-columns:1fr;}
+  .card-grid,.service-card-grid,.domain-blocks,.two-col,.ai-grid,.audience-grid,.stats-grid,.arch-layers,.segment-grid,.pattern-grid,.ops-grid,.stack-blocks,.named-grid{grid-template-columns:1fr;}
   .proof-item{min-width:calc(50% - 1px);}
   .proof-item:nth-child(2n){border-right:none;}
 }
@@ -715,11 +725,111 @@ footer a:hover{color:var(--gold);}
 
   <div class="divider"></div>
 
+  <!-- SECTION: CHANNEL MANAGERS / OTAs / PMS / AGGREGATORS -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Connectivity Architecture</div>
+    <h2 class="section-heading">Channel Managers, OTAs, PMS<br>&amp; Aggregator <em>Integrations</em></h2>
+    <p class="body-text">Travel connectivity complexity comes from the sheer number of systems that need to stay in sync - and the fact that each one uses a different protocol, data model, and availability push mechanism. Channel managers push via XML. OTAs pull via REST. GDS systems use legacy XML over HTTPS. PMS systems often have both push and pull modes depending on the version. The architecture that scales is one that normalises at the boundary and exposes a single contract inward.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-broadcast"></i></div>
+        <div class="named-title">Channel Managers</div>
+        <div class="named-brands">
+          <span class="named-brand">SiteMinder</span><span class="named-brand">Staah</span><span class="named-brand">RateGain</span><span class="named-brand">MyAllocator</span><span class="named-brand">Cloudbeds CM</span><span class="named-brand">eZee</span>
+        </div>
+        <div class="named-desc">Channel managers sit between the PMS and all distribution channels - pushing rates and availability outward, pulling bookings inward. SiteMinder and Staah dominate India and Southeast Asia for hotel distribution. RateGain adds revenue management on top. The integration challenge is that channel managers use their own availability model (allotment pools, stop-sell flags) which must be mapped to your CRS model without drift. Availability push is typically XML over HTTPS; booking retrieval uses REST or XML pull depending on the channel manager's API version.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-building-hotel"></i></div>
+        <div class="named-title">PMS Systems</div>
+        <div class="named-brands">
+          <span class="named-brand">Opera PMS</span><span class="named-brand">Cloudbeds</span><span class="named-brand">IDS / HMS</span><span class="named-brand">Protel</span><span class="named-brand">Mews</span><span class="named-brand">Little Hotelier</span>
+        </div>
+        <div class="named-desc">PMS integration is the deepest hotel tech integration - it's where reservations live, where check-in happens, and where rates are ultimately managed. Opera PMS (Oracle) is the enterprise standard; Cloudbeds and Mews dominate mid-market and tech-first properties. PMS API coverage varies: Opera has a mature XML API; Cloudbeds has REST. The integration must handle reservation creation, modification, cancellation, no-show, and check-out events - all of which affect your booking record and financial reconciliation.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-world"></i></div>
+        <div class="named-title">OTAs &amp; Distribution Channels</div>
+        <div class="named-brands">
+          <span class="named-brand">Booking.com</span><span class="named-brand">Expedia / Hotels.com</span><span class="named-brand">Agoda</span><span class="named-brand">MakeMyTrip</span><span class="named-brand">Goibibo</span><span class="named-brand">Airbnb</span>
+        </div>
+        <div class="named-desc">Direct OTA connectivity bypasses channel manager fees and gives more reliable rate and availability sync. Booking.com Connectivity API, Expedia Rapid API, and MakeMyTrip's seller API all have different rate models and inventory push mechanisms. The architecture challenge is managing rate parity across direct OTA connections, channel manager-mediated channels, and your own direct booking flow simultaneously - with each having slightly different processing latency and availability update frequency.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-topology-star"></i></div>
+        <div class="named-title">Bed Banks &amp; Aggregators</div>
+        <div class="named-brands">
+          <span class="named-brand">Hotelbeds</span><span class="named-brand">TBO Holidays</span><span class="named-brand">Juniper</span><span class="named-brand">GTA / Kuoni</span><span class="named-brand">Travco</span><span class="named-brand">W2M</span>
+        </div>
+        <div class="named-desc">Bed banks and wholesalers provide contracted hotel inventory to B2B buyers - travel agents, OTAs, and tour operators - at net rates. Hotelbeds is the global market leader; TBO dominates India's B2B market. Integration covers search, book, cancel, and voucher flows via XML or REST APIs. The key architectural decision is whether to cache aggregator inventory (for speed) or query live (for accuracy) - most platforms cache search results with a TTL and re-price at booking confirmation to balance latency and accuracy.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-plug-connected"></i></div>
+        <div class="named-title">GDS &amp; Airline Direct Connectivity</div>
+        <div class="named-brands">
+          <span class="named-brand">Amadeus</span><span class="named-brand">Sabre</span><span class="named-brand">Travelport / Galileo</span><span class="named-brand">NDC APIs</span><span class="named-brand">Airline Direct XML</span>
+        </div>
+        <div class="named-desc">GDS integration covers the full booking lifecycle - search, price, book, cancel, ticketing, and post-ticketing operations including void, refund, and exchange. Each GDS uses legacy XML (SOAP/OTA/edifact) with distinct session management and rate limits. NDC (New Distribution Capability) APIs are REST-based and expose fare families, ancillary services, and seat maps that legacy GDS doesn't surface well. Direct airline connectivity (IndiGo, Air India, Emirates direct APIs) bypasses GDS fees for high-volume routes but requires separate integration and maintenance per airline.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-api"></i></div>
+        <div class="named-title">B2B Distribution &amp; White-Label APIs</div>
+        <div class="named-brands">
+          <span class="named-brand">B2B Agent Portal</span><span class="named-brand">White-Label API</span><span class="named-brand">Sub-Agent Networks</span><span class="named-brand">XML / REST Feed</span>
+        </div>
+        <div class="named-desc">Building your own B2B distribution API allows travel agents, corporates, and affiliates to access your inventory programmatically - without going through a bed bank that takes margin. The API must handle authentication (OAuth/API key per sub-agent), rate limits, margin control (different markup rules per agent tier), and per-consumer usage analytics. The common failure mode is building bespoke integrations per B2B client rather than a single governed API that all B2B consumers implement against.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SECTION: ENTERPRISE ARCHITECTURE & SCALE CONNECTIVITY -->
+  <div style="padding-top:60px;" class="reveal">
+    <div class="section-label">Enterprise Architecture</div>
+    <h2 class="section-heading">Scaling Connectivity Across<br>Every System at <em>Enterprise Level</em></h2>
+    <p class="body-text">A travel platform that connects 3 suppliers operates very differently from one that connects 30. The integration patterns that work at small scale - one adapter per supplier, synchronous responses, no rate management - fail at enterprise scale. Here's the architecture that keeps connectivity reliable when the number of suppliers, channels, and booking volumes multiply.</p>
+    <div class="arch-layers">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-card-title">Unified Supplier Abstraction Layer</div>
+        <div class="arch-card-body">Every external system - GDS, channel manager, PMS, OTA, aggregator, or direct hotel API - connects through a supplier adapter that implements a single shared contract: search, price, book, cancel, amend. The booking engine never knows which supplier it's talking to. Schema normalisation, protocol translation (XML→JSON), and supplier-specific retry logic are inside the adapter. When a supplier changes their API, you fix one adapter, not the booking engine or any downstream service.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-card-title">Multi-Layer Caching &amp; Rate Management</div>
+        <div class="arch-card-body">At enterprise scale, querying suppliers live for every search is untenable. GDS charges per query. Channel managers have rate limits. PMS systems are not built for high-frequency polling. The caching strategy has multiple layers: a short-TTL availability cache (Redis) for search results, a longer-TTL content cache (property details, room types, policies) for catalog data, and session-based pre-fetching for checkout flows. Rate throttling per supplier prevents quota breaches under peak traffic.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-card-title">Event-Driven Distribution Architecture</div>
+        <div class="arch-card-body">Rate and availability changes should propagate via events, not synchronous polling. When a channel manager pushes a rate update, an event is published to a message queue. Downstream services - OTA feeds, B2B API, direct booking engine - consume that event and update their local read models. This decouples the update latency from the query latency: search is always fast (reads local cache) and updates are eventually consistent (events propagate asynchronously without blocking the search path).</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-card-title">Multi-Channel API Gateway</div>
+        <div class="arch-card-body">A single API gateway enforces authentication, rate limits, and margin rules across all distribution channels - B2B agents, OTAs, direct consumer, and internal services. Each channel gets its own API key or OAuth client with channel-specific rate limits, markup rules, and response shaping. The gateway is also the observability chokepoint: per-channel request volumes, error rates, and latency percentiles are all measured here. Adding a new distribution channel means onboarding a new API consumer, not building a new integration.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-card-title">Cross-System Observability &amp; SLA Monitoring</div>
+        <div class="arch-card-body">Enterprise-scale travel connectivity requires per-supplier, per-channel, per-booking-type observability. Search response time by supplier. Booking confirmation rate by channel. NDR / failed booking rate by OTA. Reconciliation discrepancy rate by period. Each metric has a defined alert threshold. When Amadeus response times start climbing, or when Booking.com booking confirmations drop below expected rates, monitoring detects it before customers do - not after a spike in complaint volume.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-card-title">Failover, Fallback &amp; Graceful Degradation</div>
+        <div class="arch-card-body">Enterprise connectivity means accepting that any supplier will degrade or go offline. Circuit breakers prevent a single supplier failure from cascading. Fallback logic routes to alternative inventory sources when a primary supplier is unavailable. For GDS failures, cache-served results are displayed with freshness indicators. For channel manager outages, the last-known availability is served rather than returning zero results. The platform degrades gracefully - showing less-than-perfect results - rather than failing completely for end users.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
   <!-- SECTION 5: AI -->
   <div style="padding-top:60px;" class="reveal">
-    <div class="section-label">Practical AI</div>
+    <div class="section-label">AI Innovation &amp; Development</div>
     <h2 class="section-heading">Where AI Actually Helps<br><em>Travel Platforms</em></h2>
-    <p class="body-text">I'm selective about AI recommendations in travel. There are a few places where the fit is genuine - where LLM capabilities match a real operational cost. These are them.</p>
+    <p class="body-text">AI in travel has genuine applications - and a lot of hype that doesn't survive contact with real booking data. The use cases that work are grounded in the data travel platforms already have: booking history, search behaviour, supplier performance, and content at scale. Here's where I advise on AI development and implementation.</p>
     <div class="ai-grid">
       <div class="ai-card reveal">
         <div class="ai-icon"><i class="ti ti-headset"></i></div>
@@ -733,18 +843,33 @@ footer a:hover{color:var(--gold);}
       </div>
       <div class="ai-card reveal">
         <div class="ai-icon"><i class="ti ti-brain"></i></div>
-        <div class="ai-title">Booking Abandonment Intelligence</div>
-        <div class="ai-desc">Using behavioural signals and booking context to surface relevant suggestions. Grounded in what the user actually searched, not generic recommendation logic.</div>
+        <div class="ai-title">AI Travel Recommendation Engine</div>
+        <div class="ai-desc">Personalised destination, hotel, and package suggestions powered by traveler profile, search context, past booking history, and real-time inventory. Moving beyond rule-based upsell logic to ML-driven recommendations that adapt to each traveler's intent signals.</div>
       </div>
       <div class="ai-card reveal rd1">
-        <div class="ai-icon"><i class="ti ti-file-description"></i></div>
-        <div class="ai-title">Content &amp; Catalog Enrichment</div>
-        <div class="ai-desc">Automating hotel content normalization, policy extraction, and destination descriptions using LLM workflows - reducing the manual cost of maintaining content at scale.</div>
+        <div class="ai-icon"><i class="ti ti-chart-line"></i></div>
+        <div class="ai-title">AI Revenue &amp; Yield Management</div>
+        <div class="ai-desc">Dynamic pricing powered by demand signals, competitor rate monitoring, booking pace data, and historical sell-through patterns. Building the AI layer on top of your pricing engine that moves rates in response to real signals - not static markup rules.</div>
       </div>
       <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-file-description"></i></div>
+        <div class="ai-title">Content &amp; Catalog Enrichment</div>
+        <div class="ai-desc">Automating hotel content normalisation, policy extraction, and destination descriptions using LLM workflows - reducing the manual cost of maintaining content at scale across hundreds of properties.</div>
+      </div>
+      <div class="ai-card reveal rd1">
         <div class="ai-icon"><i class="ti ti-alert-triangle"></i></div>
         <div class="ai-title">Supplier Anomaly Detection</div>
-        <div class="ai-desc">Identifying patterns in supplier API behaviour, pricing drift, and availability discrepancies before they affect customer bookings. Useful where monitoring alone doesn't catch drift.</div>
+        <div class="ai-desc">Identifying patterns in supplier API behaviour, pricing drift, and availability discrepancies before they affect customer bookings. Useful where monitoring alone doesn't catch subtle drift in supplier data quality.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-robot"></i></div>
+        <div class="ai-title">AI Travel Agent &amp; Trip Planning</div>
+        <div class="ai-desc">Conversational trip planning that understands traveler intent, queries live inventory, and assembles multi-component itineraries - flights, hotels, activities - grounded in real availability and pricing, not hypothetical plans.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-code"></i></div>
+        <div class="ai-title">AI Innovation &amp; Product Development</div>
+        <div class="ai-desc">Advisory on building AI-first travel products - from architectural decisions around GenAI integration, RAG pipeline design, and LLM evaluation frameworks, to product strategy for embedding AI into your core booking and operations platform.</div>
       </div>
     </div>
   </div>
@@ -981,6 +1106,8 @@ footer a:hover{color:var(--gold);}
     <a href="https://startupctopro.in/supply-chain/">Supply Chain</a>
     <a href="https://startupctopro.in/logistics/">Logistics</a>
     <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/edtech/">EdTech</a>
+    <a href="https://startupctopro.in/healthcare/">HealthTech</a>
     <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
   </div>
   <div style="display:flex;gap:20px;">

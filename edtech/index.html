@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EdTech CTO Advisory & Learning Platform Architecture - Sapan Kumar Mohanty</title>
+<meta name="description" content="Book a free strategy session with Sapan Kumar Mohanty - EdTech CTO advisor for LMS architecture, video streaming platforms, live class infrastructure, assessment engines, and AI-powered personalised learning systems.">
+<meta name="keywords" content="edtech CTO, edtech consultant, LMS architecture, learning management system, video streaming edtech, live class platform, assessment engine, edtech SaaS, learning platform India, SCORM xAPI integration, edtech startup advisor, online education platform, K12 platform architecture, upskilling platform, edtech AI">
+<meta name="author" content="Sapan Kumar Mohanty">
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+<meta name="geo.region" content="IN-KA">
+<meta name="geo.placename" content="Bengaluru, India">
+<link rel="canonical" href="https://startupctopro.in/edtech/">
+<meta property="og:title" content="EdTech CTO Advisory & Learning Platform Architecture - Sapan Kumar Mohanty">
+<meta property="og:description" content="Free 30-minute strategy session with an EdTech CTO advisor who has designed learning platforms, LMS architecture, video delivery, assessment engines, and AI-driven personalisation systems.">
+<meta property="og:url" content="https://startupctopro.in/edtech/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Sapan Kumar Mohanty - CTO & VP Technology">
+<meta property="og:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta property="og:locale" content="en_IN">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@sapanmohanty">
+<meta name="twitter:title" content="EdTech CTO Advisory - Sapan Kumar Mohanty">
+<meta name="twitter:description" content="Free 30-minute strategy session. LMS architecture, video streaming, live class infrastructure, assessment engines, AI personalisation. 20+ years in platform engineering.">
+<meta name="twitter:image" content="https://startupctopro.in/icons/icon-512.png">
+<meta name="theme-color" content="#C9A84C">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="icon" type="image/png" sizes="32x32" href="../icons/icon-96.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://startupctopro.in/#person",
+      "name": "Sapan Kumar Mohanty",
+      "jobTitle": "CTO & VP Technology",
+      "url": "https://startupctopro.in",
+      "email": "astartupcto@gmail.com",
+      "address": {"@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN"},
+      "sameAs": [
+        "https://www.linkedin.com/in/the-startup-cto/",
+        "https://github.com/TravelXML",
+        "https://ultimatesystemsdesign.medium.com"
+      ]
+    },
+    {
+      "@type": "Service",
+      "name": "EdTech Platform Advisory",
+      "description": "Free 30-minute strategy session covering LMS architecture, video streaming, live class infrastructure, assessment engines, and AI-powered personalised learning.",
+      "provider": {"@id": "https://startupctopro.in/#person"},
+      "serviceType": "EdTech CTO Advisory",
+      "areaServed": "Worldwide",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "INR",
+        "availability": "https://schema.org/InStock",
+        "url": "https://startupctopro.in/edtech/"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://startupctopro.in/"},
+        {"@type": "ListItem", "position": 2, "name": "EdTech Advisory", "item": "https://startupctopro.in/edtech/"}
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "What kind of edtech platforms have you worked with?", "acceptedAnswer": {"@type": "Answer", "text": "K12 learning platforms, higher education LMS implementations, corporate upskilling and L&D platforms, test preparation systems, live tutoring platforms, and edtech SaaS products. Both India-focused platforms and those building for international learners."}},
+        {"@type": "Question", "name": "Our video delivery breaks under concurrent learner load. Where do we start?", "acceptedAnswer": {"@type": "Answer", "text": "The first question is whether you are serving video directly from storage or through a proper CDN and adaptive bitrate pipeline. If you are streaming raw files from S3, you will hit this problem at every growth milestone. The fix is a proper HLS/DASH transcoding pipeline with CDN edge delivery — not more server capacity."}},
+        {"@type": "Question", "name": "We need to support live classes, recorded content, and assessments. How do we architect that?", "acceptedAnswer": {"@type": "Answer", "text": "These are three distinct sub-systems that share a learner context layer. Live class infrastructure needs low-latency RTC (100ms, Agora, Zoom SDK). Recorded content needs async video pipeline with HLS. Assessments need their own question bank, attempt session, and evaluation engine. Tying them together through a learner progress store is the integration point that matters most."}},
+        {"@type": "Question", "name": "How do we build personalised learning paths with AI?", "acceptedAnswer": {"@type": "Answer", "text": "Start with the data you already have: completion rates, time-on-content, assessment scores, and re-attempt patterns. A simple collaborative filtering model on this data already outperforms static curriculum sequences. Generative AI is useful for adaptive question generation and explanations — but the personalization engine underneath should be grounded in learning outcomes data, not just content similarity."}},
+        {"@type": "Question", "name": "What is the right subscription and payment architecture for edtech?", "acceptedAnswer": {"@type": "Answer", "text": "Edtech payment complexity comes from mixed models: one-time course purchases, monthly/annual subscriptions, EMI for high-ticket programs, and institutional billing for B2B. Razorpay Subscriptions or Stripe handles the recurring layer. The platform needs to enforce content access based on active subscription state — not just payment confirmation — which requires a separate entitlement service that payment events write to."}},
+        {"@type": "Question", "name": "We want to build a marketplace model where instructors can publish courses. What does that require architecturally?", "acceptedAnswer": {"@type": "Answer", "text": "Instructor marketplace requires: content upload and transcoding pipeline, course builder with publishing workflow, revenue sharing and payout engine, instructor analytics dashboard, and content moderation hooks. The hardest part is usually the revenue split and payout reconciliation, especially when combined with refund policies and promotional discounts."}},
+        {"@type": "Question", "name": "What is the best way to start?", "acceptedAnswer": {"@type": "Answer", "text": "Book a 30-minute session. Bring one specific challenge — video delivery, assessment engine design, LMS selection, AI personalisation, or scaling architecture. The more concrete the problem, the more useful the conversation."}}
+      ]
+    }
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --dark:#07111F;--dark2:#0C1A2E;--dark3:#0F2035;
+  --gold:#C9A84C;--gold-dim:rgba(201,168,76,.1);--gold-b:rgba(201,168,76,.22);
+  --teal:#2dd4bf;--text:#EDF2FF;--text2:rgba(237,242,255,.72);
+  --muted:#7A90B0;--border:rgba(201,168,76,.11);--r:8px;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:'Inter',sans-serif;line-height:1.65;overflow-x:hidden;}
+nav{position:fixed;top:0;width:100%;z-index:200;padding:13px 40px;display:flex;justify-content:space-between;align-items:center;background:rgba(7,17,31,.96);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--border);}
+.nav-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:var(--gold);text-decoration:none;letter-spacing:.01em;}
+.nav-logo span{color:var(--text2);font-weight:400;}
+.nav-back{display:inline-flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;font-weight:500;text-decoration:none;letter-spacing:.07em;text-transform:uppercase;border:0.5px solid var(--border);padding:7px 15px;border-radius:var(--r);transition:all .2s;}
+.nav-back:hover{border-color:var(--gold);color:var(--gold);}
+.hero{padding:120px 40px 64px;text-align:center;}
+.hero-tag{display:inline-block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:18px;}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5.5vw,62px);font-weight:700;line-height:1.08;letter-spacing:-.02em;margin-bottom:18px;}
+.hero-title em{color:var(--gold);font-style:italic;}
+.hero-sub{font-size:16px;color:var(--text2);max-width:600px;margin:0 auto 22px;font-weight:300;line-height:1.8;}
+.meta-row{display:flex;align-items:center;justify-content:center;gap:24px;font-size:12px;color:var(--muted);margin-bottom:36px;flex-wrap:wrap;}
+.meta-row span{display:flex;align-items:center;gap:6px;}
+.meta-row i{color:var(--gold);}
+.cta-row{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;background:var(--gold);color:var(--dark);font-size:13px;font-weight:700;text-decoration:none;border-radius:var(--r);transition:opacity .2s;letter-spacing:.02em;}
+.btn-primary:hover{opacity:.85;}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border:0.5px solid var(--gold-b);color:var(--gold);font-size:13px;font-weight:500;text-decoration:none;border-radius:var(--r);transition:all .2s;}
+.btn-secondary:hover{background:var(--gold-dim);border-color:var(--gold);}
+.proof-strip{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);display:flex;flex-wrap:wrap;}
+.proof-item{flex:1;min-width:130px;padding:18px 16px;text-align:center;border-right:0.5px solid var(--border);}
+.proof-item:last-child{border-right:none;}
+.proof-n{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--gold);display:block;line-height:1.1;}
+.proof-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);display:block;margin-top:3px;}
+.body-wrap{max-width:900px;margin:0 auto;padding:72px 40px 0;}
+.section-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--teal);font-weight:600;margin-bottom:14px;}
+.section-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,3.5vw,38px);font-weight:700;line-height:1.15;letter-spacing:-.015em;margin-bottom:18px;}
+.section-heading em{color:var(--gold);font-style:italic;}
+.body-text{font-size:15px;color:var(--text2);line-height:1.9;font-weight:300;}
+.body-text strong{color:var(--text);font-weight:600;}
+.divider{height:0.5px;background:var(--border);max-width:900px;margin:64px auto 0;}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.problem-card{background:var(--dark2);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.problem-icon{font-size:15px;color:var(--gold);float:left;margin-right:7px;margin-top:2px;line-height:1.35;}
+.problem-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.35;overflow:hidden;margin-bottom:0;}
+.problem-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.service-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.service-card{background:var(--dark2);border:0.5px solid var(--border);border-top:2px solid var(--teal);border-radius:0 0 12px 12px;padding:20px 18px;}
+.service-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.service-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.service-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.domain-section{margin-top:28px;}
+.domain-cat{margin-bottom:20px;}
+.domain-cat-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:10px;}
+.domain-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.domain-tag{font-size:12px;padding:5px 13px;border:0.5px solid var(--border);border-radius:100px;color:var(--muted);background:var(--dark2);transition:border-color .2s;}
+.domain-tag:hover{border-color:var(--gold-b);color:var(--text2);}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:28px;align-items:start;}
+.check-list{list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;}
+.check-list li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--text2);line-height:1.5;}
+.check-list li i{color:var(--gold);font-size:15px;flex-shrink:0;margin-top:2px;}
+.ai-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.ai-card{background:var(--dark3);border:0.5px solid var(--border);border-left:2px solid var(--gold);border-radius:0 12px 12px 0;padding:20px 18px;}
+.ai-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.ai-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;overflow:hidden;line-height:1.4;}
+.ai-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.named-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.named-card{background:var(--dark3);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px;position:relative;overflow:hidden;}
+.named-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--gold);}
+.named-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.named-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:9px;overflow:hidden;line-height:1.35;}
+.named-brands{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0;clear:both;}
+.named-brand{font-size:11px;padding:3px 10px;border:0.5px solid var(--gold-b);border-radius:100px;color:var(--gold);font-weight:500;}
+.named-desc{font-size:12px;color:var(--muted);line-height:1.65;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.arch-flow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.arch-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:20px 18px 20px 20px;position:relative;overflow:hidden;}
+.arch-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--teal);}
+.arch-step{display:flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(201,168,76,.4);color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.03em;float:left;margin-right:10px;margin-top:1px;flex-shrink:0;}
+.arch-title{font-size:13px;font-weight:600;color:var(--text);overflow:hidden;line-height:1.4;margin-bottom:0;padding-top:3px;}
+.arch-body{font-size:12px;color:var(--muted);line-height:1.7;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.audience-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;}
+.audience-card{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.audience-icon{font-size:18px;color:var(--gold);float:left;margin-right:8px;margin-top:2px;line-height:1.4;}
+.audience-role{font-size:13px;font-weight:600;color:var(--text);margin-bottom:0;line-height:1.35;overflow:hidden;}
+.audience-desc{font-size:12px;color:var(--muted);line-height:1.65;clear:both;border-top:0.5px solid var(--border);margin-top:10px;padding-top:10px;}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px;}
+.stat-box{background:var(--dark2);border:0.5px solid var(--border);border-radius:12px;padding:22px 20px;}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:700;color:var(--gold);line-height:1;}
+.stat-l{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:5px;}
+.faq-item{border-bottom:0.5px solid var(--border);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-size:14px;font-weight:500;gap:16px;transition:color .2s;user-select:none;}
+.faq-q:hover{color:var(--gold);}
+.faq-q i{color:var(--gold);flex-shrink:0;transition:transform .3s;}
+.faq-item.open .faq-q i{transform:rotate(45deg);}
+.faq-a{font-size:14px;color:var(--muted);line-height:1.8;max-height:0;overflow:hidden;transition:max-height .35s ease,padding .25s;}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:20px;}
+.cta-band{background:var(--dark2);border-top:0.5px solid var(--border);border-bottom:0.5px solid var(--border);padding:80px 40px;text-align:center;margin-top:80px;}
+.cta-band h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.015em;margin-bottom:16px;}
+.cta-band h2 em{color:var(--gold);font-style:italic;}
+.cta-band p{font-size:15px;color:var(--text2);max-width:500px;margin:0 auto 32px;font-weight:300;line-height:1.8;}
+footer{padding:18px 60px;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:20px;font-size:12px;color:var(--muted);}
+footer a{color:var(--muted);text-decoration:none;transition:color .2s;}
+footer a:hover{color:var(--gold);}
+.footer-copy a{color:var(--gold);}
+.problem-card,.service-card,.named-card,.arch-card,.ai-card,.audience-card{transition:transform .2s ease,box-shadow .2s ease;}
+.problem-card:hover,.service-card:hover,.named-card:hover,.arch-card:hover,.ai-card:hover,.audience-card:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.3),0 0 0 0.5px rgba(201,168,76,.22);}
+.problem-title,.service-title,.named-title,.arch-title,.ai-title,.audience-role{transition:color .2s;}
+.problem-card:hover .problem-title{color:var(--gold);}
+.service-card:hover .service-title,.named-card:hover .named-title,.arch-card:hover .arch-title,.ai-card:hover .ai-title,.audience-card:hover .audience-role{color:var(--gold);}
+.problem-card:hover .problem-desc,.service-card:hover .service-desc,.named-card:hover .named-desc,.arch-card:hover .arch-body,.ai-card:hover .ai-desc,.audience-card:hover .audience-desc{color:var(--text2);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.in{opacity:1;transform:translateY(0);}
+.rd1{transition-delay:.1s;}.rd2{transition-delay:.18s;}.rd3{transition-delay:.26s;}
+@media(max-width:680px){
+  nav{padding:12px 20px;}
+  .hero{padding:100px 20px 48px;}
+  .body-wrap{padding:52px 20px 0;}
+  .problem-grid,.service-grid,.ai-grid,.audience-grid,.stats-grid,.two-col,.named-grid,.arch-flow{grid-template-columns:1fr;}
+  .proof-item{min-width:45%;}
+  .cta-band{padding:56px 20px;}
+  footer{padding:20px;flex-direction:column;text-align:center;gap:12px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="https://startupctopro.in/">Sapan <span>Kumar Mohanty</span></a>
+  <a class="nav-back" href="https://startupctopro.in/"><i class="ti ti-arrow-left"></i> Home</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">EdTech Platform Advisory</div>
+  <h1 class="hero-title">Learning Platform Architecture<br>That <em>Scales With Learners</em></h1>
+  <p class="hero-sub">Advisory for edtech companies building LMS platforms, video delivery pipelines, live class infrastructure, assessment engines, and AI-powered personalised learning experiences.</p>
+  <div class="meta-row">
+    <span><i class="ti ti-clock"></i> 30-min free session</span>
+    <span><i class="ti ti-map-pin"></i> Bengaluru / Remote</span>
+    <span><i class="ti ti-school"></i> EdTech & Learning Platforms</span>
+    <span><i class="ti ti-world"></i> India & Global</span>
+  </div>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/#connect" class="btn-primary"><i class="ti ti-calendar"></i> Book Free Strategy Session</a>
+    <a href="https://startupctopro.in/" class="btn-secondary"><i class="ti ti-home"></i> Back to Home</a>
+  </div>
+</div>
+
+<div class="proof-strip">
+  <div class="proof-item"><span class="proof-n">20+</span><span class="proof-l">Years Platform Engineering</span></div>
+  <div class="proof-item"><span class="proof-n">K12–HE</span><span class="proof-l">Across Education Segments</span></div>
+  <div class="proof-item"><span class="proof-n">AI</span><span class="proof-l">Personalised Learning</span></div>
+  <div class="proof-item"><span class="proof-n">Live+Async</span><span class="proof-l">Class Infrastructure</span></div>
+  <div class="proof-item"><span class="proof-n">Scale</span><span class="proof-l">Peak Concurrent Learners</span></div>
+</div>
+
+<div class="body-wrap">
+
+  <!-- Problems -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Where EdTech Platforms Break</div>
+    <h2 class="section-heading">The Real Problems<br>That <em>Block Growth</em></h2>
+    <p class="body-text">EdTech platforms hit infrastructure and architecture walls at predictable growth stages. These are the ones that come up in almost every conversation.</p>
+    <div class="problem-grid">
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-video-off"></i></div>
+        <div class="problem-title">Video Delivery Breaks Under Load</div>
+        <div class="problem-desc">Buffering and playback failures spike during live sessions and peak enrolment periods. Direct S3 streaming was fine at 100 learners, not at 10,000 concurrent.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-layout-grid-remove"></i></div>
+        <div class="problem-title">LMS Fragmentation Across Teams</div>
+        <div class="problem-desc">Content lives in Google Drive, sessions on Zoom, assessments in a Google Form, and progress tracked in a spreadsheet. No single learner view. No reliable completion data.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-activity-heartbeat"></i></div>
+        <div class="problem-title">Live Class Infrastructure Unstable</div>
+        <div class="problem-desc">Audio/video drops, recording failures, and attendance not captured reliably. Instructors managing technical problems mid-session instead of teaching.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-clipboard-x"></i></div>
+        <div class="problem-title">Assessment Engine Has No Integrity</div>
+        <div class="problem-desc">Multiple attempts without tracking, question paper leakage, no proctoring, and manual evaluation taking days. Learners gaming the system because it is easy to do so.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-trending-down"></i></div>
+        <div class="problem-title">Learner Drop-Off Not Visible</div>
+        <div class="problem-desc">No data on where learners disengage, which modules have low completion, or which assessments create high failure rates. Decisions based on anecdotes, not signals.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-certificate-off"></i></div>
+        <div class="problem-title">Certification Workflow Manual</div>
+        <div class="problem-desc">Certificate issuance managed manually or via third-party tools disconnected from completion data. Learners waiting days for a certificate that should be instant on completion.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-credit-card-off"></i></div>
+        <div class="problem-title">Payment & Entitlement Mismatches</div>
+        <div class="problem-desc">Learners who have paid cannot access content. Expired subscriptions still have active access. Refunds processed but content access not revoked. Payment state not trusted.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-users-group"></i></div>
+        <div class="problem-title">B2B / Institutional Billing Not Supported</div>
+        <div class="problem-desc">Corporate clients and schools require invoice-based billing, bulk seat management, and usage reports. The platform only supports individual consumer checkout flows.</div>
+      </div>
+      <div class="problem-card reveal">
+        <div class="problem-icon"><i class="ti ti-plug-off"></i></div>
+        <div class="problem-title">SCORM / xAPI Content Doesn't Track</div>
+        <div class="problem-desc">Imported SCORM packages play but completion and score data never writes back to the LMS. xAPI statements going nowhere. Compliance training with no audit trail.</div>
+      </div>
+      <div class="problem-card reveal rd1">
+        <div class="problem-icon"><i class="ti ti-device-mobile-off"></i></div>
+        <div class="problem-title">Mobile Experience Second-Class</div>
+        <div class="problem-desc">Offline access not available. Video quality not adaptive to bandwidth. App crashes on lower-end Android devices. Learning designed for desktop served broken on mobile.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Services -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">How I Can Help</div>
+    <h2 class="section-heading">EdTech Advisory &amp;<br><em>Platform Services</em></h2>
+    <p class="body-text">Advisory across the full edtech platform stack — from video infrastructure and LMS architecture to AI personalisation and institutional billing systems.</p>
+    <div class="service-grid">
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-school"></i></div>
+        <div class="service-title">LMS Platform Architecture</div>
+        <div class="service-desc">Designing learning management system architecture for scale — course structure, learner progress store, cohort management, content versioning, and multi-tenant support for institutional clients alongside individual learners.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-video"></i></div>
+        <div class="service-title">Video Streaming Pipeline</div>
+        <div class="service-desc">Architecture for scalable video delivery — transcoding pipelines using AWS MediaConvert or Mux, HLS/DASH adaptive streaming, CDN edge delivery, DRM for content protection, and bandwidth-aware playback for mobile-first learners.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-live-view"></i></div>
+        <div class="service-title">Live Class Infrastructure</div>
+        <div class="service-desc">Architecture for live teaching using 100ms, Agora, or Zoom SDK — session management, recording pipelines, attendance capture, interactive features (polls, Q&A, whiteboards), and post-session recording processing and delivery.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-clipboard-check"></i></div>
+        <div class="service-title">Assessment &amp; Testing Engine</div>
+        <div class="service-desc">Question bank design, adaptive testing architecture, attempt session management, proctoring integration, automated evaluation, and certificate issuance on completion. Supporting MCQ, subjective, and coding assessments.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-chart-bar"></i></div>
+        <div class="service-title">Learning Analytics Platform</div>
+        <div class="service-desc">Learner progress tracking, engagement analytics, module-level drop-off signals, assessment performance patterns, and instructor-facing dashboards. Turning passive event data into actionable insights for product and content teams.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-building-store"></i></div>
+        <div class="service-title">Course Marketplace Architecture</div>
+        <div class="service-desc">Multi-instructor marketplace design — content upload and review workflows, instructor analytics and revenue dashboards, revenue share and payout engine, course discovery and search, and promotional pricing management.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon"><i class="ti ti-credit-card"></i></div>
+        <div class="service-title">Payment, Subscription &amp; Entitlement</div>
+        <div class="service-desc">Payment architecture for edtech: one-time, subscription, EMI, institutional billing, and trial management. Entitlement service ensuring content access is always consistent with payment state — not just verified at checkout.</div>
+      </div>
+      <div class="service-card reveal rd1">
+        <div class="service-icon"><i class="ti ti-building-community"></i></div>
+        <div class="service-title">B2B &amp; Institutional Platform</div>
+        <div class="service-desc">Multi-tenant architecture for schools, colleges, and corporate clients — branded portals, admin dashboards, bulk user provisioning, SSO integration, SCORM/xAPI compliance, and usage and completion reporting for compliance.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Domain coverage -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Domain Coverage</div>
+    <h2 class="section-heading">Platforms &amp; Technologies<br>I Work <em>With</em></h2>
+    <div class="domain-section">
+      <div class="domain-cat">
+        <div class="domain-cat-label">LMS Platforms</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Moodle</span>
+          <span class="domain-tag">Canvas LMS</span>
+          <span class="domain-tag">Teachable</span>
+          <span class="domain-tag">Thinkific</span>
+          <span class="domain-tag">Custom LMS</span>
+          <span class="domain-tag">Blackboard</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Video & Streaming</div>
+        <div class="domain-tags">
+          <span class="domain-tag">AWS MediaConvert</span>
+          <span class="domain-tag">Mux Video</span>
+          <span class="domain-tag">Cloudflare Stream</span>
+          <span class="domain-tag">HLS/DASH</span>
+          <span class="domain-tag">DRM (Widevine/FairPlay)</span>
+          <span class="domain-tag">FFmpeg</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Live Class & RTC</div>
+        <div class="domain-tags">
+          <span class="domain-tag">100ms</span>
+          <span class="domain-tag">Agora</span>
+          <span class="domain-tag">Zoom SDK</span>
+          <span class="domain-tag">Twilio</span>
+          <span class="domain-tag">Daily.co</span>
+          <span class="domain-tag">Jitsi</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Content Standards</div>
+        <div class="domain-tags">
+          <span class="domain-tag">SCORM 1.2 / 2004</span>
+          <span class="domain-tag">xAPI (Tin Can)</span>
+          <span class="domain-tag">LTI Integration</span>
+          <span class="domain-tag">IMS Global</span>
+          <span class="domain-tag">QTI Assessments</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Payment & Billing</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Razorpay Subscriptions</span>
+          <span class="domain-tag">Stripe</span>
+          <span class="domain-tag">PayU</span>
+          <span class="domain-tag">Cashfree</span>
+          <span class="domain-tag">EMI Integration</span>
+          <span class="domain-tag">GST Compliance</span>
+        </div>
+      </div>
+      <div class="domain-cat">
+        <div class="domain-cat-label">Analytics & AI</div>
+        <div class="domain-tags">
+          <span class="domain-tag">Learning Analytics</span>
+          <span class="domain-tag">Recommendation Engines</span>
+          <span class="domain-tag">NLP for Assessment</span>
+          <span class="domain-tag">Adaptive Learning</span>
+          <span class="domain-tag">Claude / OpenAI</span>
+          <span class="domain-tag">Vector Search</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Platform Architecture -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Platform Architecture</div>
+    <h2 class="section-heading">Core Platform Components &amp;<br>How They <em>Fit Together</em></h2>
+    <p class="body-text">A well-designed edtech platform is a set of loosely coupled systems — each owning a clear domain — connected through a shared learner context. These are the six core layers and how they interact.</p>
+    <div class="named-grid">
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-book-2"></i></div>
+        <div class="named-title">Course & Content Management</div>
+        <div class="named-brands">
+          <span class="named-brand">Course Builder</span><span class="named-brand">Content Versioning</span><span class="named-brand">SCORM/xAPI</span><span class="named-brand">Curriculum Graph</span>
+        </div>
+        <div class="named-desc">The content layer manages course structure, module sequencing, and content asset storage. Content versioning allows curriculum updates without breaking learner progress mid-course. SCORM/xAPI compliance enables importing third-party content with completion tracking. Curriculum graphs support prerequisite and adaptive path logic.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-video"></i></div>
+        <div class="named-title">Video Delivery Pipeline</div>
+        <div class="named-brands">
+          <span class="named-brand">Transcoding</span><span class="named-brand">HLS Adaptive</span><span class="named-brand">CDN Edge</span><span class="named-brand">DRM</span>
+        </div>
+        <div class="named-desc">Upload → transcode to multiple bitrates (360p/720p/1080p) → package as HLS → serve via CDN with signed URLs. Adaptive bitrate means mobile learners on 2G/3G get smooth playback at lower quality. DRM (Widevine for Android/Chrome, FairPlay for iOS/Safari) prevents unauthorised download and sharing of paid content.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-users"></i></div>
+        <div class="named-title">Learner Progress & Entitlement</div>
+        <div class="named-brands">
+          <span class="named-brand">Progress Store</span><span class="named-brand">Completion Events</span><span class="named-brand">Access Control</span><span class="named-brand">Certificates</span>
+        </div>
+        <div class="named-desc">The central learner context — completion state per module, time-on-content, assessment scores, and badge/certificate eligibility. Entitlement layer enforces content access based on active subscription or purchase state. Certificate issuance triggered automatically on meeting completion criteria, not as a manual process.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-live-view"></i></div>
+        <div class="named-title">Live Class & Session Management</div>
+        <div class="named-brands">
+          <span class="named-brand">RTC Layer</span><span class="named-brand">Session Scheduling</span><span class="named-brand">Recording</span><span class="named-brand">Attendance</span>
+        </div>
+        <div class="named-desc">Session scheduler creates class links, sends reminders, and manages capacity. RTC layer (100ms/Agora) handles real-time audio/video. Recording pipeline captures sessions, transcodes post-call, and makes recordings available in the LMS. Attendance events written back to learner progress store automatically.</div>
+      </div>
+      <div class="named-card reveal">
+        <div class="named-icon"><i class="ti ti-clipboard-list"></i></div>
+        <div class="named-title">Assessment & Evaluation Engine</div>
+        <div class="named-brands">
+          <span class="named-brand">Question Bank</span><span class="named-brand">Attempt Sessions</span><span class="named-brand">Auto-Evaluate</span><span class="named-brand">Proctoring</span>
+        </div>
+        <div class="named-desc">Question bank with tagging by topic, difficulty, and cognitive level. Randomised question selection per attempt to prevent paper leakage. Attempt session management with timer enforcement and auto-submit. Automated evaluation for MCQ and coding. Proctoring hooks for high-stakes exams. Score and pass/fail events written to learner progress store.</div>
+      </div>
+      <div class="named-card reveal rd1">
+        <div class="named-icon"><i class="ti ti-chart-dots-3"></i></div>
+        <div class="named-title">Analytics & Learning Intelligence</div>
+        <div class="named-brands">
+          <span class="named-brand">Engagement Events</span><span class="named-brand">Drop-off Analysis</span><span class="named-brand">Cohort Reports</span><span class="named-brand">AI Insights</span>
+        </div>
+        <div class="named-desc">Event stream from every learner interaction — content views, video seek points, pause patterns, assessment attempts, and discussion activity. Aggregated into instructor and ops dashboards. Cohort-level analysis for product teams. AI layer surfaces at-risk learners, predicts drop-off, and recommends intervention triggers.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Architecture Flow -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Platform Flow</div>
+    <h2 class="section-heading">How a Learner Journey<br>Flows Through <em>the Platform</em></h2>
+    <p class="body-text">Every edtech platform needs a clean end-to-end flow from enrolment through completion. These are the six architectural stages and what happens at each.</p>
+    <div class="arch-flow">
+      <div class="arch-card reveal">
+        <div class="arch-step">01</div>
+        <div class="arch-title">Enrolment &amp; Entitlement</div>
+        <div class="arch-body">Payment confirmation triggers an entitlement event. The access control layer grants the learner access to the purchased course or subscription tier. Cohort assignment if applicable. Welcome sequence initiated. No manual access management required.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">02</div>
+        <div class="arch-title">Content Delivery</div>
+        <div class="arch-body">Learner requests content. Entitlement check at the edge. Signed URLs generated for video assets — not permanent public links. HLS adaptive stream adjusts bitrate to network conditions. SCORM completion signals written back to progress store in real time.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">03</div>
+        <div class="arch-title">Live Class Session</div>
+        <div class="arch-body">Scheduled session link activated on time. RTC session created via 100ms or Agora API. Recording started automatically. Attendance captured as join/leave events. Interactive features (polls, Q&A) log engagement data. Post-session recording processed and linked to course module within minutes.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">04</div>
+        <div class="arch-title">Assessment &amp; Evaluation</div>
+        <div class="arch-body">Learner enters assessment attempt. Randomised question set drawn from bank. Timer enforced server-side. Answers submitted, MCQ auto-evaluated instantly. Subjective flagged for review queue. Score event written to progress store. Proctoring alerts flagged for review if active.</div>
+      </div>
+      <div class="arch-card reveal">
+        <div class="arch-step">05</div>
+        <div class="arch-title">Completion &amp; Certification</div>
+        <div class="arch-body">Progress store evaluates completion criteria — content coverage, assessment pass, live session attendance. On criteria met, certificate issuance triggered automatically. Certificate generated with unique ID, learner name, course, and date. Shareable link created. Completion event fires into analytics and CRM for engagement follow-up.</div>
+      </div>
+      <div class="arch-card reveal rd1">
+        <div class="arch-step">06</div>
+        <div class="arch-title">Analytics &amp; Personalisation</div>
+        <div class="arch-body">Engagement events from all prior stages aggregated into learner and cohort views. AI model identifies learners at risk of dropping off based on activity patterns. Recommendation engine surfaces next content or course. Instructor dashboards show module-level completion rates and common failure points in assessments.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- AI Section -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">AI Innovation &amp; Implementation</div>
+    <h2 class="section-heading">AI That Actually Improves<br><em>Learning Outcomes</em></h2>
+    <p class="body-text">The EdTech AI applications that deliver real results are grounded in learner behaviour data — completion patterns, assessment performance, engagement signals, and content interaction. These are the implementations worth building seriously.</p>
+    <div class="ai-grid">
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-route"></i></div>
+        <div class="ai-title">Personalised Learning Path Engine</div>
+        <div class="ai-desc">Adaptive curriculum that adjusts module sequencing based on learner performance, time-on-content, and prior knowledge signals. Collaborative filtering recommends next content based on what learners with similar profiles found most effective. Moving from one-sequence-fits-all to genuinely adaptive paths that improve completion rates.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-robot"></i></div>
+        <div class="ai-title">AI Tutor &amp; Doubt Resolution</div>
+        <div class="ai-desc">Conversational AI tutor grounded in course content — answering concept questions, explaining worked examples, and guiding learners through problem-solving without requiring live instructor time. LLM with RAG over course materials ensures answers stay within curriculum scope rather than going off-topic.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-trending-down"></i></div>
+        <div class="ai-title">Drop-Off Prediction &amp; Intervention</div>
+        <div class="ai-desc">ML model scoring each active learner's risk of dropping off based on activity patterns — days since last login, module completion velocity, assessment performance, and live session attendance. At-risk learners surface automatically for instructor or ops team outreach before they go silent rather than after.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-pencil-question"></i></div>
+        <div class="ai-title">AI Assessment Generation</div>
+        <div class="ai-desc">Generating question variants from course content using LLMs — creating MCQs, fill-in-the-blanks, and short-answer questions from lesson text. Expanding question banks without instructor effort. AI-evaluated short answers using rubric-grounded scoring, reducing manual evaluation load for text-based assessments.</div>
+      </div>
+      <div class="ai-card reveal">
+        <div class="ai-icon"><i class="ti ti-sparkles"></i></div>
+        <div class="ai-title">Content Recommendations &amp; Discovery</div>
+        <div class="ai-desc">Recommendation engine surfacing relevant courses, supplementary materials, and learning resources based on learner profile, career goals, and completion history. Semantic search over course catalog enabling natural language discovery. Improving course discovery conversion and cross-sell into adjacent learning programs.</div>
+      </div>
+      <div class="ai-card reveal rd1">
+        <div class="ai-icon"><i class="ti ti-file-text-ai"></i></div>
+        <div class="ai-title">Content Enrichment &amp; Automation</div>
+        <div class="ai-desc">Auto-generating transcripts, summaries, and searchable chapter markers from video content. Extracting key concepts and glossary terms from course material. Translating content for multilingual learners. Reducing the manual content production overhead that limits course publishing velocity at scale.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Audience -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Who This Is For</div>
+    <h2 class="section-heading">The EdTech Businesses<br>That Reach Out to <em>Me</em></h2>
+    <div class="audience-grid">
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-rocket"></i></div>
+        <div class="audience-role">EdTech Startups Scaling Fast</div>
+        <div class="audience-desc">You have product-market fit and growing learner numbers. The architecture that got you here is starting to show cracks — video reliability, assessment integrity, and payment entitlement issues under load.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-school"></i></div>
+        <div class="audience-role">K12 &amp; Higher Education Platforms</div>
+        <div class="audience-desc">Building or modernising digital learning infrastructure for schools and colleges. Need institutional multi-tenancy, SSO, SCORM compliance, and usage reporting — alongside the learner experience.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-briefcase"></i></div>
+        <div class="audience-role">Corporate L&amp;D &amp; Upskilling Platforms</div>
+        <div class="audience-desc">Enterprise learning platforms for workforce upskilling, compliance training, and certification management. Need bulk user provisioning, SSO, xAPI audit trails, and manager-level reporting alongside the learning experience.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-certificate"></i></div>
+        <div class="audience-role">Test Prep &amp; Certification Platforms</div>
+        <div class="audience-desc">High-stakes assessment platforms for competitive exams, professional certifications, and skill-based credentials. Assessment integrity, proctoring, and reliable performance under peak exam-day load are the critical requirements.</div>
+      </div>
+      <div class="audience-card reveal">
+        <div class="audience-icon"><i class="ti ti-users"></i></div>
+        <div class="audience-role">Course Marketplace Builders</div>
+        <div class="audience-desc">Building instructor marketplaces where educators publish and monetise their own courses. Need content upload pipelines, instructor dashboards, revenue sharing, payout automation, and fraud controls alongside the learner-facing experience.</div>
+      </div>
+      <div class="audience-card reveal rd1">
+        <div class="audience-icon"><i class="ti ti-device-mobile"></i></div>
+        <div class="audience-role">Mobile-First Learning Platforms</div>
+        <div class="audience-desc">Building for learners on smartphones in Tier 2/3 cities with variable bandwidth. Offline-first content access, low-bandwidth video delivery, and lightweight app architecture that works reliably on mid-range Android devices.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Stats -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">Why This Matters</div>
+    <h2 class="section-heading">Platform Depth Across<br><em>EdTech Architecture</em></h2>
+    <div class="two-col">
+      <div>
+        <p class="body-text">EdTech is one of the most complex platform segments to get right. You are building real-time infrastructure (live classes), large-scale media delivery (video), transaction systems (payments and entitlement), and analytics all in one product — for learners across device types, bandwidths, and institutional contexts.</p>
+        <p class="body-text" style="margin-top:14px;">The decisions made early in a learning platform — how progress is stored, how entitlement is enforced, how video is served — create either a compounding technical foundation or a set of compounding liabilities. Getting the architecture right early saves the cost of rebuilding it at scale.</p>
+      </div>
+      <div>
+        <div class="stats-grid">
+          <div class="stat-box reveal"><div class="stat-n">20+</div><div class="stat-l">Years platform engineering</div></div>
+          <div class="stat-box reveal rd1"><div class="stat-n">K12–HE</div><div class="stat-l">Across education segments</div></div>
+          <div class="stat-box reveal"><div class="stat-n">Live+Async</div><div class="stat-l">Hybrid class infrastructure</div></div>
+          <div class="stat-box reveal rd1"><div class="stat-n">AI</div><div class="stat-l">Personalised learning engines</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- FAQ -->
+  <div style="padding-top:64px;" class="reveal">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading" style="margin-bottom:32px;">Common <em>Questions</em></h2>
+    <div class="faq-item">
+      <div class="faq-q">What kind of edtech platforms have you worked with? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">K12 learning platforms, higher education LMS implementations, corporate upskilling and L&D platforms, test preparation systems, live tutoring platforms, and edtech SaaS products. Both India-focused platforms and those building for international learners.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Our video delivery breaks under concurrent learner load. Where do we start? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">The first question is whether you are serving video directly from storage or through a proper CDN and adaptive bitrate pipeline. If you are streaming raw files from S3, you will hit this problem at every growth milestone. The fix is a proper HLS/DASH transcoding pipeline with CDN edge delivery — not more server capacity.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">We need to support live classes, recorded content, and assessments. How do we architect that? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">These are three distinct sub-systems that share a learner context layer. Live class infrastructure needs low-latency RTC (100ms, Agora, Zoom SDK). Recorded content needs an async video pipeline with HLS. Assessments need their own question bank, attempt session, and evaluation engine. Tying them together through a learner progress store is the integration point that matters most.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">How do we build personalised learning paths with AI? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Start with the data you already have: completion rates, time-on-content, assessment scores, and re-attempt patterns. A simple collaborative filtering model on this data already outperforms static curriculum sequences. Generative AI is useful for adaptive question generation and explanations — but the personalisation engine underneath should be grounded in learning outcomes data, not just content similarity.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the right subscription and payment architecture for edtech? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Edtech payment complexity comes from mixed models: one-time course purchases, monthly/annual subscriptions, EMI for high-ticket programs, and institutional billing for B2B. Razorpay Subscriptions or Stripe handles the recurring layer. The platform needs to enforce content access based on active subscription state — not just payment confirmation — which requires a separate entitlement service that payment events write to.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">We want to build a marketplace where instructors publish courses. What does that require? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Instructor marketplace requires: content upload and transcoding pipeline, course builder with publishing workflow, revenue sharing and payout engine, instructor analytics dashboard, and content moderation hooks. The hardest part is usually the revenue split and payout reconciliation, especially when combined with refund policies and promotional discounts.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">What is the best way to start? <i class="ti ti-plus"></i></div>
+      <div class="faq-a">Book a 30-minute session. Bring one specific challenge — video delivery, assessment engine design, LMS selection, AI personalisation, or scaling architecture. The more concrete the problem, the more useful the conversation.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-band">
+  <h2>Ready to Build a <em>Learning Platform</em><br>That Actually Scales?</h2>
+  <p>Free 30-minute strategy session. Bring your specific platform challenge and we will work through it together.</p>
+  <div class="cta-row">
+    <a href="https://startupctopro.in/#connect" class="btn-primary"><i class="ti ti-calendar"></i> Book Free Strategy Session</a>
+    <a href="https://wa.me/917892481996" class="btn-secondary" target="_blank" rel="noopener"><i class="ti ti-brand-whatsapp" style="color:#25D366;"></i> Message on WhatsApp</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-copy">&copy; 2026 <a href="https://startupctopro.in/">Sapan Kumar Mohanty</a> · CTO &amp; VP Technology</div>
+  <div style="display:flex;gap:16px;flex-wrap:wrap;">
+    <a href="https://startupctopro.in/startups/">Startups</a>
+    <a href="https://startupctopro.in/ai-startups/">AI Startups</a>
+    <a href="https://startupctopro.in/retail-tech/">RetailTech</a>
+    <a href="https://startupctopro.in/dms/">DMS</a>
+    <a href="https://startupctopro.in/supply-chain/">Supply Chain</a>
+    <a href="https://startupctopro.in/logistics/">Logistics</a>
+    <a href="https://startupctopro.in/travel-tech/">TravelTech</a>
+    <a href="https://startupctopro.in/edtech/">EdTech</a>
+    <a href="https://startupctopro.in/healthcare/">HealthTech</a>
+    <a href="https://startupctopro.in/enterprise-architecture/">Enterprise</a>
+  </div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap;">
+    <a href="mailto:astartupcto@gmail.com">astartupcto@gmail.com</a>
+    <a href="https://startupctopro.in/">startupctopro.in</a>
+  </div>
+</footer>
+
+<script>
+var ro=new IntersectionObserver(function(e){
+  e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');ro.unobserve(x.target);}});
+},{threshold:.1});
+document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el);});
+
+document.querySelectorAll('.faq-q').forEach(function(q){
+  q.addEventListener('click',function(){
+    var item=q.closest('.faq-item');
+    var open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+    if(!open)item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>
